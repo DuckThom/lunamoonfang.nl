@@ -1,0 +1,96 @@
+<?php
+error_reporting(0);
+ini_set('display_errors', 0);
+
+$url		= (isset($_POST['canon_url']) ? $_POST['canon_url'] : false);
+$user 		= (isset($_POST['user']) ? $_POST['user'] : false);
+
+// Script to call that will update our website.
+// Be wary: this is shell_exec()'d. For the safety of the system, it may only call an existing executable file.
+$updateScript = '../update.sh';
+
+// Check if our update script exists, and is executable.
+if (!file_exists($updateScript) || !is_executable($updateScript))
+{
+    sendResponseAndExit(500, 'Internal Server Error');
+}
+
+if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE']))
+{
+    sendResponseAndExit(401, 'Unauthorized');
+}
+
+$hashValue = substr($_SERVER['HTTP_X_HUB_SIGNATURE'], 5);
+$hashExpected = hash_hmac('sha1', file_get_contents('php://input'), $_ENV['secret_key']);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
+if (hash_compare($hashValue, $hashExpected))
+{
+    shell_exec($updateScript);
+    sendResponseAndExit(200, "The website has been updated.");
+}
+
+sendResponseAndExit(400, 'Bad Request');
+
+/**
+ * @param int $status - the status code to exit with.
+ * @param string $description - Description of what was (or was not) done.
+ * @example sendResponseAndExit(403, 'Forbidden');
+ *
+ * Upon being called, the script will exit with exit code $status, or if $status is 200: 0.
+ * ENSURE this function is the last thing you call.
+ */
+function sendResponseAndExit($status, $description)
+{
+    header('Content-Type: application/json');
+    http_response_code($status);
+
+    $data = json_encode(array('status' => $status, 'description' => $description, 'time' => date('r')));
+    
+    file_put_contents("../update.log", $data . "\r\n", FILE_APPEND);
+    
+    die($status == 200 ? 0 : $status);
+}
+
+/**
+ * @author http://php.net/manual/en/function.hash-hmac.php#111435
+ * @param string $a Hash one to compare.
+ * @param string $b Hash two to compare.
+ * @return boolean
+ */
+function hash_compare($a, $b)
+{
+    if (!is_string($a) || !is_string($b))
+    {
+        return false;
+    }
+<<<<<<< HEAD
+    $len = strlen($a);
+=======
+
+    $len = strlen($a);
+
+>>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
+    if ($len !== strlen($b))
+    {
+        return false;
+    }
+<<<<<<< HEAD
+    $status = 0;
+=======
+
+    $status = 0;
+
+>>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
+    for ($i = 0; $i < $len; $i++)
+    {
+        $status |= ord($a[$i]) ^ ord($b[$i]);
+    }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
+    return $status === 0;
+}
