@@ -43,7 +43,7 @@ class ImageController extends Controller
          */
         public function listImages()
         {
-                $data = ImageModel::all();
+                $data = ImageModel::orderBy('id', 'desc')->get();
 
                 return View::make('images.imgList', array('images' => $data));
         }

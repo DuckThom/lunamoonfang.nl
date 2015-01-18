@@ -44,7 +44,6 @@
 				<th>Name</th>
 			</thead>
 			<tbody>
-				<?php var_dump($images);die; ?>
 				@foreach($images as $image)
 					<tr>
 						<td>{{ $image->ID }}</td>
