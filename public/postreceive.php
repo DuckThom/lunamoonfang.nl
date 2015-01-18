@@ -5,12 +5,22 @@ ini_set('display_errors', 0);
 $url		= (isset($_POST['canon_url']) ? $_POST['canon_url'] : false);
 $user 		= (isset($_POST['user']) ? $_POST['user'] : false);
 
+// This file will contain define("GITHUB_WEBHOOK_SECRET_KEY", ''); - defining the github secret key for the webhook.
+$githubKeyFile = '../.github_webhook_secret_key.php';
+
 // Script to call that will update our website.
 // Be wary: this is shell_exec()'d. For the safety of the system, it may only call an existing executable file.
 $updateScript = '../update.sh';
 
-// Check if our update script exists, and is executable.
+// Check if our update script exists, and if it is executable.
 if (!file_exists($updateScript) || !is_executable($updateScript))
+{
+    sendResponseAndExit(500, 'Internal Server Error');
+}
+
+// Check if we have a github secret key for the webhook.
+// Without it, we will not be able to verify if the request is coming from github.
+if (!file_exists($githubKeyFile) || !is_readable($githubKeyFile))
 {
     sendResponseAndExit(500, 'Internal Server Error');
 }
@@ -21,7 +31,7 @@ if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE']))
 }
 
 $hashValue = substr($_SERVER['HTTP_X_HUB_SIGNATURE'], 5);
-$hashExpected = hash_hmac('sha1', file_get_contents('php://input'), $_ENV['secret_key']);
+$hashExpected = hash_hmac('sha1', file_get_contents('php://input'), GITHUB_WEBHOOK_SECRET_KEY);
 
 if (hash_compare($hashValue, $hashExpected))
 {

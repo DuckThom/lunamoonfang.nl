@@ -10,3 +10,4 @@ Thumbs.db
 update.sh
 .idea
 .idehelper.php
+.github_webhook_secret_key.php
