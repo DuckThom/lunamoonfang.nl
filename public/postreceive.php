@@ -22,14 +22,7 @@ if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE']))
 
 $hashValue = substr($_SERVER['HTTP_X_HUB_SIGNATURE'], 5);
 $hashExpected = hash_hmac('sha1', file_get_contents('php://input'), $_ENV['secret_key']);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
->>>>>>> a5bcffbbb8c767b6284fc01a8488a7f8c502cb82
 if (hash_compare($hashValue, $hashExpected))
 {
     shell_exec($updateScript);
@@ -41,11 +34,7 @@ sendResponseAndExit(400, 'Bad Request');
 /**
  * @param int $status - the status code to exit with.
  * @param string $description - Description of what was (or was not) done.
-<<<<<<< HEAD
- * @example sendResponseAndExit(403, 'Forbidden')
-=======
  * @example sendResponseAndExit(403, 'Forbidden');
->>>>>>> a5bcffbbb8c767b6284fc01a8488a7f8c502cb82
  *
  * Upon being called, the script will exit with exit code $status, or if $status is 200: 0.
  * ENSURE this function is the last thing you call.
@@ -74,47 +63,21 @@ function hash_compare($a, $b)
     {
         return false;
     }
-<<<<<<< HEAD
 
     $len = strlen($a);
 
-=======
-<<<<<<< HEAD
-    $len = strlen($a);
-=======
-
-    $len = strlen($a);
-
->>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
->>>>>>> a5bcffbbb8c767b6284fc01a8488a7f8c502cb82
     if ($len !== strlen($b))
     {
         return false;
     }
-<<<<<<< HEAD
+
 
     $status = 0;
 
-=======
-<<<<<<< HEAD
-    $status = 0;
-=======
-
-    $status = 0;
-
->>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
->>>>>>> a5bcffbbb8c767b6284fc01a8488a7f8c502cb82
     for ($i = 0; $i < $len; $i++)
     {
         $status |= ord($a[$i]) ^ ord($b[$i]);
     }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 6dd7f24c1bdf54c13f3c4017b8e12ae324ff261a
->>>>>>> a5bcffbbb8c767b6284fc01a8488a7f8c502cb82
     return $status === 0;
 }
