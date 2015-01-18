@@ -7,7 +7,7 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
-update.sh
+update.log
 .idea
 .idehelper.php
 .github_webhook_secret_key.php
