@@ -1,0 +1,1 @@
+<img src="/img/{{ $data->Hash }}" alt="{{ $data->Name }}">
