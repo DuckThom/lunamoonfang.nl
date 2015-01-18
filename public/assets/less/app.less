@@ -24,18 +24,20 @@ html, body {
         font-family: "Lato", sans-serif;
         color: @text;
         position: relative;
-        background: url('/assets/image/bg.png');
+        background: url(//lunamoonfang.nl/s/b4448dd4/full);
+        background-size: 100%;
         margin: 0 auto;
         font-size: medium;
 
         & > .content {
                 background-color: white;
                 padding: 30px 15px;
+                box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
         }
 }
 
-// Large navbar is only for devices larger than 768px (tablets/desktops)
-@media (min-width: 768px) {
+// Large navbar is only for devices larger than 1200px (desktops)
+@media (min-width: 1200px) {
         .header {
                 background-color: @header;
                 min-height: 100px;
@@ -73,11 +75,24 @@ html, body {
         }
 }
 
+// Make the social buttons larger than the normal nav buttons
+@media (max-width: 1200px) {
+        .header .header-social {
+                font-size: 24px;
+
+                li,
+                a {
+                        height: 50px;
+                }
+        }
+}
+
 .footer {
         background-color: @base;
         padding: 20px 0;
         text-align: center;
         margin-bottom: 50px;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
 
         hr {
                 margin-top: 0;
@@ -91,6 +106,7 @@ html, body {
 .navbar-luna {
         background-color: @header;
         margin: 0;
+        border-bottom: none;
 
         & .navbar-header {
 
