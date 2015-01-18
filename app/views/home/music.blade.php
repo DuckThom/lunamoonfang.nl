@@ -83,7 +83,7 @@
                 }
 
                 tr:nth-child(even) {
-                        background-color: #7BFFFC;
+                        background-color: #f5f5f5;
                 }
 
                 .font-light {
