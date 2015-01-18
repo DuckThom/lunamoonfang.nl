@@ -34,7 +34,7 @@ sendResponseAndExit(400, 'Bad Request');
 /**
  * @param int $status - the status code to exit with.
  * @param string $description - Description of what was (or was not) done.
- * @example sendResponseAndExit(403, 'Forbidden');
+ * @example sendResponseAndExit(403, 'Forbidden')
  *
  * Upon being called, the script will exit with exit code $status, or if $status is 200: 0.
  * ENSURE this function is the last thing you call.
