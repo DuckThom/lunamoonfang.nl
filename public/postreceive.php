@@ -15,7 +15,16 @@ if (!file_exists($updateScript) || !is_executable($updateScript))
     sendResponseAndExit(500, 'Internal Server Error');
 }
 
-if ($_SERVER['REMOTE_ADDR'] === '131.103.20.165' || $_SERVER['REMOTE_ADDR'] === '131.103.20.166') {
+if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE']))
+{
+    sendResponseAndExit(401, 'Unauthorized');
+}
+
+$hashValue = substr($_SERVER['HTTP_X_HUB_SIGNATURE'], 5);
+$hashExpected = hash_hmac('sha1', file_get_contents('php://input'), $_ENV['secret_key']);
+
+if (hash_compare($hashValue, $hashExpected))
+{
     shell_exec($updateScript);
     sendResponseAndExit(200, "The website has been updated.");
 }
@@ -40,4 +49,34 @@ function sendResponseAndExit($status, $description)
     file_put_contents("../update.log", $data . "\r\n", FILE_APPEND);
     
     die($status == 200 ? 0 : $status);
+}
+
+/**
+ * @author http://php.net/manual/en/function.hash-hmac.php#111435
+ * @param string $a Hash one to compare.
+ * @param string $b Hash two to compare.
+ * @return boolean
+ */
+function hash_compare($a, $b)
+{
+    if (!is_string($a) || !is_string($b))
+    {
+        return false;
+    }
+
+    $len = strlen($a);
+
+    if ($len !== strlen($b))
+    {
+        return false;
+    }
+
+    $status = 0;
+
+    for ($i = 0; $i < $len; $i++)
+    {
+        $status |= ord($a[$i]) ^ ord($b[$i]);
+    }
+
+    return $status === 0;
 }
