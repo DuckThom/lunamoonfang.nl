@@ -25,6 +25,8 @@ if (!file_exists($githubKeyFile) || !is_readable($githubKeyFile))
     sendResponseAndExit(500, 'Internal Server Error');
 }
 
+include($githubKeyFile);
+
 if (!isset($_SERVER['HTTP_X_HUB_SIGNATURE']))
 {
     sendResponseAndExit(401, 'Unauthorized');
