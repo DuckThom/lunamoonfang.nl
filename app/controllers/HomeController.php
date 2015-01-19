@@ -26,11 +26,11 @@ class HomeController extends Controller {
 	}
 
 	/**
-	 * About me
+	 * About me & Contact
 	 *
 	 * @return \Illuminate\View\View
 	 */
-	public function aboutme()
+	public function info()
 	{
 		return View::make('home.aboutme');
 	}

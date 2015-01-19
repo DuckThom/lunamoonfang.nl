@@ -24,5 +24,36 @@
                         I'm subscribed to a lot of channels but <a href="https://youtube.com/hatfilms" target="_blank">Hat Films</a>, <a href="https://youtube.com/yogscastsips" target="_blank">Sips</a> and <a href="https://youtube.com/yogscast" target="_blank">The Yogscast</a> are my favorites.
                         <br />
                 </p>
+
+                <hr />
+
+                <div class="page-header">
+                        <h1>Contact</h1>
+                </div>
+
+                <p id="contact">
+                        I prefer correspondation via E-Mail or Twitter but i'm also available via IRC and Google+.
+                </p>
+
+                <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                                <td><strong>E-Mail</strong></td>
+                                <td><a href="http://www.google.com/recaptcha/mailhide/d?k=01UOM4bLqqrh1lWKQrLtUZOQ==&amp;c=940r5vAYbP8k3ozbU0kH0LvFYxu3EU34QNOZj_X-LWg=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501UOM4bLqqrh1lWKQrLtUZOQ\75\75\46c\75940r5vAYbP8k3ozbU0kH0LvFYxu3EU34QNOZj_X-LWg\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">c...</a><i class="fa fa-at"></i>lunamoonfang.nl</td>
+                        </tr>
+                        <tr>
+                                <td><strong>Twitter</strong></td>
+                                <td><i class="fa fa-at"></i>Real_DuckThom</td>
+                        </tr>
+                        <tr>
+                                <td><strong>IRC</strong></td>
+                                <td>LW_Luna or Luna_Moonfang</td>
+                        </tr>
+                        <tr>
+                                <td><strong>Google+</strong></td>
+                                <td>+ThomasWiringa</td>
+                        </tr>
+                        </tbody>
+                </table>
         </div>
 @stop

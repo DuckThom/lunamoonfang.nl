@@ -33,8 +33,25 @@
                                         <ul class="nav navbar-nav">
                                                 <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                 <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
-                                                <li @if( Request::path() === 'aboutme' ) class="active" @endif><a href="/aboutme"> <i class="fa fa-user"></i> About Me</a></li>
+                                                <li class="dropdown @if( Request::path() === 'info' ) active @endif ">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-info"></i> Info <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                                <li><a href="/info"><i class="fa fa-user"></i> About me</a></li>
+                                                                <li><a href="/info#contact"><i class="fa fa-book"></i> Contact</a></li>
+                                                        </ul>
+                                                </li>
                                                 <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
+                                                <li class="dropdown hidden-md hidden-lg">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users"></i> Social <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                                <li><a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
+                                                                <li><a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i> Google+</a></li>
+                                                                <li><a href="https://last.fm/DuckThom" target="_blank"><i class="fa fa-lastfm"></i> LastFM</a></li>
+                                                                <li><a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank"><i class="fa fa-steam"></i> Steam</a></li>
+                                                                <li><a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                                                <li><a href="https://youtube.com/user/DuckThom" target="_blank"><i class="fa fa-youtube"></i> YouTube</a></li>
+                                                        </ul>
+                                                </li>
                                         </ul>
 
                                         <ul class="nav navbar-nav header-social pull-right hidden-sm hidden-xs">
@@ -59,7 +76,7 @@
                                                 <ul class="nav sidenav">
                                                         <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                         <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
-                                                        <li @if( Request::path() === 'aboutme' ) class="active" @endif><a href="/aboutme"><i class="fa fa-user"></i> About Me</a></li>
+                                                        <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-info"></i> Info</a></li>
                                                         <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                                 </ul>
                                                 <a class="back-to-top" href="#top">

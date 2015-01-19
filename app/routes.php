@@ -26,5 +26,5 @@ Route::post('/s/upload', 'ImageController@saveImage');
  */
 Route::get('/', 'HomeController@index');
 Route::get('/music', 'HomeController@music');
-Route::get('/aboutme', 'HomeController@aboutme');
+Route::get('/info', 'HomeController@info');
 Route::get('/projects', 'HomeController@projects');
