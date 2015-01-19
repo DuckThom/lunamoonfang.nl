@@ -44,4 +44,14 @@ class HomeController extends Controller {
 	{
 		return View::make('home.music');
 	}
+
+	/**
+	 * Projects
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function projects()
+	{
+		return View::make('home.projects');
+	}
 }

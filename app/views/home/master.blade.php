@@ -34,15 +34,16 @@
                                                 <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                 <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
                                                 <li @if( Request::path() === 'aboutme' ) class="active" @endif><a href="/aboutme"> <i class="fa fa-user"></i> About Me</a></li>
+                                                <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                         </ul>
 
                                         <ul class="nav navbar-nav header-social pull-right hidden-sm hidden-xs">
-                                                <li><a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="GitHub"></i></a></li>
-                                                <li><a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google+"></i></a></li>
-                                                <li><a href="https://last.fm/DuckThom" target="_blank"><i class="fa fa-lastfm" data-toggle="tooltip" data-placement="bottom" data-title="LastFM"></i></a></li>
-                                                <li><a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank"><i class="fa fa-steam" data-toggle="tooltip" data-placement="bottom" title="Steam"></i></a></li>
-                                                <li><a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a></li>
-                                                <li><a href="https://youtube.com/user/DuckThom" target="_blank"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="YouTube"></i></a></li>
+                                                <li><a href="https://github.com/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" title="GitHub"><i class="fa fa-github"></i></a></li>
+                                                <li><a href="https://plus.google.com/+ThomasWiringa" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Google+"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="https://last.fm/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" data-title="LastFM"><i class="fa fa-lastfm"></i></a></li>
+                                                <li><a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Steam"><i class="fa fa-steam"></i></a></li>
+                                                <li><a href="https://twitter.com/real_duckthom" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="https://youtube.com/user/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" title="YouTube"><i class="fa fa-youtube"></i></a></li>
                                         </ul>
                                 </div>
                         </div>
@@ -59,6 +60,7 @@
                                                         <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                         <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
                                                         <li @if( Request::path() === 'aboutme' ) class="active" @endif><a href="/aboutme"><i class="fa fa-user"></i> About Me</a></li>
+                                                        <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                                 </ul>
                                                 <a class="back-to-top" href="#top">
                                                         Back to top

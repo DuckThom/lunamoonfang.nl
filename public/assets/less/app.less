@@ -25,7 +25,7 @@ html, body {
         color: @text;
         position: relative;
         background: url(//lunamoonfang.nl/s/b4448dd4/full) fixed;
-        background-size: 100%;
+        background-size: 100% 150%;
         margin: 0 auto;
         font-size: medium;
 
@@ -190,10 +190,10 @@ html, body {
 .sidebar .nav > li > a:hover,
 .sidebar .nav > li > a:focus {
         padding-left: 19px;
-        color: #563d7c;
+        color: @header;
         text-decoration: none;
         background-color: transparent;
-        border-left: 1px solid #563d7c
+        border-left: 1px solid @header;
 }
 
 .sidebar .nav > .active > a,
@@ -201,9 +201,9 @@ html, body {
 .sidebar .nav > .active:focus > a {
         padding-left: 18px;
         font-weight: 700;
-        color: #563d7c;
+        color: @header;
         background-color: transparent;
-        border-left: 2px solid #563d7c
+        border-left: 2px solid @header;
 }
 
 .sidebar .nav .nav {
@@ -244,7 +244,7 @@ html, body {
 
 .back-to-top:hover,
 .theme-toggle:hover {
-        color: #563d7c;
+        color: @header;
         text-decoration: none
 }
 
