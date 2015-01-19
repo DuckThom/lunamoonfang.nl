@@ -12,11 +12,11 @@
 }
 
 @-webkit-keyframes headerNavHover {
-        0% {color: @headerHighlight;background-color: @header;}
+        //0% {color: @headerHighlight;background-color: @header;}
         100% {color: @header;background-color: @headerHighlight;}
 }
 @keyframes headerNavHover {
-        0% {color: @headerHighlight;background-color: @header;}
+        //0% {color: @headerHighlight;background-color: @header;}
         100% {color: @header;background-color: @headerHighlight;}
 }
 
@@ -152,16 +152,23 @@ html, body {
         }
 
         & .nav {
-                & .active a {
+                & .active > a {
                         color: @header;
                         background-color: @headerHighlight;
+
+                        &:hover,
+                        &:active,
+                        &focus {
+                                animation: none;
+                                -webkit-animation: none;
+                        }
                 }
 
                 & a {
                         color: white;
+                        background-color: @header;
 
                         &:hover,
-                        &:active,
                         &:focus {
                                 animation: headerNavHover @transTime;
                                 animation-iteration-count: 1;
@@ -175,6 +182,11 @@ html, body {
                 .dropdown .dropdown-menu {
                         color: white;
                         background-color: @header;
+
+                        & a:hover {
+                                color: white;
+                                background-color: @header;
+                        }
                 }
         }
 }

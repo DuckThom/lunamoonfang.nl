@@ -7,7 +7,7 @@
                 </div>
                 <p id="aboutMe">
                         Hi! My name is Thomas Wiringa but on the interwebs my nickname is usually DuckThom or Luna Moonfang.<br />
-                        I'm {{ date_diff(date_create(date('Y-n-j')), date_create("1995-11-26"))->format('%y') }} years old and I live in The Netherlands. <br />
+                        I'm {{ date_diff(date_create(date('Y-n-j')), date_create("1995-11-26"))->format('%y') }} years old and live in The Netherlands. <br />
                         Currently I am studying Software Engineering at Alfa College in Groningen.<br />
                         <br />
                         My favorite programming languages are PHP, HTML5 and CSS3 but I can also code in Java and JavaScript <br />
