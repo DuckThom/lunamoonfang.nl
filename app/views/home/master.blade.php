@@ -34,7 +34,7 @@
                                                 <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                 <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
                                                 <li class="dropdown @if( Request::path() === 'info' ) active @endif ">
-                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-info"></i> Info <span class="caret"></span></a>
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-info-circle"></i> Info <span class="caret"></span></a>
                                                         <ul class="dropdown-menu" role="menu">
                                                                 <li><a href="/info"><i class="fa fa-user"></i> About me</a></li>
                                                                 <li><a href="/info#contact"><i class="fa fa-book"></i> Contact</a></li>
@@ -76,7 +76,7 @@
                                                 <ul class="nav sidenav">
                                                         <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                         <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
-                                                        <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-info"></i> Info</a></li>
+                                                        <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-info-circle"></i> Info</a></li>
                                                         <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                                 </ul>
                                                 <a class="back-to-top" href="#top">

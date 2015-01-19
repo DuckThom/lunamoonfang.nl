@@ -43,7 +43,7 @@
                         </tr>
                         <tr>
                                 <td><strong>Twitter</strong></td>
-                                <td><i class="fa fa-at"></i>Real_DuckThom</td>
+                                <td><a href="https://twitter.com/intent/tweet?text=@Real_DuckThom "><i class="fa fa-at"></i>Real_DuckThom</a></td>
                         </tr>
                         <tr>
                                 <td><strong>IRC</strong></td>
