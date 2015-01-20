@@ -78,6 +78,7 @@
                                                         <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
                                                         <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-info-circle"></i> Info</a></li>
                                                         <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
+                                                        <li @if( Request::path() === 'licenses' ) class="active" @endif><a href="/licenses"><i class="fa fa-gavel"></i> Licenses</a></li>
                                                 </ul>
                                                 <a class="back-to-top" href="#top">
                                                         Back to top
@@ -90,8 +91,25 @@
                 <footer class="container footer">
                         <hr />
 
-                        <div class="container text-center">
-                                <span><i class="fa fa-copyright"></i> Thomas Wiringa - 2015 - <a href="/licenses">Licenses</a></span>
+                        <div class="row">
+                                <div class="col-md-4">
+                                        <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
+                                        Thomas Wiringa - 2015
+                                </div>
+                                <div class="col-md-4">
+                                        <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
+                                        <ul class="list-unstyled">
+                                                <li><a href="http://getbootstrap.com">Twitter Bootstrap</a></li>
+                                                <li><a href="http://laravel.com">Laravel Framework</a></li>
+                                                <li><a href="http://jquery.com">jQuery</a></li>
+                                                <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+                                        </ul>
+                                </div>
+                                <div class="col-md-4">
+                                        <p class="lead"><i class="fa fa-gavel"></i> Licenses</p>
+                                        This website is licensed under the <a href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE">MIT License</a><br />
+                                        The other licenses can be found <a href="/licenses">here</a>
+                                </div>
                         </div>
                 </footer>
 

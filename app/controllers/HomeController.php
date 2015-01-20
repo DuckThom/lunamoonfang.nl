@@ -54,4 +54,14 @@ class HomeController extends Controller {
 	{
 		return View::make('home.projects');
 	}
+
+	/**
+	 * Licenses
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function licenses()
+	{
+		return View::make('home.licenses');
+	}
 }
