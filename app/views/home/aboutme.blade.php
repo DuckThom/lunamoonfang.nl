@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                                 <td><strong>IRC</strong></td>
-                                <td>LW_Luna or Luna_Moonfang</td>
+                                <td>LW_Luna or Luna_Moonfang on the freenode network</td>
                         </tr>
                         <tr>
                                 <td><strong>Google+</strong></td>
