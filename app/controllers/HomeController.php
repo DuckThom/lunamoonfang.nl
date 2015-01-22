@@ -64,4 +64,14 @@ class HomeController extends Controller {
 	{
 		return View::make('home.licenses');
 	}
+
+	/**
+	 * Bootstrap clock
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function clock()
+	{
+		return View::make('home.clock');
+	}
 }

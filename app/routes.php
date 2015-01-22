@@ -29,3 +29,4 @@ Route::get('/music', 'HomeController@music');
 Route::get('/info', 'HomeController@info');
 Route::get('/projects', 'HomeController@projects');
 Route::get('/licenses', 'HomeController@licenses');
+Route::get('/clock', 'HomeController@clock');
