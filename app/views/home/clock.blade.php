@@ -42,8 +42,8 @@
                                 */
 
                                 var minutes = date.getMinutes();
-                                var milliMinutes = (minutes * 100000) + milliSeconds;
-                                var minutesWidth = (milliMinutes / 5959999) * 100;
+                                var milliMinutes = (minutes * 59999) + milliSeconds;
+                                var minutesWidth = (milliMinutes / 3539941) * 100;
 
                                 /*
                                 console.log('====================== MINUTES DATA ============================');
@@ -53,8 +53,8 @@
                                 */
 
                                 var hours = date.getHours();
-                                var milliHours = (hours * 10000000) + milliMinutes;
-                                var hoursWidth = (milliHours / 235959999) * 100;
+                                var milliHours = (hours * 3539941) + milliMinutes;
+                                var hoursWidth = (milliHours / 84958584) * 100;
 
                                 /*
                                 console.log('====================== HOURS DATA ============================');
