@@ -86,32 +86,34 @@
                                         </nav>
                                 </div>
                         </div>
+
+                        <footer class="container footer">
+                                <hr />
+
+                                <div class="row">
+                                        <div class="col-md-4 col-xs-6">
+                                                <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
+                                                2015 - Thomas Wiringa
+                                        </div>
+                                        <div class="col-md-4 hidden-sm hidden-xs">
+                                                <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
+                                                <ul class="list-unstyled">
+                                                        <li><a href="http://getbootstrap.com">Twitter Bootstrap</a></li>
+                                                        <li><a href="http://laravel.com">Laravel Framework</a></li>
+                                                        <li><a href="http://jquery.com">jQuery</a></li>
+                                                        <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+                                                </ul>
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                                <p class="lead"><i class="fa fa-gavel"></i> Licenses</p>
+                                                This website is licensed under the <a href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE">MIT License</a><br />
+                                                The other licenses can be found <a href="/licenses">here</a>
+                                        </div>
+                                </div>
+                        </footer>
                 </div>
 
-                <footer class="container footer">
-                        <hr />
 
-                        <div class="row">
-                                <div class="col-md-4">
-                                        <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
-                                        Thomas Wiringa - 2015
-                                </div>
-                                <div class="col-md-4">
-                                        <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
-                                        <ul class="list-unstyled">
-                                                <li><a href="http://getbootstrap.com">Twitter Bootstrap</a></li>
-                                                <li><a href="http://laravel.com">Laravel Framework</a></li>
-                                                <li><a href="http://jquery.com">jQuery</a></li>
-                                                <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
-                                        </ul>
-                                </div>
-                                <div class="col-md-4">
-                                        <p class="lead"><i class="fa fa-gavel"></i> Licenses</p>
-                                        This website is licensed under the <a href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE">MIT License</a><br />
-                                        The other licenses can be found <a href="/licenses">here</a>
-                                </div>
-                        </div>
-                </footer>
 
                 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
                 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
