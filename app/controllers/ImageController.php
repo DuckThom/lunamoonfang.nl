@@ -77,9 +77,9 @@ class ImageController extends Controller
                                                 )
                                         );
 
-                                        $image->move(Request::server('DOCUMENT_ROOT') . "/img", $image_hash);
+                                        $image->move("/var/www/lunamoonfang.nl/public/img/", $image_hash);
 
-                                        File::prepend(Request::server('DOCUMENT_ROOT') . "/imgList", $image_hash . " .......... " . $image_name . "\r\n");
+                                        File::prepend("/var/www/lunamoonfang.nl/public/imgList", $image_hash . " .......... " . $image_name . "\r\n");
 
                                         // Return the hashed url for ScreenCloud
                                         echo 'http://lunamoonfang.nl/s/' . $image_hash;
