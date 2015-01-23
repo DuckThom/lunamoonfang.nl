@@ -30,6 +30,11 @@
                                 var date = new Date();
                                 var milli = date.getMilliseconds();
 
+                                /**
+                                 * To get the total milliseconds that have passed in the current minute
+                                 * We just need to do: seconds in the current minute * 1000 + milliseconds in the current second
+                                 * to get the width for the progress bar: answer of the previous calculation / max milliseconds in a minute * 100
+                                 */
                                 var seconds = date.getSeconds();
                                 var milliSeconds = (seconds * 1000) + milli;
                                 var secondsWidth = (milliSeconds / 59999) * 100;
@@ -41,6 +46,12 @@
                                 console.log('var secondsWidth: ' + secondsWidth);
                                 */
 
+                                /**
+                                 * This one is more difficult to calculate
+                                 * To get the milliseconds that have passed in the current hour we need to do the following:
+                                 * minutes in the current hour * max milliseconds in a minute + milliseconds in the current minute
+                                 * To get the width: answer of the previous calculation / max milliseconds in an hour * 100
+                                 */
                                 var minutes = date.getMinutes();
                                 var milliMinutes = (minutes * 59999) + milliSeconds;
                                 var minutesWidth = (milliMinutes / 3539941) * 100;
@@ -52,6 +63,12 @@
                                 console.log('var minutesWidth: ' + minutesWidth);
                                 */
 
+                                /**
+                                 * This one will produce large numbers
+                                 * To get the milliseconds that have passed in the current day we need to do the following calculation:
+                                 * hours in the current day * max milliseconds in an hour + milliseconds in the current hour
+                                 * To get the width: answer of the previous calculation / max milliseconds in a day * 100
+                                 */
                                 var hours = date.getHours();
                                 var milliHours = (hours * 3539941) + milliMinutes;
                                 var hoursWidth = (milliHours / 84958584) * 100;
@@ -63,10 +80,11 @@
                                 console.log('var hoursWidth: ' + hoursWidth);
                                 */
 
+                                // Then set the answers of the calculation to the appropriate progress bars
                                 $("#seconds").css('width', secondsWidth + "%").html(seconds);
                                 $("#minutes").css('width', minutesWidth + "%").html(minutes);
                                 $("#hours").css('width', hoursWidth + "%").html(hours);
-                        },1);
+                        },1); // Repeat this process every millisecond
                 });
         </script>
 @stop
