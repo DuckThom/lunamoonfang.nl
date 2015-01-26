@@ -46,7 +46,7 @@
                                                         <ul class="dropdown-menu" role="menu">
                                                                 <li><a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
                                                                 <li><a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i> Google+</a></li>
-                                                                <li><a href="https://last.fm/DuckThom" target="_blank"><i class="fa fa-lastfm"></i> LastFM</a></li>
+                                                                <li><a href="https://last.fm/user/DuckThom" target="_blank"><i class="fa fa-lastfm"></i> LastFM</a></li>
                                                                 <li><a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank"><i class="fa fa-steam"></i> Steam</a></li>
                                                                 <li><a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
                                                                 <li><a href="https://youtube.com/user/DuckThom" target="_blank"><i class="fa fa-youtube"></i> YouTube</a></li>
@@ -57,7 +57,7 @@
                                         <ul class="nav navbar-nav header-social pull-right hidden-sm hidden-xs">
                                                 <li><a href="https://github.com/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" title="GitHub"><i class="fa fa-github"></i></a></li>
                                                 <li><a href="https://plus.google.com/+ThomasWiringa" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Google+"><i class="fa fa-google-plus"></i></a></li>
-                                                <li><a href="https://last.fm/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" data-title="LastFM"><i class="fa fa-lastfm"></i></a></li>
+                                                <li><a href="https://last.fm/user/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" data-title="LastFM"><i class="fa fa-lastfm"></i></a></li>
                                                 <li><a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Steam"><i class="fa fa-steam"></i></a></li>
                                                 <li><a href="https://twitter.com/real_duckthom" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                                                 <li><a href="https://youtube.com/user/DuckThom" target="_blank" data-toggle="tooltip" data-placement="bottom" title="YouTube"><i class="fa fa-youtube"></i></a></li>
