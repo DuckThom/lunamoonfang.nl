@@ -4,6 +4,10 @@
                 <title>Luna Moonfang</title>
 
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <meta charset="UTF-8">
+                <meta name="description" content="A website about me">
+                <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
+                <meta name="author" content="Thomas Wiringa">
 
                 <style type="text/css">
                         @import url(//fonts.googleapis.com/css?family=Lato:700,600,500,400,300,200,100);
