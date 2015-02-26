@@ -4,6 +4,7 @@
                 <title>Luna Moonfang</title>
 
                 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+                <meta name="google-site-verification" content="yetKC6_E20fGvYECsvMjegkw44OZSVHQMEFYojlaYT4" />
                 <meta charset="UTF-8">
                 <meta name="description" content="A website about me">
                 <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
