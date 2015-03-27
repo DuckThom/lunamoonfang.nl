@@ -2,4 +2,4 @@
 
 # Automatically update the site when new things are pushed
 
-git pull --no-edit laravel master
+git pull --no-edit origin master
