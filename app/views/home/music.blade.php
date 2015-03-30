@@ -117,7 +117,7 @@
 
 @section('extraJS')
         <script type="text/javascript">
-                $(document).ready(function() {
+                $(window).load(function() {
                         getMusicData();
 
                         setInterval(function() {
