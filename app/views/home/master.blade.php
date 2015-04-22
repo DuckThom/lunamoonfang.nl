@@ -10,6 +10,8 @@
                 <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
                 <meta name="author" content="Thomas Wiringa">
 
+                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
                 <style type="text/css">
                         @import url(//fonts.googleapis.com/css?family=Lato:700,600,500,400,300,200,100);
                         @import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
