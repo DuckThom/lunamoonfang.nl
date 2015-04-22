@@ -11,6 +11,7 @@
                 <meta name="author" content="Thomas Wiringa">
 
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+                <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
                 <style type="text/css">
                         @import url(//fonts.googleapis.com/css?family=Lato:700,600,500,400,300,200,100);
