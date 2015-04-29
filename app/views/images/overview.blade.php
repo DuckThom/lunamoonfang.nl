@@ -35,6 +35,13 @@
                                 background-color: #e5e5e5;
                         }
 
+                        .overlay > img {
+                                width: auto;
+                                height: auto;
+                                max-width: 100%;
+                                max-height: 100%;
+                        }
+
                         .overlay > .close-overlay {
                                 padding: 10px 15px;
                                 position: absolute;
@@ -195,6 +202,8 @@
 
                         $('.close-overlay').click(function() {
                                 $('.overlay').hide({easing: 'swing'});
+
+                                $('#overlay-image').attr('src', '');
                         });
                 </script>
         </body>
