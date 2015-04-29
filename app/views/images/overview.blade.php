@@ -180,7 +180,7 @@
                         <div class="photo-wrapper">
                                 @foreach($images as $image)
                                         <div class="photo">
-                                                <img src="http://lunamoonfang.nl/s/{{ $image->Hash }}/full" id="image">
+                                                <img src="http://lunamoonfang.nl/s/{{ $image->Hash }}/full" class="image">
                                         </div>
                                 @endforeach
                         </div>
@@ -194,7 +194,7 @@
                 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 
                 <script type="text/javascript">
-                        $('#image').click(function() {
+                        $('.image').click(function() {
                                 $('#overlay-image').attr('src', $(this).attr('src'));
 
                                 $('.overlay').show({easing: 'swing'});
