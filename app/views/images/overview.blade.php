@@ -32,7 +32,7 @@
                                 left: 20px;
                                 right: 20px;
                                 padding: 20px;
-                                background-color: #e5e5e5;
+                                background-color: tomato;
                         }
 
                         .overlay > img {
