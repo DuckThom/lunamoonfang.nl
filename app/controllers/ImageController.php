@@ -94,7 +94,11 @@ class ImageController extends Controller
                 }
         }
 
-
+        /**
+         * Image overview page
+         *
+         * @return \Illuminate\View\View
+         */
         public function overview()
         {
                 $data = ImageModel::all();
