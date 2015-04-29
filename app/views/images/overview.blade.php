@@ -52,8 +52,13 @@
                                 background-color: #000;
                                 color: white;
                                 font-size: 15px;
-                                cursor: pointer;
                                 border-radius: 3px;
+                        }
+
+                        .overlay > .close-overlay:hover {
+                                color: #000;
+                                background-color: white;
+                                cursor: pointer;
                         }
 
                         .container {
