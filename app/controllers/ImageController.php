@@ -94,6 +94,14 @@ class ImageController extends Controller
                 }
         }
 
+
+        public function overview()
+        {
+                $data = ImageModel::all();
+
+                return View::make('images.overview', array('images' => $data));
+        }
+
         /**
          * Create a hash from the filename
          *

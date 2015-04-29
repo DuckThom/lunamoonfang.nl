@@ -16,6 +16,7 @@
  * Image uploading and viewing routes
  */
 Route::get('/s/list', 'ImageController@listImages');
+Route::get('/s/overview', 'ImageController@overview');
 Route::get('/s/{image_name}', 'ImageController@showImage');
 Route::get('/s/{image_name}/full', 'ImageController@showFullImage');
 

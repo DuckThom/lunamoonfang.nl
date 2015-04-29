@@ -4,7 +4,10 @@
 	<meta charset="UTF-8">
 	<title>@yield('page_title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="http://fc02.deviantart.net/fs71/f/2012/103/e/c/princess_luna_icon_by_stefiisawr-d4uxhud.gif" type="image/x-icon" />
+
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
 	<style>
 		@import url(//lunamoonfang.nl/css/app.css);
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
