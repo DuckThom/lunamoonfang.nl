@@ -32,6 +32,8 @@ class ImageController extends Controller
                         $imagedata = Image::make($img_location)->resize(null, 250, function ($constraint) {
                                 $constraint->aspectRatio();
                         });
+
+                        var_dump($imagedata);die;
                 } else
                 {
                         // Put the raw image data in a variable
