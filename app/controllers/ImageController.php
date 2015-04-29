@@ -29,11 +29,9 @@ class ImageController extends Controller
                 if (Input::get('thumb'))
                 {
                         // Put the thumbnail image data in a variable
-                        $imagedata = Image::make($img_location)->resize(null, 250, function ($constraint) {
+                        $imagedata = Img::make($img_location)->resize(null, 250, function ($constraint) {
                                 $constraint->aspectRatio();
                         });
-
-                        var_dump($imagedata);die;
                 } else
                 {
                         // Put the raw image data in a variable
