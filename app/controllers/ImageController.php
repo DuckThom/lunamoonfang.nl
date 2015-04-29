@@ -26,8 +26,18 @@ class ImageController extends Controller
                 $data = ImageModel::where('Hash', $image_hash)->firstOrFail();
                 $img_location = "/var/www/lunamoonfang.nl/public/img/" . $data->Hash;
 
-                // Put the raw image data in a variable
-                $imagedata = file_get_contents($img_location);
+                if (Input::get('thumb'))
+                {
+                        // Put the thumbnail image data in a variable
+                        $imagedata = Image::make($img_location)->resize(null, 250, function ($constraint) {
+                                $constraint->aspectRatio();
+                        });
+                } else
+                {
+                        // Put the raw image data in a variable
+                        $imagedata = file_get_contents($img_location);
+                }
+
 
                 // Set the content type header to the mime type of the image
                 header("Content-Type: " . image_type_to_mime_type(exif_imagetype($img_location)));
@@ -78,6 +88,14 @@ class ImageController extends Controller
                                         );
 
                                         $image->move("/var/www/lunamoonfang.nl/public/img/", $image_hash);
+
+                                        $img = Image::make('/var/www/lunamoonfang.nl/public/img/' . $image_hash);
+
+                                        $img->resize(null, 250, function ($constraint) {
+                                                $constraint->aspectRatio();
+                                        });
+
+                                        $img->save("/var/www/lunamoonfang.nl/public/img/" . $image_hash . "-thumb");
 
                                         File::prepend("/var/www/lunamoonfang.nl/public/imgList", $image_hash . " .......... " . $image_name . "\r\n");
 

@@ -186,8 +186,11 @@
 
                         <div class="photo-wrapper">
                                 @foreach($images as $image)
+                                        <?php
+
+                                        ?>
                                         <div class="photo">
-                                                <img src="http://lunamoonfang.nl/s/{{ $image->Hash }}/full" class="image">
+                                                <img src="http://lunamoonfang.nl/s/{{ $image->Hash }}/full?thumb=1" class="image">
                                         </div>
                                 @endforeach
                         </div>
@@ -202,7 +205,7 @@
 
                 <script type="text/javascript">
                         $('.image').click(function() {
-                                $('#overlay-image').attr('src', $(this).attr('src'));
+                                $('#overlay-image').attr('src', $(this).attr('src').substr(0, $(this).attr('src').length-8));
 
                                 $('.overlay').show({easing: 'swing'});
                         });
