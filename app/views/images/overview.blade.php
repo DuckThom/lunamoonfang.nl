@@ -114,6 +114,7 @@
                                 display: inline-block;
                                 vertical-align: middle;
                                 text-shadow: 0 0 1px #555;
+                                color: tomato;
                         }
 
                         .photo img {
