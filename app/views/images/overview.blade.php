@@ -33,6 +33,7 @@
                                 right: 20px;
                                 padding: 20px;
                                 background-color: tomato;
+                                border-radius: 3px;
                         }
 
                         .overlay > img {
@@ -52,6 +53,7 @@
                                 color: white;
                                 font-size: 15px;
                                 cursor: pointer;
+                                border-radius: 3px;
                         }
 
                         .container {
