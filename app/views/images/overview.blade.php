@@ -34,6 +34,7 @@
                                 padding: 20px;
                                 background-color: tomato;
                                 border-radius: 3px;
+                                z-index: 20;
                         }
 
                         .overlay > img {
@@ -91,6 +92,28 @@
                                 box-shadow: 0 0 15px #000;
                                 float: left;
                                 overflow: hidden;
+                                position: relative;
+                        }
+
+                        .photo > .photo-title {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: 10;
+                                width: 100%;
+                                height: 100%;
+                                pointer-events: none;
+                                opacity: 1;
+
+                                transition: all 500ms;
+                                -moz-transition: all 500ms;
+                                -webkit-transition: all 500ms;
+                        }
+
+                        .photo > .photo-title > h2 {
+                                display: inline-block;
+                                vertical-align: middle;
+                                text-shadow: 0 0 1px #555;
                         }
 
                         .photo img {
@@ -102,15 +125,39 @@
                                 left: -10px;
                                 top: -10px;
 
+                                transition: all 500ms;
+                                -moz-transition: all 500ms;
                                 -webkit-transition: all 500ms;
+
+                                transform: scale(1, 1);
+                                -moz-transform: scale(1, 1);
                                 -webkit-transform: scale(1, 1);
+
+                                filter: grayscale(100%) blur(2px);
+                                -moz-filter: grayscale(100%) blur(2px);
                                 -webkit-filter: grayscale(100%) blur(2px);
                         }
 
                         .photo img:hover {
+                                transition: all 500ms;
+                                -moz-transition: all 500ms;
                                 -webkit-transition: all 500ms;
+
+                                transform: scale(1.1, 1.1);
+                                -moz-transform: scale(1.1, 1.1);
                                 -webkit-transform: scale(1.1, 1.1);
+
+                                filter: grayscale(0%) blur(0px);
+                                -moz-filter: grayscale(0%) blur(0px);
                                 -webkit-filter: grayscale(0%) blur(0px);
+                        }
+
+                        .photo img:hover ~ .photo-title {
+                                transition: all 500ms;
+                                -moz-transition: all 500ms;
+                                -webkit-transition: all 500ms;
+
+                                opacity: 0.1;
                         }
 
                         /* Large desktops */
@@ -186,11 +233,9 @@
 
                         <div class="photo-wrapper">
                                 @foreach($images as $image)
-                                        <?php
-
-                                        ?>
                                         <div class="photo">
                                                 <img src="http://lunamoonfang.nl/s/{{ $image->Hash }}/full?thumb=1" class="image">
+                                                <div class="photo-title"><h2>{{ $image->Name }}</h2></div>
                                         </div>
                                 @endforeach
                         </div>
