@@ -113,8 +113,8 @@
                         .photo > .photo-title > h2 {
                                 display: inline-block;
                                 vertical-align: middle;
-                                text-shadow: 0 0 1px #555;
-                                color: tomato;
+                                text-shadow: 0 0 3px #777;
+                                color: white;
                         }
 
                         .photo img {
