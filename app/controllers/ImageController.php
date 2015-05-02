@@ -24,13 +24,21 @@ class ImageController extends Controller
         public function showFullImage($image_hash)
         {
                 $data = ImageModel::where('Hash', $image_hash)->firstOrFail();
-                $img_location = "/var/www/lunamoonfang.nl/public/img/" . $data->Hash;
+                $img_location = public_path() . "/img/" . $data->Hash;
 
                 if (Input::get('thumb'))
                 {
-                        $imagedata = (string) Img::make($img_location)->resize(null, 250, function ($constraint) {
-                                $constraint->aspectRatio();
-                        })->encode('jpg', 90);
+                        if ($data->thumbnail == "")
+                        {
+                                $imagedata = (string) Img::make($img_location)->resize(null, 250, function ($constraint) {
+                                        $constraint->aspectRatio();
+                                })->encode('jpg', 90);
+
+                                // Save the thumbnail to the database for caching
+                                ImageModel::where('Hash', $image_hash)->update(array('thumbnail' => $imagedata));
+                        } else
+                                $imagedata = $data->thumbnail;
+
                 } else
                 {
                         // Put the raw image data in a variable
