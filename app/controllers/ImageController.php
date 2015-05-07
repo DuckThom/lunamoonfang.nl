@@ -96,14 +96,6 @@ class ImageController extends Controller
 
                                         $image->move("/var/www/lunamoonfang.nl/public/img/", $image_hash);
 
-                                        $img = Image::make('/var/www/lunamoonfang.nl/public/img/' . $image_hash);
-
-                                        $img->resize(null, 250, function ($constraint) {
-                                                $constraint->aspectRatio();
-                                        });
-
-                                        $img->save("/var/www/lunamoonfang.nl/public/img/" . $image_hash . "-thumb");
-
                                         File::prepend("/var/www/lunamoonfang.nl/public/imgList", $image_hash . " .......... " . $image_name . "\r\n");
 
                                         // Return the hashed url for ScreenCloud
