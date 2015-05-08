@@ -74,7 +74,7 @@ class ImageController extends Controller
                 if (Input::hasFile('image') && Input::has('key')) {
 
                         $image          = Input::file('image');
-                        $name           = Input::get('name');
+                        $name           = (Input::has('name') ? Input::get('name') : "");
                         $key            = Input::get('key');
                         $image_name     = $image->getClientOriginalName();
                         $image_hash     = ImageController::createHash($image_name);
