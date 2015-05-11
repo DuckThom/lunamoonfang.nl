@@ -126,7 +126,7 @@
 
                         setInterval(function() {
                                 getMusicData();
-                        }, 3000);
+                        }, 5000);
                 });
 
                 function getMusicData() {
@@ -135,6 +135,7 @@
                                 url: "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
                                 dataType: "json",
                                 method: "GET",
+                                async: true,
                                 success: function(data) {
                                         var text = '';
 
@@ -173,6 +174,7 @@
                                 url: "http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
                                 dataType: "json",
                                 method: "GET",
+                                async: true,
                                 success: function(data) {
                                         var text = '';
 
@@ -211,6 +213,7 @@
                                 url: "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&limit=1",
                                 dataType: "json",
                                 method: "GET",
+                                async: true,
                                 success: function(data) {
                                         if (typeof(data.recenttracks.track[0]) != "undefined") {
                                                 // This code will be used if the user is currenly listening to something
@@ -226,7 +229,7 @@
 
                                         var trackName 	= track.name;
                                         var artistName 	= track.artist['#text'];
-                                        var albumName 	= "[" + track.album['#text'] + "]";
+                                        var albumName 	= (track.album['#text'] != '' ? "[" + track.album['#text'] + "]" : "");
 
                                         $("#currentOrRecent").html(prefix);
                                         $("#artist").html(artistName);
