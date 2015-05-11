@@ -81,6 +81,10 @@
                         border-bottom: 1px solid #bbb;
                         border-left: 1px dotted #bbb;
                 }
+                
+                td:nth-child(1) {
+                        width: 30%;
+                }
 
                 tr:nth-child(even) {
                         background-color: #f5f5f5;
