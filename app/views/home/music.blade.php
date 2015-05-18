@@ -7,8 +7,8 @@
                 </div>
 
                 <span id="currentOrRecent"></span><br />
-                <span id="artist"></span> <br />
-                <span id="track"></span> <span id="album"></span>
+                <span id="track"></span><br />
+                <span id="artist"></span> <span id="album"></span>
 
                 <table class="font-light" id="topAlbumsTable">
                         <caption>
@@ -100,13 +100,20 @@
                         letter-spacing: -2px;
                 }
 
-                #artist {
+                #track {
                         font-weight: 400;
                         font-size: 35px;
                         letter-spacing: -2px;
                 }
 
-                #track {
+                #track::after {
+                        content: "by";
+                        display: block;
+                        height: 0px;
+                        margin-bottom: -10px;
+                }
+
+                #artist {
                         font-weight: 300;
                         font-size: 25px;
                 }
@@ -219,12 +226,12 @@
                                                 // This code will be used if the user is currenly listening to something
 
                                                 var track 		= data.recenttracks.track[0];
-                                                var prefix		= "<i class='fa fa-play'></i> Now playing: ";
+                                                var prefix		= "<i class='fa fa-play'></i> &nbsp; Now playing: ";
                                         } else {
                                                 // If the user is not listening to anything, show the latest track that they listened to
 
                                                 var track 		= data.recenttracks.track;
-                                                var prefix 		= "<i class='fa fa-pause'></i> Last played: ";
+                                                var prefix 		= "<i class='fa fa-pause'></i> &nbsp; Last played: ";
                                         }
 
                                         var trackName 	= track.name;
@@ -232,8 +239,8 @@
                                         var albumName 	= (track.album['#text'] != '' ? "[" + track.album['#text'] + "]" : "");
 
                                         $("#currentOrRecent").html(prefix);
-                                        $("#artist").html(artistName);
                                         $("#track").html(trackName);
+                                        $("#artist").html(artistName);
                                         $("#album").html(albumName);
                                 },
                                 failure: function() {
