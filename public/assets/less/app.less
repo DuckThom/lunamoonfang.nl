@@ -4,19 +4,6 @@
 @text: #385665;
 @transTime: 250ms;
 
-@-webkit-keyframes loading {
-        0% {content: ""}
-        25% {content: "."}
-        50% {content: ".."}
-        100% {content: "..."}
-}
-@keyframes loading {
-        0% {content: ""}
-        25% {content: "."}
-        50% {content: ".."}
-        100% {content: "..."}
-}
-
 @-webkit-keyframes headerBrandHover {
         100% {color: @headerHighlight;}
 }
@@ -275,16 +262,6 @@ html, body {
 .sidebar .nav .nav > .active:focus > a {
         padding-left: 28px;
         font-weight: 500
-}
-
-.loading:after {
-        animation: loading @transTime;
-        animation-iteration-count: infinite;
-        animation-fill-mode: forwards;
-        -webkit-animation: loading @transTime;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-fill-mode: forwards;
-        content: "";
 }
 
 .back-to-top,

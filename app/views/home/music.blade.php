@@ -7,7 +7,7 @@
                 </div>
 
                 <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-2x fa-spin"></i></span><br />
-                <span id="track loading">Loading</span><br />
+                <span id="track">Loading</span><br />
                 <span id="artist"></span><br />
                 <span id="album"></span>
 
