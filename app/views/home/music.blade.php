@@ -6,8 +6,8 @@
                         <h1>Music</h1>
                 </div>
 
-                <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-4x fa-spin"></i> Loading...</span><br />
-                <span id="track"></span><br />
+                <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-2x fa-spin"></i></span><br />
+                <span id="track"></span>Loading...<br />
                 <span id="artist"></span><br />
                 <span id="album"></span>
 
