@@ -8,7 +8,8 @@
 
                 <span id="currentOrRecent"></span><br />
                 <span id="track"></span><br />
-                <span id="artist"></span> <span id="album"></span>
+                <span id="artist"></span><br />
+                <span id="album"></span>
 
                 <table class="font-light" id="topAlbumsTable">
                         <caption>
@@ -86,7 +87,7 @@
                         width: 30%;
                 }
 
-                tr:nth-child(even) {
+                tr:nth-child(odd) {
                         background-color: #f5f5f5;
                 }
 
@@ -111,11 +112,14 @@
                         display: block;
                         height: 0px;
                         margin-bottom: -10px;
+                        font-size: 30px;
+                        font-weight: 200;
+                        font-style: italic;
                 }
 
                 #artist {
                         font-weight: 300;
-                        font-size: 25px;
+                        font-size: 30px;
                 }
 
                 #album {
