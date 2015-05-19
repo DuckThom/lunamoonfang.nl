@@ -6,7 +6,7 @@
                         <h1>Music</h1>
                 </div>
 
-                <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-2x fa-spin"></i></span><br />
+                <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-spin"></i></span><br />
                 <span id="track">Loading</span><br />
                 <span id="artist"></span><br />
                 <span id="album"></span>
@@ -87,7 +87,7 @@
                         width: 30%;
                 }
 
-                tr:nth-child(odd) {
+                tbody tr:hover {
                         background-color: #f5f5f5;
                 }
 
@@ -102,7 +102,7 @@
                 }
 
                 #track {
-                        font-weight: 400;
+                        font-weight: 600;
                         font-size: 35px;
                         letter-spacing: -2px;
                 }
@@ -118,7 +118,7 @@
                 }
 
                 #artist {
-                        font-weight: 300;
+                        font-weight: 400;
                         font-size: 30px;
                 }
 
@@ -230,12 +230,12 @@
                                                 // This code will be used if the user is currenly listening to something
 
                                                 var track 		= data.recenttracks.track[0];
-                                                var prefix		= "<i class='fa fa-play'></i> &nbsp; Now playing: ";
+                                                var prefix		= "<i class='fa fa-play'></i> &nbsp; Now playing";
                                         } else {
                                                 // If the user is not listening to anything, show the latest track that they listened to
 
                                                 var track 		= data.recenttracks.track;
-                                                var prefix 		= "<i class='fa fa-pause'></i> &nbsp; Last played: ";
+                                                var prefix 		= "<i class='fa fa-pause'></i> &nbsp; Last played";
                                         }
 
                                         var trackName 	= track.name;
@@ -247,8 +247,8 @@
                                         $("#artist").html(artistName);
                                         $("#album").html(albumName);
                                 },
-                                failure: function() {
-                                        $("#currentTrack").html("Couldn\'t fetch the recent track.");
+                                error: function(xhr, textStatus, errorThrown) {
+                                        $("#track").html("Couldn\'t fetch the recent track. Reloading...");
                                 }
                         });
                 }
