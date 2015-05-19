@@ -32,18 +32,18 @@
                 </div>
 
                 <p id="contact">
-                        I prefer correspondation via E-Mail or Twitter but i'm also available via IRC and Google+.
+                        I prefer correspondation via Twitter but i'm also available via IRC and Google+.
                 </p>
 
                 <table class="table table-striped">
                         <tbody>
-                        <tr>
+                        <!--tr> //! Disabled because of broken mail setup, @lunamoonfang.nl is broken !//
                                 <td><strong>E-Mail</strong></td>
                                 <td><a href="http://www.google.com/recaptcha/mailhide/d?k=01UOM4bLqqrh1lWKQrLtUZOQ==&amp;c=940r5vAYbP8k3ozbU0kH0LvFYxu3EU34QNOZj_X-LWg=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501UOM4bLqqrh1lWKQrLtUZOQ\75\75\46c\75940r5vAYbP8k3ozbU0kH0LvFYxu3EU34QNOZj_X-LWg\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">c...</a><i class="fa fa-at"></i>lunamoonfang.nl</td>
-                        </tr>
+                        </tr-->
                         <tr>
                                 <td><strong>Twitter</strong></td>
-                                <td><a href="https://twitter.com/intent/tweet?text=@Real_DuckThom "><i class="fa fa-at"></i>Real_DuckThom</a></td>
+                                <td><a href="https://twitter.com/intent/tweet?text=@Real_DuckThom" target="_blank"><i class="fa fa-at"></i>Real_DuckThom</a></td>
                         </tr>
                         <tr>
                                 <td><strong>IRC</strong></td>
@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                                 <td><strong>Google+</strong></td>
-                                <td>+ThomasWiringa</td>
+                                <td><a href="https://plus.google.com/+ThomasWiringa" target="_blank">+ThomasWiringa</a></td>
                         </tr>
                         </tbody>
                 </table>
