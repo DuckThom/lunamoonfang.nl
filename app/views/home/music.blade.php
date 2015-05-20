@@ -58,7 +58,7 @@
                         border-left: 1px dotted #bbb;
                         border-right: 1px dotted #bbb;
                         width: 100%;
-                        margin-bottom: 20px;
+                        margin: 20px 0;
                 }
 
                 caption {
