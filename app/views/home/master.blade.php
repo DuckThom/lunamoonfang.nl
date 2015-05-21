@@ -117,7 +117,7 @@
                                                         <li><a href="http://getbootstrap.com">Twitter Bootstrap</a></li>
                                                         <li><a href="http://laravel.com">Laravel Framework</a></li>
                                                         <li><a href="http://jquery.com">jQuery</a></li>
-                                                        <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+                                                        <li><a href="http://fontawesome.io/">Font Awesome</a></li>
                                                 </ul>
                                         </div>
                                         <div class="col-md-4 col-xs-6">
