@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laravel PHP Framework</title>
+    <title>lunamoonfang.nl | Error 404</title>
     <style>
-        @import url(//fonts.googleapis.com/css?family=Lato:700);
+        @import url(//fonts.googleapis.com/css?family=Titillium+Web:700);
 
         body {
             margin:0;
-            font-family:'Lato', sans-serif;
+            font-family:'Titillium Web', sans-serif;
             text-align:center;
             color: #999;
         }
