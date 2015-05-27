@@ -4,20 +4,44 @@
 @text: #385665;
 @transTime: 250ms;
 
+// Override the stupid bootstrap code
+.nav>li>a:hover, 
+.nav>li>a:focus {
+        background-color: inherit;
+        color: inherit;
+}
+// ----------------------------------
+
 @-webkit-keyframes headerBrandHover {
-        100% {color: @headerHighlight;}
+        100% {
+                color: @headerHighlight;
+        }
 }
 @keyframes headerBrandHover {
-        100% {color: @headerHighlight;}
+        100% {
+                color: @headerHighlight;
+        }
 }
 
 @-webkit-keyframes headerNavHover {
-        0% {color: @headerHighlight;background-color: @header;}
-        100% {color: @header;background-color: @headerHighlight;}
+        0% {
+                color: @headerHighlight;
+                background-color: @header;
+        }
+        100% {
+                color: @header;
+                background-color: @headerHighlight;
+        }
 }
 @keyframes headerNavHover {
-        0% {color: @headerHighlight;background-color: @header;}
-        100% {color: @header;background-color: @headerHighlight;}
+        0% {
+                color: @headerHighlight;
+                background-color: @header;
+        }
+        100% {
+                color: @header;
+                background-color: @headerHighlight;
+        }
 }
 
 html, body {
