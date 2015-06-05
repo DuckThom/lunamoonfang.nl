@@ -1,10 +1,11 @@
 @extends('home.master')
 
+@section('title')
+        About me
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>About me</h1>
-                </div>
                 <p id="aboutMe">
                         Hi! My name is Thomas Wiringa but on the interwebs my nickname is usually DuckThom or Luna Moonfang.<br />
                         I'm {{ date_diff(date_create(date('Y-n-j')), date_create("1995-11-26"))->format('%y') }} years old and live in The Netherlands. <br />
