@@ -101,7 +101,13 @@
                                                         <li @if( Request::path() === 'licenses' ) class="active" @endif><a href="/licenses"><i class="fa fa-gavel"></i> Licenses</a></li>
                                                         <li @if( Request::path() === 'clock' ) class="active" @endif><a href="/clock"><i class="fa fa-clock-o"></i> Clock</a></li>
 
-                                                        @if(Auth::check()) <br /><li><a href="/logout"><i class="fa fa-user"></i> Logout</a></li> @endif
+                                                        @if(Auth::check()) 
+                                                                <br />
+                                                                <li><a href="/s/upload"><i class="fa fa-upload"></i> Upload</a></li>
+                                                                <li><a href="/s/list"><i class="fa fa-list"></i> List</a></li>
+                                                                <li><a href="/s/overview"><i class="fa fa-th"></i> Overview</a></li>
+                                                                <li><a href="/logout"><i class="fa fa-user"></i> Logout</a></li>
+                                                        @endif
                                                 </ul>
                                         </nav>
                                 </div>
