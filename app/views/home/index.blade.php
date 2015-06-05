@@ -1,10 +1,11 @@
 @extends('home.master')
 
+@section('title')
+	Welcome to lunamoonfang.nl
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>Welcome to lunamoonfang.nl</h1>
-                </div>
                 <p id="aboutSite">
                         Welcome, this site is made by DuckThom, also known as Thomas Wiringa.<br />
                         It is made using Laravel, Bootstrap, jQuery and Font Awesome.<br />
