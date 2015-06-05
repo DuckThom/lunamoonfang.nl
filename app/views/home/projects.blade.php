@@ -1,10 +1,11 @@
 @extends('home.master')
 
+@section('title')
+        Projects
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>Projects</h1>
-                </div>
                 <div class="panel panel-default">
                         <div class="panel-body">
                                 <div class="page-header">
