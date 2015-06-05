@@ -107,6 +107,9 @@
                                                                 <li><a href="/s/list"><i class="fa fa-list"></i> List</a></li>
                                                                 <li><a href="/s/overview"><i class="fa fa-th"></i> Overview</a></li>
                                                                 <li><a href="/logout"><i class="fa fa-user"></i> Logout</a></li>
+                                                        @else
+                                                                <br />
+                                                                <li><a href="/login"><i class="fa fa-user"></i> Login</a></li>
                                                         @endif
                                                 </ul>
                                         </nav>
