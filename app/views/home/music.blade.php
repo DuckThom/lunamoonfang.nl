@@ -1,11 +1,11 @@
 @extends('home.master')
 
+@section('title')
+        Music
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>Music</h1>
-                </div>
-
                 <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-spin"></i></span><br />
                 <span id="track">Loading</span><br />
                 <span id="artist"></span><br />
