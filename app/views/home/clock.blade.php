@@ -1,11 +1,11 @@
 @extends('home.master')
 
+@section('title')
+        Clock
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>Clock</h1>
-                </div>
-
                 <p class="lead">Seconds</p>
                 <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="60" id="seconds"></div>
