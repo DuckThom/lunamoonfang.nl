@@ -17,6 +17,7 @@
  */
 Route::get('/s/list', 'ImageController@listImages');
 Route::get('/s/overview', 'ImageController@overview');
+Route::get('/s/upload', 'ImageController@upload');
 Route::get('/s/{image_name}', 'ImageController@showImage');
 Route::get('/s/{image_name}/full', 'ImageController@showFullImage');
 
@@ -31,3 +32,10 @@ Route::get('/info', 'HomeController@info');
 Route::get('/projects', 'HomeController@projects');
 Route::get('/licenses', 'HomeController@licenses');
 Route::get('/clock', 'HomeController@clock');
+
+/**
+ * User related routes
+ */
+Route::get('/logout', 'UserController@logout');
+
+Route::match(array('GET', 'POST'), '/login', 'UserController@login');

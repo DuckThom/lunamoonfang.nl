@@ -35,6 +35,6 @@ class ImageModel extends Eloquent implements UserInterface, RemindableInterface 
 	 *
 	 * @var array
 	 */
-	protected $fillable = array('Name', 'Hash');
+	protected $fillable = array('Name', 'Hash', 'thumbnail');
 
 }

@@ -87,6 +87,8 @@
                 <div class="container content">
                         <div class="row">
                                 <div class="col-md-9">
+                                        @if(Session::has('message')) <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div> @endif
+                                        
                                         @yield('content')
                                 </div>
                                 <div class="col-md-3">
@@ -98,6 +100,8 @@
                                                         <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                                         <li @if( Request::path() === 'licenses' ) class="active" @endif><a href="/licenses"><i class="fa fa-gavel"></i> Licenses</a></li>
                                                         <li @if( Request::path() === 'clock' ) class="active" @endif><a href="/clock"><i class="fa fa-clock-o"></i> Clock</a></li>
+
+                                                        @if(Auth::check()) <br /><li><a href="/logout"><i class="fa fa-user"></i> Logout</a></li> @endif
                                                 </ul>
                                         </nav>
                                 </div>

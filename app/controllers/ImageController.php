@@ -66,12 +66,27 @@ class ImageController extends Controller
         }
 
         /**
+         * Show the image upload page if the user is logged in
+         *
+         * @return \Illuminate\View\View
+         */
+        public function upload()
+        {
+                if (Auth::check())
+                        return View::make('home.upload');
+                else
+                        return Redirect::to('/');
+        }
+
+        /**
          * Save the uploaded image to the disk
          * and create a shortend link for it
+         *
+         * @return String
          */
         public function saveImage()
         {
-                if (Input::hasFile('image') && Input::has('key')) {
+                if (Input::hasFile('image')) {
 
                         $image          = Input::file('image');
                         $name           = (Input::has('name') ? Input::get('name') : "");
@@ -79,7 +94,7 @@ class ImageController extends Controller
                         $image_name     = $image->getClientOriginalName();
                         $image_hash     = ImageController::createHash($image_name);
 
-                        if ($key === $_ENV['secret_key']) {
+                        if ($key === $_ENV['secret_key'] || Session::token() === Input::get('_token')) {
                                 // Check if the file that was sent is actually an image
                                 $validator = Validator::make(
                                         array('image' => $image),
@@ -88,26 +103,34 @@ class ImageController extends Controller
 
                                 // Check whether the validation has failed or not
                                 if (!$validator->fails()) {
+                                        $imagedata = (string) Img::make($image)->resize(null, 250, function ($constraint) {
+                                                $constraint->aspectRatio();
+                                        })->encode('jpg', 90);
+
                                         ImageModel::create(array(
-                                                        'Name' => ($name === "" ? $image_name : $name),
-                                                        'Hash' => $image_hash
+                                                        'Name'          => ($name === "" ? $image_name : $name),
+                                                        'Hash'          => $image_hash,
+                                                        'thumbnail'     => $imagedata
                                                 )
                                         );
 
-                                        $image->move("/var/www/lunamoonfang.nl/public/img/", $image_hash);
+                                        $image->move(public_path() . "/img/", $image_hash);
 
-                                        File::prepend("/var/www/lunamoonfang.nl/public/imgList", $image_hash . " .......... " . $image_name . "\r\n");
+                                        File::prepend(public_path() . "/imgList", $image_hash . " .......... " . $image_name . "\r\n");
 
-                                        // Return the hashed url for ScreenCloud
-                                        echo 'http://lunamoonfang.nl/s/' . $image_hash;
+                                        if (Input::has('_token'))
+                                                return View::make('home.upload', array('hash' => $image_hash));
+                                        else
+                                                // Return the hashed url for ScreenCloud
+                                                return URL::to('/s') . $image_hash;
                                 } else {
                                         die("Unsupported extension!");
                                 }
                         } else {
-                                die("Incorrect key!");
+                                die("Incorrect token/key!");
                         }
                 } else {
-                        die("No file/key attached!");
+                        die("No file attached!");
                 }
         }
 
@@ -132,7 +155,7 @@ class ImageController extends Controller
         private function createHash($filename)
         {
                 $str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                $len = strlen($str);
+                $len = strlen($str) - 1;
                 $hash = "";
 
                 // Run until the end of times
