@@ -8,7 +8,7 @@
         <div class="text-center">
                 <div class="panel panel-default">
                         <div class="panel-body">
-                                <div class="page-header">
+                                <div class="project-header">
                                         <h3>lunamoonfang.nl <small>(<a href="https://github.com/DuckThom/lunamoonfang.nl" target="_blank">source</a>)</small></h3>
                                 </div>
 
@@ -36,7 +36,7 @@
 
                 <div class="panel panel-default">
                         <div class="panel-body">
-                                <div class="page-header">
+                                <div class="project-header">
                                         <h3>wiringa.nl <small>(<a href="https://github.com/DuckThom/laravel-wtg" target="_blank">source</a>)</small></h3>
                                 </div>
 
@@ -66,7 +66,7 @@
 
                 <div class="panel panel-default">
                         <div class="panel-body">
-                                <div class="page-header">
+                                <div class="project-header">
                                         <h3>Code Snippets <small>(<a href="https://github.com/DuckThom/code-wookies" target="_blank">source</a>)</small></h3>
                                 </div>
 
@@ -106,7 +106,7 @@
                         border-top: none;
                 }
 
-                .page-header {
+                .project-header {
                         margin: 20px 0;
                 }
         </style>
