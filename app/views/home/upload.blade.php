@@ -1,12 +1,12 @@
 @extends('home.master')
 
+@section('title')
+        Image upload
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>Image upload</h1>
-                </div>
-
-                @if(isset($hash))
+                 @if(isset($hash))
                         <div class="alert alert-success">Upload successful</div>
                         <br />
                         <img src="{{ URL::to('/s') . '/' . $hash . '/full?thumb=1'}}">
