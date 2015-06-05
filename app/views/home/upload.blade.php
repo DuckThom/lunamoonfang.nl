@@ -12,7 +12,7 @@
                         <img src="{{ URL::to('/s') . '/' . $hash . '/full?thumb=1'}}">
                         <br />
                         <br />
-                        <p>Url: {{ URL::to('/s') . '/' . $hash }}</p>
+                        <p>Url: <a href="{{ URL::to('/s') . '/' . $hash }}">{{ URL::to('/s') . '/' . $hash }}</a></p>
                 @else
                         <form method="POST" action="" enctype="multipart/form-data">
                                 {{ Form::token() }}
