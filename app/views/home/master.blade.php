@@ -87,7 +87,7 @@
                 <div class="container content">
                         <div class="row">
                                 <div class="col-md-9">
-                                        <div class="page-header">
+                                        <div class="page-header text-center">
                                                 <h1>@yield('title')</h1>
                                         </div>
                                         
