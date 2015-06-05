@@ -1,12 +1,10 @@
 @extends('home.master')
 
-@section('content')
-        <div class="text-center">
-                <div class="page-header">
-                        <h1>Login</h1>
-                </div>
-        </div>
+@section('title')
+        Login
+@stop
 
+@section('content')
         <div class="row">
         	<div class="col-md-8 col-md-offset-2">
         		<form action="" method="POST" class="form-horizontal">
