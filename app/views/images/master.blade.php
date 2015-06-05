@@ -9,8 +9,8 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 	<style>
+		@import url(//fonts.googleapis.com/css?family=Titillium+Web:700);
 		@import url(//lunamoonfang.nl/css/app.css);
-		@import url(//fonts.googleapis.com/css?family=Lato:700);
 	</style>
 </head>
 <body>

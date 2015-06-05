@@ -9,14 +9,14 @@
                 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
                 <style type="text/css">
-                        @import url(//fonts.googleapis.com/css?family=Lato:700);
+                        @import url(//fonts.googleapis.com/css?family=Titillium+Web:700);
 
                         html, body {
                                 height: 100%;
                                 width: 100%;
                                 margin: 0;
                                 min-width: 280px;
-                                font-family: 'Lato', sans-serif;
+                                font-family: 'Titillium Web', sans-serif;
                         }
 
                         h1, h2, h3, h4, h5 {
