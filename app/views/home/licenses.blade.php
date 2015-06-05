@@ -1,10 +1,11 @@
 @extends('home.master')
 
+@section('title')
+        Licenses
+@stop
+
 @section('content')
         <div class="text-center">
-                <div class="page-header">
-                        <h1>Licenses</h1>
-                </div>
                 <h2><a href="http://lunamoonfang.nl" target="_blank">Lunamoonfang.nl</a> by <a href="https://github.com/DuckThom" target="_blank">Thomas Wiringa</a> <small>(<a href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE" target="_blank">license</a>)</small></h2>
                 <br />
                 <pre class="text-left">
