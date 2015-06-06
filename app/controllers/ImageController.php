@@ -122,7 +122,7 @@ class ImageController extends Controller
                                                 return View::make('home.upload', array('hash' => $image_hash));
                                         else
                                                 // Return the hashed url for ScreenCloud
-                                                return URL::to('/s') . $image_hash;
+                                                return URL::to('/s') . "/" . $image_hash;
                                 } else {
                                         die("Unsupported extension!");
                                 }
