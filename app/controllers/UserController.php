@@ -32,7 +32,7 @@ class UserController extends Controller {
 		if (Auth::check())
 		{
 			Auth::logout();
-			return Redirect::back()->with(array('message' => 'Logout successful', 'type' => 'success'));
+			return Redirect::intended('/')->with(array('message' => 'Logout successful', 'type' => 'success'));
 		} else
 			return Redirect::back();
 	}
