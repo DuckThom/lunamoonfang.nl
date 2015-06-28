@@ -75,7 +75,7 @@
                                                 <table class="table table-condensed">
                                                         <tr>
                                                                 <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                                                <td>Bash, Perl, Python, JS</td>
+                                                                <td>Bash, Perl, Python, JS, PHP</td>
                                                         </tr>
                                                         <tr>
                                                                 <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
