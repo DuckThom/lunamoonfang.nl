@@ -75,11 +75,39 @@
                                                 <table class="table table-condensed">
                                                         <tr>
                                                                 <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                                                <td>Bash, Perl, Python, JS, PHP</td>
+                                                                <td>Bash, Perl, Python, JS</td>
                                                         </tr>
                                                         <tr>
                                                                 <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
                                                                 <td>December 21th 2014</td>
+                                                        </tr>
+                                                </table>
+                                        </div>
+                                        <div class="col-sm-7">
+                                                <p class="lead">
+                                                        Small shell scripts and config files.
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                
+                <div class="panel panel-default">
+                        <div class="panel-body">
+                                <div class="project-header">
+                                        <h3>Lunabot Telegram <small>(<a href="https://github.com/DuckThom/lunabot-telegram" target="_blank">source</a>)</small></h3>
+                                </div>
+
+                                <div class="row text-left">
+                                        <div class="col-sm-5">
+                                                <table class="table table-condensed">
+                                                        <tr>
+                                                                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
+                                                                <td>PHP</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
+                                                                <td>June 29th 2015</td>
                                                         </tr>
                                                 </table>
                                         </div>
