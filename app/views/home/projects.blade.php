@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="col-sm-7">
                                                 <p class="lead">
-                                                        Small shell scripts and config files.
+                                                        Telegram bot called @LunaBot written in PHP.<br />
                                                 </p>
                                         </div>
                                 </div>
