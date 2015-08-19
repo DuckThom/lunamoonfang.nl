@@ -6,6 +6,7 @@
 
 @section('content')
         <div class="text-center">
+                <h3><i>NOTE: Last.fm API is currently broken and this page will always show "Now playing" as long as the API is not fixed.</i></h3>
                 <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-spin"></i></span><br />
                 <span id="track">Loading</span><br />
                 <span id="artist"></span><br />
