@@ -15,8 +15,7 @@
                         I want to start learning Objective C and C# in the near future.<br />
                         <br />
                         I also play games quite a lot. <br />
-                        The games I've been playing the most lately are Hearthstone and Halo but I also play games like GTA V, DOTA 2 and Diablo.<br />
-                        Games are the only reason I still have Windows installed (bastard devs not creating multi-platform games, puh...)<br />
+                        The games I've been playing the most lately are Rocket League and GTA V but I also play games like Hearthstone, Halo, DOTA 2 and Diablo.<br />
                         <br />
                         For as far as music goes, I am a huge fan of <a href="http://monstercat.com">Monstercat</a> and Muse.<br />
                         My favorite radio station is <a href="http://3fm.nl" target="_blank">3FM</a> on the radio and <a href="https://twitch.tv/monstercat" target="_blank">Monstercat FM</a> on Twitch.<br />
