@@ -49,7 +49,7 @@
                                                         </tr>
                                                         <tr>
                                                                 <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                                                                <td>December 21th 2014</td>
+                                                                <td>December 21st 2014</td>
                                                         </tr>
                                                 </table>
                                         </div>
@@ -79,7 +79,7 @@
                                                         </tr>
                                                         <tr>
                                                                 <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                                                                <td>December 21th 2014</td>
+                                                                <td>December 21st 2014</td>
                                                         </tr>
                                                 </table>
                                         </div>
