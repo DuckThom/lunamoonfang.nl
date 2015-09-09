@@ -91,15 +91,15 @@
                                                         <li @if( Request::path() === 'licenses' ) class="active" @endif><a href="/licenses"><i class="fa fa-gavel"></i> Licenses</a></li>
                                                         <li @if( Request::path() === 'clock' ) class="active" @endif><a href="/clock"><i class="fa fa-clock-o"></i> Clock</a></li>
 
+                                                        <br />
+
                                                         @if(Auth::check())
-                                                                <br />
-                                                                <li><a href="/s/upload"><i class="fa fa-upload"></i> Upload</a></li>
-                                                                <li><a href="/s/list"><i class="fa fa-list"></i> List</a></li>
-                                                                <li><a href="/s/overview"><i class="fa fa-th"></i> Overview</a></li>
+                                                                <li @if( Request::path() === 's/upload' ) class="active" @endif><a href="/s/upload"><i class="fa fa-upload"></i> Upload</a></li>
+                                                                <li @if( Request::path() === 's/list' ) class="active" @endif><a href="/s/list"><i class="fa fa-list"></i> List</a></li>
+                                                                <li @if( Request::path() === 's/overview' ) class="active" @endif><a href="/s/overview"><i class="fa fa-th"></i> Overview</a></li>
                                                                 <li><a href="/logout"><i class="fa fa-user"></i> Logout</a></li>
                                                         @else
-                                                                <br />
-                                                                <li><a href="/login"><i class="fa fa-user"></i> Login</a></li>
+                                                                <li @if( Request::path() === 'login' ) class="active" @endif><a href="/login"><i class="fa fa-user"></i> Login</a></li>
                                                         @endif
                                                 </ul>
                                         </nav>

@@ -1,0 +1,21 @@
+{
+  "name": "lunamoonfang.nl",
+  "version": "0.0.0",
+  "authors": [
+    "Luna Moonfang"
+  ],
+  "license": "MIT",
+  "homepage": "/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/assets/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "polymer": "Polymer/polymer#~1.1.3"
+  }
+}
