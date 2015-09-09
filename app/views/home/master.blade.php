@@ -33,7 +33,7 @@
                 @yield('extraCSS')
         </head>
 
-        <body data-spy="scroll" data-target=".sidebar">
+        <body>
                 <nav class="navbar navbar-luna header navbar-static-top">
                         <div class="container">
                                 <div class="navbar-header">
@@ -94,7 +94,7 @@
                                         @yield('content')
                                 </div>
                                 <div class="col-md-3">
-                                        <nav class="sidebar hidden-print hidden-xs hidden-sm" data-spy="affix" data-offset-top="100" data-offset-bottom="200">
+                                        <nav class="sidebar hidden-print hidden-xs hidden-sm">
                                                 <ul class="nav sidenav">
                                                         <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                         <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
