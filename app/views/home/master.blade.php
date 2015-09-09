@@ -10,6 +10,13 @@
                 <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
                 <meta name="author" content="Thomas Wiringa">
 
+                @if (isset($polymer))
+                        <script src="/assets/bower/webcomponentsjs/webcomponents-lite.js"></script>
+
+                        <link rel="import" href="/assets/bower/paper-input/paper-input.html">
+                        <link rel="import" href="/assets/bower/paper-button/paper-button.html">
+                @endif
+
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
                 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -33,7 +40,7 @@
                 @yield('extraCSS')
         </head>
 
-        <body>
+        <body @if(isset($polymer)) unresolved @endif>
                 <nav class="navbar navbar-luna header navbar-static-top">
                         <div class="container">
                                 <div class="navbar-header">

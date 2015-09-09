@@ -1,4 +1,4 @@
-@extends('home.master')
+@extends('home.master', ['polymer' => true])
 
 @section('title')
         Login
@@ -8,25 +8,30 @@
         <div class="row">
         	<div class="col-md-8 col-md-offset-2">
         		<form action="" method="POST" class="form-horizontal">
-                                {{ Form::token() }} 
-                                <div class="form-group">
-                                        <label for="inputUsername" class="col-sm-2 control-label">Username</label>
-                                        <div class="col-sm-10">
-                                                <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" {{{ (Session::has('username') ? 'value=' . Session::get('username') : '') }}}>
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-10">
-                                                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                        </div>
-                                </div>
+                                {{ Form::token() }}
+
+                                <paper-input name="username" label="Username"></paper-input>
+                                <!--input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" {{{ (Session::has('username') ? 'value=' . Session::get('username') : '') }}}-->
+                                <paper-input type="password" name="password" label="Password"></paper-input>
+                                <!--input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password"-->
+
+                                <br />
+
+                                <paper-button id="loginButton" type="submit" raised>Sign in</paper-button>
+                                <!--button type="submit" class="btn btn-primary btn-block">Sign in</button-->
                         </form>
         	</div>
         </div>
+@stop
+
+@section('extraCSS')
+        <style is="custom-style">
+                #loginButton {
+                        --paper-button: {
+                                background: #4CAF50;
+                                color: white;
+                                float: right;
+                        }
+                }
+        </style>
 @stop
