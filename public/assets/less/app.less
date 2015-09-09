@@ -1,11 +1,13 @@
+// out: ../css/app.min.css, sourcemap: true, compress: true
+
 @base: #8CD5FF;
-@header: #466B7F;
-@headerHighlight: #A5DEFF;
+@header: #2196F3;
+@headerHighlight: #42A5F5;
 @text: #385665;
 @transTime: 250ms;
 
 // Override the stupid bootstrap code
-.nav>li>a:hover, 
+.nav>li>a:hover,
 .nav>li>a:focus {
         background-color: inherit;
         color: inherit;
@@ -14,32 +16,32 @@
 
 @-webkit-keyframes headerBrandHover {
         100% {
-                color: @headerHighlight;
+                text-shadow: 2px 2px rgba(100,100,100,0.4);
         }
 }
 @keyframes headerBrandHover {
         100% {
-                color: @headerHighlight;
+                text-shadow: 2px 2px rgba(100,100,100,0.4);
         }
 }
 
 @-webkit-keyframes headerNavHover {
         0% {
-                color: @headerHighlight;
+                color: white;
                 background-color: @header;
         }
         100% {
-                color: @header;
+                color: white;
                 background-color: @headerHighlight;
         }
 }
 @keyframes headerNavHover {
         0% {
-                color: @headerHighlight;
+                color: white;
                 background-color: @header;
         }
         100% {
-                color: @header;
+                color: white;
                 background-color: @headerHighlight;
         }
 }
@@ -66,6 +68,26 @@ html, body {
 @media (max-width: 1200px) {
         .header .header-social {
                 font-size: 24px;
+        }
+}
+
+.header {
+        max-height: 300px;
+        overflow: hidden;
+        position: relative;
+
+        & > img {
+                margin: 0 auto;
+                width: 100%;
+        }
+
+        & > h1 {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                color: rgba(255,255,255,0.5);
+                font-size: 100px;
+                font-weight: 100;
         }
 }
 
@@ -138,7 +160,7 @@ html, body {
         // Nav buttons
         & .navbar-nav {
                 & .active > a {
-                        color: @header;
+                        color: white;
                         background-color: @headerHighlight;
 
                         &:hover,
@@ -199,6 +221,7 @@ html, body {
         }
 }
 
+// Phablet
 @media only screen and (max-width: 767px) {
         .navbar-luna .navbar-nav {
                 li a {
@@ -279,12 +302,14 @@ html, body {
         font-weight: 400;
 }
 
+// Laptop & desktop
 @media (min-width: 768px) {
         .sidebar {
                 padding-left: 20px
         }
 }
 
+// Desktop
 @media (min-width: 992px) {
         .sidebar .nav > .active > ul {
                 display: block
@@ -309,6 +334,7 @@ html, body {
         }
 }
 
+// Large desktop
 @media (min-width: 1200px) {
         .sidebar.affix-bottom, .sidebar.affix {
                 width: 263px

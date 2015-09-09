@@ -1,7 +1,9 @@
 @extends('home.master')
 
-@section('title')
-        Projects
+@section('header')
+        <img src="/assets/image/headers/project.jpg" class="header-image" />
+
+        <h1>Projects</h1>
 @stop
 
 @section('content')
@@ -91,7 +93,7 @@
                                 </div>
                         </div>
                 </div>
-                
+
                 <div class="panel panel-default">
                         <div class="panel-body">
                                 <div class="project-header">

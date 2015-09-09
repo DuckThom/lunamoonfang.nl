@@ -19,13 +19,13 @@
                         @import url('/assets/css/font-awesome.min.css');
                         @import url('/assets/css/app.min.css');
                 </style>
-                
+
                 <script>
                         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-                
+
                         ga('create', 'UA-41373177-4', 'auto');
                         ga('send', 'pageview');
                 </script>
@@ -51,13 +51,7 @@
                                         <ul class="nav navbar-nav">
                                                 <li @if( Request::path() === '/' ) class="active" @endif><a href="/"><i class="fa fa-home"></i> Home</a></li>
                                                 <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
-                                                <li class="dropdown @if( Request::path() === 'info' ) active @endif ">
-                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-info-circle"></i> Info <span class="caret"></span></a>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                                <li><a href="/info"><i class="fa fa-user"></i> About me</a></li>
-                                                                <li><a href="/info#contact"><i class="fa fa-book"></i> Contact</a></li>
-                                                        </ul>
-                                                </li>
+                                                <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-user"></i> About</a></li>
                                                 <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                                 <li class="dropdown hidden-md hidden-lg">
                                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-users"></i> Social <span class="caret"></span></a>
@@ -84,15 +78,19 @@
                         </div>
                 </nav>
 
+                <div class="header">
+                        @yield('header')
+                </div>
+
                 <div class="container content">
                         <div class="row">
                                 <div class="col-md-9">
                                         <div class="page-header text-center">
                                                 <h1>@yield('title')</h1>
                                         </div>
-                                        
+
                                         @if(Session::has('message')) <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div> @endif
-                                        
+
                                         @yield('content')
                                 </div>
                                 <div class="col-md-3">
@@ -105,7 +103,7 @@
                                                         <li @if( Request::path() === 'licenses' ) class="active" @endif><a href="/licenses"><i class="fa fa-gavel"></i> Licenses</a></li>
                                                         <li @if( Request::path() === 'clock' ) class="active" @endif><a href="/clock"><i class="fa fa-clock-o"></i> Clock</a></li>
 
-                                                        @if(Auth::check()) 
+                                                        @if(Auth::check())
                                                                 <br />
                                                                 <li><a href="/s/upload"><i class="fa fa-upload"></i> Upload</a></li>
                                                                 <li><a href="/s/list"><i class="fa fa-list"></i> List</a></li>
@@ -149,12 +147,6 @@
                 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
                 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
                 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-555b888107d2fe84" async="async"></script>
-
-                <script type="text/javascript">
-                        $(document).ready(function() {
-                                $('[data-toggle="tooltip"]').tooltip();
-                        });
-                </script>
 
                 @yield('extraJS')
         </body>

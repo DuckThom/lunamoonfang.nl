@@ -1,7 +1,9 @@
 @extends('home.master')
 
-@section('title')
-        Music
+@section('header')
+        <img src="/assets/image/headers/music.jpg" class="header-image" />
+
+        <h1>Music</h1>
 @stop
 
 @section('content')
@@ -83,7 +85,7 @@
                         border-bottom: 1px solid #bbb;
                         border-left: 1px dotted #bbb;
                 }
-                
+
                 td:nth-child(1) {
                         width: 30%;
                 }
