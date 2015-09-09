@@ -1,6 +1,6 @@
 <?php
 
-class ImageController extends Controller
+class ImageController extends BaseController
 {
 
         /**

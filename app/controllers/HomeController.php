@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends Controller {
+class HomeController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -73,5 +73,15 @@ class HomeController extends Controller {
 	public function clock()
 	{
 		return View::make('home.clock');
+	}
+
+        /**
+	 * Social buttons like Google+, GitHub and YouTube
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function social()
+	{
+		return View::make('home.social');
 	}
 }

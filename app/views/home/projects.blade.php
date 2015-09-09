@@ -1,7 +1,7 @@
 @extends('home.master')
 
 @section('header')
-        <img src="/assets/image/headers/project.jpg" class="header-image" />
+        <img src="/assets/image/headers/project.jpg" />
 
         <h1>Projects</h1>
 @stop
