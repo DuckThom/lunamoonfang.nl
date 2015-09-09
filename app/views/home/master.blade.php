@@ -75,9 +75,7 @@
                 <div class="container content">
                         <div class="row">
                                 <div class="col-md-9">
-                                        <div class="page-header text-center">
-                                                <h1>@yield('title')</h1>
-                                        </div>
+                                        <br />
 
                                         @if(Session::has('message')) <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div> @endif
 

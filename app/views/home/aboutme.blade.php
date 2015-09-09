@@ -1,7 +1,9 @@
 @extends('home.master')
 
-@section('title')
-        About me
+@section('header')
+        <img src="/assets/image/headers/about.jpg" />
+
+        <h1>About me</h1>
 @stop
 
 @section('content')
@@ -28,7 +30,7 @@
                 <hr />
 
                 <div class="page-header">
-                        <h1>Contact</h1>
+                        <h3>Contact</h3>
                 </div>
 
                 <p id="contact">

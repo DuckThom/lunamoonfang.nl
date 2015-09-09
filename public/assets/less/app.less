@@ -73,13 +73,16 @@ html, body {
 
 .header-image {
         max-height: 300px;
-        width: 100%;
         overflow: hidden;
         position: relative;
 
         & > img {
-                width: 100%;
-                min-height: 200px;
+                min-height: 300px;
+                width: 1920px;
+                margin: 0 auto;
+                position: relative;
+                left: 50%;
+                margin-left: -960px;
         }
 
         & > h1 {
@@ -224,6 +227,10 @@ html, body {
 
 // Phablet
 @media only screen and (max-width: 767px) {
+        .header-image > h1 {
+                font-size: 60px;
+        }
+
         .navbar-luna .navbar-nav {
                 li a {
                         border-left: none;

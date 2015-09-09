@@ -1,7 +1,9 @@
 @extends('home.master')
 
-@section('title')
-	Welcome to lunamoonfang.nl
+@section('header')
+        <img src="/assets/image/headers/home.jpg" />
+
+        <h1>lunamoonfang.nl</h1>
 @stop
 
 @section('content')
