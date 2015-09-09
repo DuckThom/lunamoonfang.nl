@@ -53,7 +53,7 @@
                                                 <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
                                                 <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-user"></i> About</a></li>
                                                 <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
-                                                <li @if( Request::path() === 'social' ) class="active" @endif><a href="/social"><i class="fa fa-users"></i> Social</a></li>
+                                                <li class=" @if( Request::path() === 'social' ) active @endif hidden-md hidden-lg"><a href="/social"><i class="fa fa-users"></i> Social</a></li>
                                         </ul>
 
                                         <ul class="nav navbar-nav header-social pull-right hidden-sm hidden-xs">
