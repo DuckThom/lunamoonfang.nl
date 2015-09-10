@@ -8,7 +8,6 @@
 
 @section('content')
         <div class="text-center">
-                <h3><i>NOTE: Last.fm API is currently broken and this page will always show "Now playing" as long as the API is not fixed.</i></h3>
                 <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-spin"></i></span><br />
                 <span id="track">Loading</span><br />
                 <span id="artist"></span><br />
@@ -233,13 +232,13 @@
                                                 // This code will be used if the user is currenly listening to something
 
                                                 var track 		= data.recenttracks.track[0];
-                                                var prefix		= "<i class='fa fa-play'></i> &nbsp; Now playing";
-                                        } else {
+                                                var prefix		= "Recently played";
+                                        }/* else {
                                                 // If the user is not listening to anything, show the latest track that they listened to
 
                                                 var track 		= data.recenttracks.track;
-                                                var prefix 		= "<i class='fa fa-pause'></i> &nbsp; Last played";
-                                        }
+                                                var prefix 		= "<i class='fa fa-pause'></i> &nbsp; Recently played";
+                                        }*/
 
                                         var trackName 	= track.name;
                                         var artistName 	= track.artist['#text'];
