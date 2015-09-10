@@ -1,4 +1,4 @@
-@extends('home.master')
+@extends('home.master', ['polymer' => true])
 
 @section('header')
         <img src="/assets/image/headers/music.jpg" />
@@ -13,43 +13,47 @@
                 <span id="artist"></span><br />
                 <span id="album"></span>
 
-                <table class="font-light" id="topAlbumsTable">
-                        <caption>
-                                <h3 class="font-light">Top 5 Albums<h3>
-                        </caption>
+                <paper-material elevation="2">
+                        <table class="font-light" id="topAlbumsTable">
+                                <caption>
+                                        <h3 class="font-light">Top 5 Albums<h3>
+                                </caption>
 
-                        <thead>
-                                <tr>
-                                        <th class="font-medium">
-                                                Artist
-                                        </th>
-                                        <th class="font-medium">
-                                                Album
-                                        </th>
-                                </tr>
-                        </thead>
+                                <thead>
+                                        <tr>
+                                                <th class="font-medium">
+                                                        Artist
+                                                </th>
+                                                <th class="font-medium">
+                                                        Album
+                                                </th>
+                                        </tr>
+                                </thead>
 
-                        <tbody id="topAlbums"></tbody>
-                </table>
+                                <tbody id="topAlbums"></tbody>
+                        </table>
+                </paper-material>
 
-                <table class="font-light" id="topTrackTable">
-                        <caption>
-                                <h3 class="font-light">Top 5 Tracks<h3>
-                        </caption>
+                <paper-material elevation="2">
+                        <table class="font-light" id="topTrackTable">
+                                <caption>
+                                        <h3 class="font-light">Top 5 Tracks<h3>
+                                </caption>
 
-                        <thead>
-                                <tr>
-                                        <th class="font-medium">
-                                                Artist
-                                        </th>
-                                        <th class="font-medium">
-                                                Track
-                                        </th>
-                                </tr>
-                        </thead>
+                                <thead>
+                                        <tr>
+                                                <th class="font-medium">
+                                                        Artist
+                                                </th>
+                                                <th class="font-medium">
+                                                        Track
+                                                </th>
+                                        </tr>
+                                </thead>
 
-                        <tbody id="topTracks"></tbody>
-                </table>
+                                <tbody id="topTracks"></tbody>
+                        </table>
+                </paper-material>
         </div>
 @stop
 
@@ -57,32 +61,24 @@
         <style type="text/css">
                 table {
                         border-collapse: collapse;
-                        border-left: 1px dotted #bbb;
-                        border-right: 1px dotted #bbb;
                         width: 100%;
                         margin: 20px 0;
                 }
 
                 caption {
-                        border: 1px solid #bbb;
                         border-bottom: 0px;
-                        border-top-left-radius: 5px;
-                        border-top-right-radius: 5px;
                         text-align: center;
                 }
 
                 th {
                         border-top: 1px solid #bbb;
-                        border-bottom: 1px solid #bbb;
-                        border-left: 1px dotted #bbb;
                         padding: 5px 0px;
                         text-align: center;
                 }
 
                 td {
                         padding: 5px;
-                        border-bottom: 1px solid #bbb;
-                        border-left: 1px dotted #bbb;
+                        border-top: 1px solid #bbb;
                 }
 
                 td:nth-child(1) {
@@ -90,7 +86,13 @@
                 }
 
                 tbody tr:hover {
-                        background-color: #f5f5f5;
+                        background-color: #607D8B;
+                        color: white;
+                }
+
+                tbody tr:hover a {
+                        color: white;
+                        text-decoration: underline;
                 }
 
                 .font-light {

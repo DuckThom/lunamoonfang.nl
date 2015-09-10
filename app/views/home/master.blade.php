@@ -15,6 +15,7 @@
 
                         <link rel="import" href="/assets/bower/paper-input/paper-input.html">
                         <link rel="import" href="/assets/bower/paper-button/paper-button.html">
+                        <link rel="import" href="/assets/bower/paper-material/paper-material.html">
                 @endif
 
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
