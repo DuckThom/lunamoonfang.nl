@@ -1,4 +1,4 @@
-@extends('home.master', ['polymer' => true])
+@extends('home.master')
 
 @section('header')
         <img src="/assets/image/headers/music.jpg" />
@@ -13,47 +13,45 @@
                 <span id="artist"></span><br />
                 <span id="album"></span>
 
-                <paper-material elevation="2">
-                        <table class="font-light" id="topAlbumsTable">
-                                <caption>
-                                        <h3 class="font-light">Top 5 Albums<h3>
-                                </caption>
+                <hr />
 
-                                <thead>
-                                        <tr>
-                                                <th class="font-medium">
-                                                        Artist
-                                                </th>
-                                                <th class="font-medium">
-                                                        Album
-                                                </th>
-                                        </tr>
-                                </thead>
+                <table class="font-light" id="topAlbumsTable">
+                        <caption>
+                                <h3 class="font-light">Top 5 Albums<h3>
+                        </caption>
 
-                                <tbody id="topAlbums"></tbody>
-                        </table>
-                </paper-material>
+                        <thead>
+                                <tr>
+                                        <th class="font-medium">
+                                                Artist
+                                        </th>
+                                        <th class="font-medium">
+                                                Album
+                                        </th>
+                                </tr>
+                        </thead>
 
-                <paper-material elevation="2">
-                        <table class="font-light" id="topTrackTable">
-                                <caption>
-                                        <h3 class="font-light">Top 5 Tracks<h3>
-                                </caption>
+                        <tbody id="topAlbums"></tbody>
+                </table>
 
-                                <thead>
-                                        <tr>
-                                                <th class="font-medium">
-                                                        Artist
-                                                </th>
-                                                <th class="font-medium">
-                                                        Track
-                                                </th>
-                                        </tr>
-                                </thead>
+                <table class="font-light" id="topTrackTable">
+                        <caption>
+                                <h3 class="font-light">Top 5 Tracks<h3>
+                        </caption>
 
-                                <tbody id="topTracks"></tbody>
-                        </table>
-                </paper-material>
+                        <thead>
+                                <tr>
+                                        <th class="font-medium">
+                                                Artist
+                                        </th>
+                                        <th class="font-medium">
+                                                Track
+                                        </th>
+                                </tr>
+                        </thead>
+
+                        <tbody id="topTracks"></tbody>
+                </table>
         </div>
 @stop
 
@@ -63,21 +61,24 @@
                         border-collapse: collapse;
                         width: 100%;
                         margin: 20px 0;
+                        border: 1px solid #bbb;
                 }
 
                 caption {
                         border-bottom: 0px;
                         text-align: center;
+                        border: 1px solid #bbb;
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
                 }
 
                 th {
-                        border-top: 1px solid #bbb;
-                        padding: 5px 0px;
+                        padding: 10px 0px;
                         text-align: center;
                 }
 
                 td {
-                        padding: 5px;
+                        padding: 10px;
                         border-top: 1px solid #bbb;
                 }
 
