@@ -19,7 +19,7 @@ class UserController extends BaseController {
 				else
 					return Redirect::to('/login')->with(array('message' => 'Invalid username and/or password', 'type' => 'danger', 'username' => Input::get('username')));
 			} else
-				return Redirect::to('/login')->with('username', Input::get('username'));
+				return Redirect::to('/login')->withInput(Input::except('password'));
 		} else
 			return Redirect::to('/');
 	}
