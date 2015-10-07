@@ -57,9 +57,8 @@
                                         </div>
                                         <div class="col-sm-7">
                                                 <p class="lead">
-                                                        The currently live wiringa.nl website is created using CodeIgniter.
-                                                        After I found out about Laravel, I decided to rewrite it using that framework instead.
-                                                        The CodeIgniter version has a private repository on BitBucket but the new one is public on GitHub.
+                                                        The active wiringa.nl webshop, which I rewrote from CodeIgniter to Laravel 5.1.
+                                                        The old CodeIgniter version has a private repository on BitBucket but the current one is public on GitHub.
                                                 </p>
                                         </div>
                                 </div>
