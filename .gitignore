@@ -3,11 +3,13 @@
 /vendor
 composer.phar
 composer.lock
-.env.*.php
-.env.php
 .DS_Store
 Thumbs.db
 update.log
 .idea
 .idehelper.php
 .github_webhook_secret_key.php
+/node_modules
+Homestead.yaml
+Homestead.json
+.env

@@ -4,11 +4,11 @@
 
 ## Description
 
-My personal website written with the Laravel Framework v4.2
+My personal website written with the Laravel Framework v5.1.*
 
 ### Laravel Documentation
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs/4.2).
+Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs/5.1).
 
 ### Contributing to this project
 
