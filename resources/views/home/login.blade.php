@@ -10,10 +10,15 @@
         		<form action="" method="POST" class="form-horizontal" id="loginForm">
                                 {!! csrf_field() !!}
 
-                                <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" {{{ (Session::has('username') ? 'value=' . Session::get('username') : '') }}}>
+                                <div class="form-group">
+                                        <label>Login</label>
+                                        <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" {{{ (Session::has('username') ? 'value=' . Session::get('username') : '') }}}>
+                                </div>
                                 <br />
-                                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
-
+                                <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
                                 <br />
                                 <br />
 
