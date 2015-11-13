@@ -1,7 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use View;
-
 class HomeController extends Controller
 {
 
@@ -22,7 +20,7 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		return View::make('home.index');
+		return view('home.index');
 	}
 
 	/**
@@ -32,7 +30,7 @@ class HomeController extends Controller
 	 */
 	public function info()
 	{
-		return View::make('home.aboutme');
+		return view('home.aboutme');
 	}
 
 	/**
@@ -42,7 +40,7 @@ class HomeController extends Controller
 	 */
 	public function music()
 	{
-		return View::make('home.music');
+		return view('home.music');
 	}
 
 	/**
@@ -52,7 +50,7 @@ class HomeController extends Controller
 	 */
 	public function projects()
 	{
-		return View::make('home.projects');
+		return view('home.projects');
 	}
 
 	/**
@@ -62,7 +60,7 @@ class HomeController extends Controller
 	 */
 	public function licenses()
 	{
-		return View::make('home.licenses');
+		return view('home.licenses');
 	}
 
 	/**
@@ -72,7 +70,7 @@ class HomeController extends Controller
 	 */
 	public function clock()
 	{
-		return View::make('home.clock');
+		return view('home.clock');
 	}
 
         /**
@@ -82,6 +80,6 @@ class HomeController extends Controller
 	 */
 	public function social()
 	{
-		return View::make('home.social');
+		return view('home.social');
 	}
 }

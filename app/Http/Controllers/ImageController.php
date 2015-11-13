@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use View, Redirect, Auth, Input, Session, Validator, Img, File;
+use Redirect, Auth, Input, Session, Validator, Img, File;
 
 use App\Image;
 
@@ -17,7 +17,7 @@ class ImageController extends Controller
         {
                 $data = Image::where('Hash', $image_hash)->firstOrFail();
 
-                return View::make('images.image', array('data' => $data));
+                return view('images.image', array('data' => $data));
         }
 
         /**
@@ -66,7 +66,7 @@ class ImageController extends Controller
         {
                 $data = Image::orderBy('id', 'desc')->get();
 
-                return View::make('images.imgList', array('images' => $data));
+                return view('images.imgList', array('images' => $data));
         }
 
         /**
@@ -77,7 +77,7 @@ class ImageController extends Controller
         public function upload()
         {
                 if (Auth::check())
-                        return View::make('home.upload');
+                        return view('home.upload');
                 else
                         return Redirect::to('/');
         }
@@ -123,7 +123,7 @@ class ImageController extends Controller
                                         File::prepend(public_path() . "/imgList", $image_hash . " .......... " . $image_name . "\r\n");
 
                                         if (Input::has('_token'))
-                                                return View::make('home.upload', array('hash' => $image_hash));
+                                                return view('home.upload', array('hash' => $image_hash));
                                         else
                                                 // Return the hashed url for ScreenCloud
                                                 return URL::to('/s') . "/" . $image_hash;
@@ -147,7 +147,7 @@ class ImageController extends Controller
         {
                 $data = Image::all();
 
-                return View::make('images.overview', array('images' => $data));
+                return view('images.overview', array('images' => $data));
         }
 
         /**
