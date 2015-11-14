@@ -85,9 +85,13 @@
                                 <div class="col-md-9">
                                         <br />
 
-                                        @if(Session::has('message')) <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div> @endif
+                                        @if(Session::has('message'))
+                                                <div class="alert alert-{{ Session::get('type') }}">{{ Session::get('message') }}</div>
+                                        @endif
 
                                         @yield('content')
+
+                                        <br />
                                 </div>
                                 <div class="col-md-3">
                                         <nav class="sidebar hidden-print hidden-xs hidden-sm">
@@ -102,9 +106,13 @@
                                                         <br />
 
                                                         @if(Auth::check())
-                                                                <li @if( Request::path() === 's/upload' ) class="active" @endif><a href="/s/upload"><i class="fa fa-upload"></i> Upload</a></li>
-                                                                <li @if( Request::path() === 's/list' ) class="active" @endif><a href="/s/list"><i class="fa fa-list"></i> List</a></li>
-                                                                <li @if( Request::path() === 's/overview' ) class="active" @endif><a href="/s/overview"><i class="fa fa-th"></i> Overview</a></li>
+                                                                <li @if( Request::path() === 'upload' ) class="active" @endif><a href="/upload"><i class="fa fa-upload"></i> Upload</a></li>
+                                                                <br />
+                                                                <li @if( Request::path() === 's/list' ) class="active" @endif><a href="/s/list"><i class="fa fa-list"></i> Image list</a></li>
+                                                                <li @if( Request::path() === 's/overview' ) class="active" @endif><a href="/s/overview"><i class="fa fa-th"></i> Image overview</a></li>
+                                                                <br />
+                                                                <li @if( Request::path() === 'f/list' ) class="active" @endif><a href="/f/list"><i class="fa fa-list"></i> File list</a></li>
+                                                                <br />
                                                                 <li><a href="/logout"><i class="fa fa-user"></i> Logout</a></li>
                                                         @else
                                                                 <li @if( Request::path() === 'login' ) class="active" @endif><a href="/login"><i class="fa fa-user"></i> Login</a></li>

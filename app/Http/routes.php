@@ -12,30 +12,49 @@
 */
 
 /**
- * Image uploading and viewing routes
+ * Image viewing
  */
-Route::get('/s/list', 'ImageController@listImages');
-Route::get('/s/overview', 'ImageController@overview');
-Route::get('/s/upload', 'ImageController@upload');
-Route::get('/s/{image_name}', 'ImageController@showImage');
-Route::get('/s/{image_name}/full', 'ImageController@showFullImage');
+ Route::group(['prefix' => 's'], function () {
+     Route::get('list', 'ImageController@listImages');
+     Route::get('overview', 'ImageController@overview');
+     Route::get('{image_name}', 'ImageController@showImage');
+     Route::get('{image_name}/full', 'ImageController@showFullImage');
+});
 
-Route::post('/s/upload', 'ImageController@saveImage');
+/**
+ * File and image uploading
+ */
+Route::group(['prefix' => 'u', 'middleware' => 'auth'], function () {
+    Route::post('image', 'FileController@saveImage');
+    Route::post('file', 'FileController@saveFile');
+});
+
+/**
+ * File and image uploading
+ */
+Route::group(['prefix' => 'f'], function () {
+    Route::get('list', 'FileController@filelist');
+    Route::get('{hash}', 'FileController@serve');
+});
+
 
 /**
  * The main site routes
  */
 Route::get('/', 'HomeController@index');
-Route::get('/music', 'HomeController@music');
-Route::get('/info', 'HomeController@info');
-Route::get('/projects', 'HomeController@projects');
-Route::get('/licenses', 'HomeController@licenses');
-Route::get('/clock', 'HomeController@clock');
-Route::get('/social', 'HomeController@social');
+Route::get('music', 'HomeController@music');
+Route::get('info', 'HomeController@info');
+Route::get('projects', 'HomeController@projects');
+Route::get('licenses', 'HomeController@licenses');
+Route::get('clock', 'HomeController@clock');
+Route::get('social', 'HomeController@social');
+
+Route::get('upload', 'FileController@index');
+
 
 /**
  * User related routes
  */
-Route::get('/logout', 'UserController@logout');
+Route::get('logout', 'UserController@logout');
 
-Route::match(array('GET', 'POST'), '/login', 'UserController@login');
+Route::match(['GET', 'POST'], '/login', 'UserController@login');

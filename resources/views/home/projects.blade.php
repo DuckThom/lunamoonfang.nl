@@ -1,4 +1,4 @@
-@extends('home.master')
+@extends('master')
 
 @section('header')
         <img src="/assets/image/headers/project.jpg" />
