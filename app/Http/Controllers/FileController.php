@@ -9,6 +9,16 @@ class FileController extends Controller
 {
 
     /**
+     * This will check if the user is logged in.
+     * If the user is not logged in then they will be redirected to the login page
+     * as they are not allowed to access this Controller without authentication.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Show the image upload page if the user is logged in
      *
      * @return \Illuminate\View\View
@@ -18,6 +28,11 @@ class FileController extends Controller
         return view('home.upload');
     }
 
+    /**
+     * Serve a file for downloading
+     *
+     * @return mixed
+     */
     public function serve($hash)
     {
         $path = storage_path() . '/dl/' . $hash;
@@ -29,6 +44,11 @@ class FileController extends Controller
         }
     }
 
+    /**
+     * Show a list of all the stored files
+     *
+     * @return \Illuminate\View\View
+     */
     public function filelist()
     {
         $files = Download::orderBy('name', 'asc')->get();
@@ -36,6 +56,36 @@ class FileController extends Controller
         return view('files.filelist', ['files' => $files]);
     }
 
+    /**
+     * Show a list of all the stored images
+     *
+     * @return \Illuminate\View\View
+     */
+    public function imagelist()
+    {
+            $data = Image::orderBy('id', 'desc')->get();
+
+            return view('files.imagelist', array('images' => $data));
+    }
+
+    /**
+     * Image overview page
+     *
+     * @return \Illuminate\View\View
+     */
+    public function imageoverview()
+    {
+            $data = Image::all();
+
+            return view('files.overview', array('images' => $data));
+    }
+
+    /**
+     * Save the uploaded file to the disk
+     * and create a shortend link for it
+     *
+     * @return mixed
+     */
     public function saveFile()
     {
         if (Input::hasFile('file')) {
@@ -71,7 +121,7 @@ class FileController extends Controller
      * Save the uploaded image to the disk
      * and create a shortend link for it
      *
-     * @return String
+     * @return mixed
      */
     public function saveImage()
     {

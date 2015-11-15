@@ -56,28 +56,4 @@ class ImageController extends Controller
                 // Echo the image data
                 echo $imagedata;
         }
-
-        /**
-         * Show a list of all the stored images
-         *
-         * @return \Illuminate\View\View
-         */
-        public function listImages()
-        {
-                $data = Image::orderBy('id', 'desc')->get();
-
-                return view('files.imagelist', array('images' => $data));
-        }
-
-        /**
-         * Image overview page
-         *
-         * @return \Illuminate\View\View
-         */
-        public function overview()
-        {
-                $data = Image::all();
-
-                return view('files.overview', array('images' => $data));
-        }
 }
