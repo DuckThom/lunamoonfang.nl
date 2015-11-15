@@ -15,8 +15,8 @@
  * Image viewing
  */
  Route::group(['prefix' => 's'], function () {
-     Route::get('list', 'FileController@imagelist');
-     Route::get('overview', 'FileController@imageoverview');
+     Route::get('list', ['middleware' => 'auth', 'uses' => 'FileController@imagelist']);
+     Route::get('overview', ['middleware' => 'auth', 'uses' => 'FileController@imageoverview']);
      Route::get('{image_name}', 'ImageController@showImage');
      Route::get('{image_name}/full', 'ImageController@showFullImage');
 });
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'u', 'middleware' => 'auth'], function () {
  * File and image uploading
  */
 Route::group(['prefix' => 'f'], function () {
-    Route::get('list', 'FileController@filelist');
+    Route::get('list', ['middleware' => 'auth', 'uses' => 'FileController@filelist']);
     Route::get('{hash}', 'FileController@serve');
 });
 
@@ -49,12 +49,11 @@ Route::get('licenses', 'HomeController@licenses');
 Route::get('clock', 'HomeController@clock');
 Route::get('social', 'HomeController@social');
 
-Route::get('upload', 'FileController@index');
-
+Route::get('upload', ['middleware' => 'auth', 'uses' => 'FileController@index']);
 
 /**
  * User related routes
  */
-Route::get('logout', 'UserController@logout');
+Route::get('logout', ['middleware' => 'auth', 'uses' => 'UserController@logout']);
 
 Route::match(['GET', 'POST'], '/login', 'UserController@login');
