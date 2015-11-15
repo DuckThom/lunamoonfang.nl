@@ -34,7 +34,7 @@ Route::group(['prefix' => 'u', 'middleware' => 'auth'], function () {
  */
 Route::group(['prefix' => 'f'], function () {
     Route::get('list', ['middleware' => 'auth', 'uses' => 'FileController@filelist']);
-    Route::get('{hash}', 'FileController@serve');
+    Route::get('{version}/{name}', 'FileController@serve');
 });
 
 

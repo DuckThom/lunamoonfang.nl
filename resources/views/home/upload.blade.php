@@ -9,11 +9,11 @@
                         <br />
                         <br />
                         <p>Url: <a href="{{ URL::to('/s') . '/' . Session::get('hash') }}">{{ URL::to('/s') . '/' . Session::get('hash') }}</a></p>
-                @elseif (Session::has('file_hash'))
+                @elseif (Session::has('file_name'))
                     <div class="alert alert-success">Upload successful</div>
                     <br />
                     <br />
-                    <p>Url: <a href="{{ URL::to('/f') . '/' . Session::get('url') }}">{{ App\Download::where('hash', Session::get('file_hash'))->first()->name }}</a></p>
+                    <p>Url: <a href="{{ Session::get('url') }}">{{ Session::get('file_name') }}</a></p>
                 @endif
         </div>
 
@@ -51,14 +51,14 @@
                                 <div class="input-group">
                                         <span class="input-group-btn">
                                                 <span class="btn btn-primary btn-file">
-                                                        Browse&hellip; <input type="file" name="file">
+                                                        Browse&hellip; <input type="file" name="file" accept="application/zip">
                                                 </span>
                                         </span>
                                         <input type="text" class="form-control" readonly id="fileName">
                                 </div>
                         </div>
 
-                        <span class="help-block">Any file, max. {{ ini_get('upload_max_filesize') }}</span>
+                        <span class="help-block">ZIP, max. {{ ini_get('upload_max_filesize') }}</span>
                         <button type="submit" class="btn btn-success">Upload file</button>
                 </form>
         </div>
