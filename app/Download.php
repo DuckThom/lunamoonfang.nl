@@ -1,15 +1,17 @@
-<?php namespace App;
+<?php
+
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model {
-
-	/**
+class Download extends Model
+{
+    /**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'images';
+	protected $table = 'downloads';
 
 	/**
 	 * The columns excluded from import.
@@ -23,6 +25,5 @@ class Image extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = array('name', 'hash', 'thumbnail');
-
+	protected $fillable = array('name', 'hash');
 }

@@ -1,4 +1,4 @@
-@extends('home.master')
+@extends('master')
 
 @section('title')
         Clock

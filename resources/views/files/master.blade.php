@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Titillium+Web:700);
@@ -22,10 +21,6 @@
 
 	<footer>
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-
-		<script type="text/javascript">
-			
-		</script>
 	</footer>
 </body>
 </html>

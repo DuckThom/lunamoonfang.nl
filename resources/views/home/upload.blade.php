@@ -1,39 +1,66 @@
-@extends('home.master')
-
-@section('title')
-        Image upload
-@stop
+@extends('master')
 
 @section('content')
         <div class="text-center">
-                 @if(isset($hash))
+                @if(Session::has('hash'))
                         <div class="alert alert-success">Upload successful</div>
                         <br />
-                        <img src="{{ URL::to('/s') . '/' . $hash . '/full?thumb=1'}}">
+                        <img src="{{ URL::to('/s') . '/' . Session::get('hash') . '/full?thumb=1'}}">
                         <br />
                         <br />
-                        <p>Url: <a href="{{ URL::to('/s') . '/' . $hash }}">{{ URL::to('/s') . '/' . $hash }}</a></p>
-                @else
-                        <form method="POST" action="" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                        <label for="productFile" class="col-sm-2 control-label">Image</label>
-                                        <div class="col-sm-10">
-                                                <div class="input-group">
-                                                        <span class="input-group-btn">
-                                                                <span class="btn btn-primary btn-file">
-                                                                        Search&hellip; <input type="file" name="image">
-                                                                </span>
-                                                        </span>
-                                                        <input type="text" class="form-control" readonly id="fileName">
-                                                </div>
-                                        </div>
-                                </div>
-
-                                <span class="help-block col-sm-offset-2">Image, max. {{ ini_get('upload_max_filesize') }}</span>
-                                <button type="submit" class="btn btn-success col-sm-offset-2">Upload image</button>
-                        </form>
+                        <p>Url: <a href="{{ URL::to('/s') . '/' . Session::get('hash') }}">{{ URL::to('/s') . '/' . Session::get('hash') }}</a></p>
+                @elseif (Session::has('url'))
+                    <div class="alert alert-success">Upload successful</div>
+                    <br />
+                    <br />
+                    <p>Url: <a href="{{ URL::to('/f') . '/' . Session::get('url') }}">{{ App\Download::where('hash', Session::get('url'))->first()->name }}</a></p>
                 @endif
+        </div>
+
+        <div class="row">
+                <form method="POST" action="/u/image" enctype="multipart/form-data" class="form col-md-6">
+                        {{ csrf_field() }}
+
+                        <h3>Image upload</h3>
+
+                        <hr />
+
+                        <div class="form-group">
+                                <div class="input-group">
+                                        <span class="input-group-btn">
+                                                <span class="btn btn-primary btn-file">
+                                                        Browse&hellip; <input type="file" name="image" accept="image/*">
+                                                </span>
+                                        </span>
+                                        <input type="text" class="form-control" readonly id="fileName">
+                                </div>
+                        </div>
+
+                        <span class="help-block">Image, max. {{ ini_get('upload_max_filesize') }}</span>
+                        <button type="submit" class="btn btn-success">Upload image</button>
+                </form>
+
+                <form method="POST" action="/u/file" enctype="multipart/form-data" class="form col-md-6">
+                        {{ csrf_field() }}
+
+                        <h3>File upload</h3>
+
+                        <hr />
+
+                        <div class="form-group">
+                                <div class="input-group">
+                                        <span class="input-group-btn">
+                                                <span class="btn btn-primary btn-file">
+                                                        Browse&hellip; <input type="file" name="file">
+                                                </span>
+                                        </span>
+                                        <input type="text" class="form-control" readonly id="fileName">
+                                </div>
+                        </div>
+
+                        <span class="help-block">Any file, max. {{ ini_get('upload_max_filesize') }}</span>
+                        <button type="submit" class="btn btn-success">Upload file</button>
+                </form>
         </div>
 @stop
 

@@ -230,21 +230,21 @@
         </head>
         <body>
                 <div class="container">
-                        <h2>Image overview</h2>
+                    <h2>Image overview</h2>
 
-                        <div class="photo-wrapper">
-                                @foreach($images as $image)
-                                        <div class="photo">
-                                                <img src="http://lunamoonfang.nl/s/{{ $image->Hash }}/full?thumb=1" class="image">
-                                                <div class="photo-title"><h2>{{ $image->Name }}</h2></div>
-                                        </div>
-                                @endforeach
-                        </div>
+                    <div class="photo-wrapper">
+                            @foreach($images as $image)
+                                    <div class="photo">
+                                            <img src="/s/{{ $image->hash }}/full?thumb=1" class="image">
+                                            <div class="photo-title"><h2>{{ $image->name }}</h2></div>
+                                    </div>
+                            @endforeach
+                    </div>
 
-                        <div class="overlay" style="display: none;">
-                                <button class="close-overlay">X</button>
-                                <img src="" id="overlay-image">
-                        </div>
+                    <div class="overlay" style="display: none;">
+                            <button class="close-overlay">X</button>
+                            <img src="" id="overlay-image">
+                    </div>
                 </div>
 
                 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
