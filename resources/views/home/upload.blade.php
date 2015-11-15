@@ -9,11 +9,11 @@
                         <br />
                         <br />
                         <p>Url: <a href="{{ URL::to('/s') . '/' . Session::get('hash') }}">{{ URL::to('/s') . '/' . Session::get('hash') }}</a></p>
-                @elseif (Session::has('url'))
+                @elseif (Session::has('file_hash'))
                     <div class="alert alert-success">Upload successful</div>
                     <br />
                     <br />
-                    <p>Url: <a href="{{ URL::to('/f') . '/' . Session::get('url') }}">{{ App\Download::where('hash', Session::get('url'))->first()->name }}</a></p>
+                    <p>Url: <a href="{{ URL::to('/f') . '/' . Session::get('url') }}">{{ App\Download::where('hash', Session::get('file_hash'))->first()->name }}</a></p>
                 @endif
         </div>
 

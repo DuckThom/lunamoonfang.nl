@@ -100,7 +100,7 @@ class FileController extends Controller
 
                 $file->move(storage_path() . "/dl/", $hash);
 
-                return Redirect::intended('upload')->with(array('url' => $hash, 'name' => $name));
+                return Redirect::intended('upload')->with(array('file_hash' => $hash, 'name' => $name));
             }
         }
 
