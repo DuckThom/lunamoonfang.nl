@@ -9,16 +9,6 @@ class FileController extends Controller
 {
 
     /**
-     * This will check if the user is logged in.
-     * If the user is not logged in then they will be redirected to the login page
-     * as they are not allowed to access this Controller without authentication.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the image upload page if the user is logged in
      *
      * @return \Illuminate\View\View
