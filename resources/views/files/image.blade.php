@@ -1,4 +1,4 @@
-@extends('images.master')
+@extends('files.master')
 
 @section('page_title')
 	{{ $data->name }}
