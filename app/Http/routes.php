@@ -15,8 +15,8 @@
  * Image viewing
  */
  Route::group(['prefix' => 's'], function () {
-     Route::get('list', 'ImageController@listImages');
-     Route::get('overview', 'ImageController@overview');
+     Route::get('list', 'FileController@imagelist');
+     Route::get('overview', 'FileController@imageoverview');
      Route::get('{image_name}', 'ImageController@showImage');
      Route::get('{image_name}/full', 'ImageController@showFullImage');
 });
