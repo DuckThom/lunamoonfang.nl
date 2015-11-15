@@ -25,5 +25,5 @@ class Download extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = array('name', 'hash');
+	protected $fillable = array('name', 'hash', 'descr', 'author', 'version', 'path');
 }

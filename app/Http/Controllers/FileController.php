@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Redirect, Auth, Input, Session, Validator, Img, File, Response, App;
+use Redirect, Auth, Input, Session, Validator, Img, File, Response, App, Zipper, URL;
 
 use App\Image;
 use App\Download;
@@ -23,15 +23,11 @@ class FileController extends Controller
      *
      * @return mixed
      */
-    public function serve($hash)
+    public function serve($version, $name)
     {
-        $path = storage_path() . '/dl/' . $hash;
+        $file = Download::where(['version' => $version, 'name' => urldecode($name)])->firstOrFail();
 
-        if (file_exists($path)) {
-            return Response::download($path, Download::where('hash', $hash)->first()->name);
-        } else {
-            return App::abort(404, "File not found");
-        }
+        return Response::download($file->path, $file->name);
     }
 
     /**
@@ -88,19 +84,42 @@ class FileController extends Controller
             // Check if the file that was sent is actually an file
             $validator = Validator::make(
                 array('file' => $file),
-                array('file' => 'required')
+                array('file' => 'required|mimes:zip')
             );
 
             // Check whether the validation has failed or not
             if (!$validator->fails()) {
-                Download::create([
-                    'name' => $name,
-                    'hash' => $hash
-                ]);
+                $manifest = \Zipper::make($file->getRealPath())->getFileContent('manifest.json');
 
-                $file->move(storage_path() . "/dl/", $hash);
+                $zipValidator = Validator::make(
+                    ['manifest' => $manifest],
+                    ['manifest' => 'JSON']
+                );
 
-                return Redirect::intended('upload')->with(array('file_hash' => $hash, 'name' => $name));
+                if (!$zipValidator->fails()) {
+                    $manifest = json_decode($manifest);
+
+                    $path = storage_path() . "/dl/" . $manifest->name . "/" . $manifest->version;
+
+                    Download::create([
+                        'name'    => $name,
+                        'descr'   => $manifest->description,
+                        'hash'    => $hash,
+                        'version' => $manifest->version,
+                        'author'  => $manifest->author,
+                        'path'    => $path . "/" . $hash
+                    ]);
+
+                    $url  = URL::to('/f/' . $manifest->version . '/' . urlencode($name));
+
+                    $file->move($path, $hash);
+
+                    return Redirect::intended('upload')->with(array('file_name' => $name, 'url' => $url));
+                } else {
+                    return Redirect::back()->with(['type' => 'danger', 'message' => 'Invalid or missing manifest.json']);
+                }
+            } else {
+                Redirect::back()->with(['type' => 'danger', 'message' => 'Invalid file']);
             }
         }
 
