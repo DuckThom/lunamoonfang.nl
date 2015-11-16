@@ -23,8 +23,8 @@
 
                 <style type="text/css">
                         @import url(//fonts.googleapis.com/css?family=Titillium+Web:700,600,400,300,200);
-                        @import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css);
-                        @import url('/assets/css/font-awesome.min.css');
+                        @import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+                        @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
                         @import url('/assets/css/app.min.css');
                 </style>
 
@@ -41,7 +41,7 @@
                 @yield('extraCSS')
         </head>
 
-        <body @if(isset($polymer)) unresolved @endif>
+        <body {{ isset($polymer) ? 'unresolved' : '' }}>
                 <nav class="navbar navbar-luna header navbar-static-top">
                         <div class="container">
                                 <div class="navbar-header">
@@ -149,8 +149,8 @@
                 </div>
 
                 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-555b888107d2fe84" async="async"></script>
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                <!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-555b888107d2fe84" async="async"></script-->
 
                 @yield('extraJS')
         </body>
