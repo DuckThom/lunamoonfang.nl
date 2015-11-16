@@ -8,3 +8,5 @@ update.log
 /node_modules
 .env
 .vagrant
+Homestead.yaml
+Vagrantfile
