@@ -28,10 +28,10 @@ class AddVersioningColumnsToDownloadsTable extends Migration
     public function down()
     {
         Schema::table('downloads', function (Blueprint $table) {
-            $table->drop('version');
-            $table->drop('author');
-            $table->drop('descr');
-            $table->drop('path');
+            $table->dropColumn('version');
+            $table->dropColumn('author');
+            $table->dropColumn('descr');
+            $table->dropColumn('path');
         });
     }
 }
