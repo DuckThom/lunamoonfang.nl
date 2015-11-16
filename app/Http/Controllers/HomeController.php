@@ -50,7 +50,27 @@ class HomeController extends Controller
 	 */
 	public function projects()
 	{
-		return view('home.projects');
+		// Get my repo list from GitHub
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/users/DuckThom/repos?sort=pushed');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'DuckThom');
+
+		$json = curl_exec($ch);
+
+		// Get the HTTP code
+		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+
+		if ($code === 200) {
+			$github_projects = json_decode($json);
+		} else {
+			$github_projects = [];
+		}
+
+		return view('home.projects', ['github_projects' => $github_projects]);
 	}
 
 	/**

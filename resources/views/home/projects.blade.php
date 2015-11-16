@@ -8,118 +8,48 @@
 
 @section('content')
         <div class="text-center">
-                <div class="panel panel-default">
-                        <div class="panel-body">
-                                <div class="project-header">
-                                        <h3>lunamoonfang.nl <small>(<a href="https://github.com/DuckThom/lunamoonfang.nl" target="_blank">source</a>)</small></h3>
-                                </div>
+                @if (count($github_projects) > 0)
+                        @foreach($github_projects as $project)
+                                <?php
+                                    $created_at = new \DateTime($project->created_at);
+                                    $updated_at = new \DateTime($project->pushed_at);
+                                ?>
 
-                                <div class="row text-left">
-                                        <div class="col-sm-5">
-                                                <table class="table table-condensed">
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                                                <td>PHP, HTML5, JS, CSS3</td>
-                                                        </tr>
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                                                                <td>January 18th 2015</td>
-                                                        </tr>
-                                                </table>
-                                        </div>
-                                        <div class="col-sm-7">
-                                                <p class="lead">
-                                                        The website you are using right now!
-                                                </p>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
+                                <div class="panel panel-default">
+                                        <div class="panel-body">
+                                                <div class="project-header">
+                                                        <h3>{{ $project->name }} <small>(<a href="{{ $project->html_url }}" target="_blank">source</a>)</small></h3>
+                                                </div>
 
-                <div class="panel panel-default">
-                        <div class="panel-body">
-                                <div class="project-header">
-                                        <h3>wiringa.nl <small>(<a href="https://github.com/DuckThom/laravel-wtg" target="_blank">source</a>)</small></h3>
-                                </div>
-
-                                <div class="row text-left">
-                                        <div class="col-sm-5">
-                                                <table class="table table-condensed">
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                                                <td>PHP, HTML5, JS, CSS3</td>
-                                                        </tr>
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                                                                <td>December 21st 2014</td>
-                                                        </tr>
-                                                </table>
-                                        </div>
-                                        <div class="col-sm-7">
-                                                <p class="lead">
-                                                        The active wiringa.nl webshop, which I rewrote from CodeIgniter to Laravel 5.1.
-                                                        The old CodeIgniter version has a private repository on BitBucket but the current one is public on GitHub.
-                                                </p>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-
-                <div class="panel panel-default">
-                        <div class="panel-body">
-                                <div class="project-header">
-                                        <h3>Code Snippets <small>(<a href="https://github.com/DuckThom/code-wookies" target="_blank">source</a>)</small></h3>
-                                </div>
-
-                                <div class="row text-left">
-                                        <div class="col-sm-5">
-                                                <table class="table table-condensed">
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                                                <td>Bash, Perl, Python, JS</td>
-                                                        </tr>
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                                                                <td>December 21st 2014</td>
-                                                        </tr>
-                                                </table>
-                                        </div>
-                                        <div class="col-sm-7">
-                                                <p class="lead">
-                                                        Small shell scripts and config files.
-                                                </p>
+                                                <div class="row text-left">
+                                                        <div class="col-sm-5">
+                                                                <table class="table table-condensed">
+                                                                        <tr>
+                                                                                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
+                                                                                <td>{{ $project->language }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
+                                                                                <td>{{ $created_at->format('Y-m-d H:i:s') }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><strong><i class="fa fa-clock-o"></i> Updated</strong></td>
+                                                                                <td>{{ $updated_at->format('Y-m-d H:i:s') }}</td>
+                                                                        </tr>
+                                                                </table>
+                                                        </div>
+                                                        <div class="col-sm-7">
+                                                                <p class="lead">
+                                                                        {{ $project->description }}
+                                                                </p>
+                                                        </div>
+                                                </div>
                                         </div>
                                 </div>
-                        </div>
-                </div>
-
-                <div class="panel panel-default">
-                        <div class="panel-body">
-                                <div class="project-header">
-                                        <h3>Lunabot Telegram <small>(<a href="https://github.com/DuckThom/lunabot-telegram" target="_blank">source</a>)</small></h3>
-                                </div>
-
-                                <div class="row text-left">
-                                        <div class="col-sm-5">
-                                                <table class="table table-condensed">
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                                                <td>PHP</td>
-                                                        </tr>
-                                                        <tr>
-                                                                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                                                                <td>June 29th 2015</td>
-                                                        </tr>
-                                                </table>
-                                        </div>
-                                        <div class="col-sm-7">
-                                                <p class="lead">
-                                                        Telegram bot called @LunaBot written in PHP.<br />
-                                                </p>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
+                        @endforeach
+                @else
+                        <div class="alert alert-warning">Failed to fetch the repo list from GitHub <i class="fa fa-frown-o fa-2x"></i></div>
+                @endif
         </div>
 @stop
 
