@@ -148,7 +148,7 @@
                 function getMusicData() {
                         //Get the top 5 albums
                         $.ajax({
-                                url: "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
+                                url: "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
                                 dataType: "json",
                                 method: "GET",
                                 async: true,
@@ -187,7 +187,7 @@
 
                         // Get the top 5 tracks
                         $.ajax({
-                                url: "http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
+                                url: "https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
                                 dataType: "json",
                                 method: "GET",
                                 async: true,
@@ -226,7 +226,7 @@
 
                         // Get the current track
                         $.ajax({
-                                url: "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&limit=1",
+                                url: "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&limit=1",
                                 dataType: "json",
                                 method: "GET",
                                 async: true,
