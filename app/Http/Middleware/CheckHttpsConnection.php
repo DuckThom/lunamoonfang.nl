@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Closure, Redirect;
+use Closure;
 
 class CheckHttpsConnection
 {
@@ -17,10 +17,9 @@ class CheckHttpsConnection
     {
         if (!$request->secure())
         {
-            return Redirect::secure($request->path());
-        } else
-        {
-            return $next($request);
+            return redirect()->secure($request->getRequestUri());
         }
+
+        return $next($request);
     }
 }
