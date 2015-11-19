@@ -10,3 +10,5 @@ update.log
 .vagrant
 Homestead.yaml
 Vagrantfile
+/public/build
+/public/css
