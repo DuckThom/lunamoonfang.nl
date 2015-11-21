@@ -18,7 +18,7 @@
                                 <div class="panel panel-default">
                                         <div class="panel-body">
                                                 <div class="project-header">
-                                                        <h3>{{ $project->name }} <small>(<a href="{{ $project->html_url }}" target="_blank">source</a>)</small></h3>
+                                                        <h3><i class="fa {{ $project->fork ? 'fa-code-fork' : 'fa-github' }}"></i> {{ $project->name }} <small>(<a href="{{ $project->html_url }}" target="_blank">source</a>)</small></h3>
                                                 </div>
 
                                                 <div class="row text-left">
