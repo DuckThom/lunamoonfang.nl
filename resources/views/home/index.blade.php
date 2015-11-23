@@ -1,9 +1,16 @@
 @extends('master')
 
 @section('header')
-        <img src="/assets/image/headers/home.jpg" />
+    <div class="moon-header">
+        <div class="stars js-plaxify" data-xrange="60" data-yrange="60"></div>
+        <div class="moon js-plaxify" data-xrange="20" data-yrange="20">
+            <div class="crater1"></div>
+            <div class="crater2"></div>
+            <div class="crater3"></div>
+        </div>
+    </div>
 
-        <h1>lunamoonfang.nl</h1>
+    <h1>lunamoonfang.nl</h1>
 @stop
 
 @section('content')
@@ -26,6 +33,7 @@
 @stop
 
 @section('extraJS')
+    <script src="https://cdn.rawgit.com/cameronmcefee/plax/master/js/plax.js"></script>
 	<script>
 		!function(d,s,id){
 			var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
@@ -37,5 +45,26 @@
 				fjs.parentNode.insertBefore(js,fjs);
 			}
 		}(document,"script","twitter-wjs");
+
+        // this amazing header is made by http://codepen.io/agelber/
+        var $sky = $(".stars");
+
+        var skyHeight = $sky.innerHeight(),
+            skyWidth = $sky.innerWidth();
+            numberOfStars = (skyWidth * skyHeight) / 10000;
+        for (var i = 0; i < numberOfStars; i++) {
+          var starSize = Math.floor((Math.random() * 8) + 2),
+              starTop = Math.floor(Math.random() * skyHeight),
+              starLeft = Math.floor(Math.random() * skyWidth);
+          $('<div class="star">').css({
+            width: starSize,
+            height: starSize,
+            top: starTop,
+            left: starLeft
+          }).prependTo($sky);
+        }
+
+        $(".js-plaxify").plaxify();
+        $.plax.enable();
 	</script>
 @stop

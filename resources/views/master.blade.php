@@ -21,12 +21,7 @@
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
                 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-                <style type="text/css">
-                        @import url(//fonts.googleapis.com/css?family=Titillium+Web:700,600,400,300,200);
-                        @import url(//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
-                        @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
-                        @import url('/assets/css/app.min.css');
-                </style>
+                <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 
                 <script>
                         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -51,7 +46,7 @@
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                         </button>
-                                        <a href="{{ URL::to('/') }}" class=" navbar-brand">LUNA MOONFANG</a>
+                                        <a href="{{ URL::to('/') }}" class="navbar-brand">LUNA MOONFANG</a>
                                 </div>
 
                                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +56,7 @@
                                                 <li @if( Request::path() === 'music' ) class="active" @endif><a href="/music"> <i class="fa fa-music"></i> Music</a></li>
                                                 <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-user"></i> About</a></li>
                                                 <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
-                                                <li class=" @if( Request::path() === 'social' ) active @endif hidden-md hidden-lg"><a href="/social"><i class="fa fa-users"></i> Social</a></li>
+                                                <li class="{{ Request::path() === 'social' ? 'active' : '' }} hidden-md hidden-lg"><a href="/social"><i class="fa fa-users"></i> Social</a></li>
                                         </ul>
 
                                         <ul class="nav navbar-nav header-social pull-right hidden-sm hidden-xs">
