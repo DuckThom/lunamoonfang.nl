@@ -235,7 +235,7 @@
 
                                         if (typeof track['@attr'] != "undefined") {
                                                 // This code will be used if the user is currenly listening to something
-                                                var prefix	= "<i class='fa fa-play'></i> &nbsp; Now playing";
+                                                var prefix	= "<div class='sp sp-wave'></div> &nbsp; Now playing";
                                         } else {
                                                 // If the user is not listening to anything, show the latest track that they listened to
                                                 var prefix 	= "<i class='fa fa-pause'></i> &nbsp; Recently played";
