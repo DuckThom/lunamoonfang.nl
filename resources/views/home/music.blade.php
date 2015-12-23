@@ -17,7 +17,7 @@
 
                 <table class="font-light" id="topAlbumsTable">
                         <caption>
-                                <h3 class="font-light">Top 5 Albums<h3>
+                                <h3 class="font-light">Top 5 Albums ({{ $month }})<h3>
                         </caption>
 
                         <thead>
@@ -36,7 +36,7 @@
 
                 <table class="font-light" id="topTrackTable">
                         <caption>
-                                <h3 class="font-light">Top 5 Tracks<h3>
+                                <h3 class="font-light">Top 5 Tracks ({{ $month }})<h3>
                         </caption>
 
                         <thead>
@@ -148,7 +148,7 @@
                 function getMusicData() {
                         //Get the top 5 albums
                         $.ajax({
-                                url: "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
+                                url: "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=1month&limit=5",
                                 dataType: "json",
                                 method: "GET",
                                 async: true,
@@ -185,9 +185,9 @@
                                 }
                         });
 
-                        // Get the top 5 tracks
+                        // Get the top 5 tracks of the past month
                         $.ajax({
-                                url: "https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=overall&limit=5",
+                                url: "https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=duckthom&api_key=4540282aa7e002408e12ad79f027d8b9&format=json&period=1month&limit=5",
                                 dataType: "json",
                                 method: "GET",
                                 async: true,
