@@ -48,6 +48,7 @@ Route::get('projects', 'HomeController@projects');
 Route::get('licenses', 'HomeController@licenses');
 Route::get('clock', 'HomeController@clock');
 Route::get('social', 'HomeController@social');
+Route::get('sublist/{pageId?}', 'HomeController@sublist');
 
 Route::get('upload', ['middleware' => 'auth', 'uses' => 'FileController@index']);
 
