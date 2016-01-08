@@ -1,18 +1,28 @@
 @extends('master')
 
-@section('title')
-        Subscription list
+@section('header')
+    <img src="/assets/image/headers/music.jpg" />
+
+    <h1>Subscriptions</h1>
 @stop
 
 @section('content')
-    <?php //dd($sublist); ?>
     <div class="alert alert-success">Showing {{ $sublist->pageInfo->totalResults < $sublist->pageInfo->resultsPerPage ? $sublist->pageInfo->totalResults : $sublist->pageInfo->resultsPerPage }} out of {{ $sublist->pageInfo->totalResults }} channels</div>
 
     @foreach($sublist->items as $sub)
-        <div class="well">
-            <img src="{{$sub->snippet->thumbnails->default->url}}">
-            <a href="https://youtube.com/channel/{{$sub->snippet->resourceId->channelId}}">{{$sub->snippet->title}}</a>
+        <div class="media">
+            <div class="media-left">
+                <a href="https://youtube.com/channel/{{$sub->snippet->resourceId->channelId}}">
+                  <img class="media-object" src="{{$sub->snippet->thumbnails->default->url}}" alt="{{$sub->snippet->title}}">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{$sub->snippet->title}}</h4>
+                {!! nl2br($sub->snippet->description) !!}
+            </div>
         </div>
+
+        <hr />
     @endforeach
 
     <div class="row">
@@ -28,3 +38,11 @@
         </div>
     </div>
 @stop
+
+@section('extraCSS')
+    <style>
+        .media-body {
+            border-left: 2px solid #cecece;
+            padding-left: 10px;
+        }
+    </style>
