@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('header')
-    <img src="/assets/image/headers/music.jpg" />
+    <img src="/assets/image/headers/sublist.jpg" />
 
     <h1>Subscriptions</h1>
 @stop
