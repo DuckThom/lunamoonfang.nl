@@ -13,17 +13,19 @@
                         I'm {{ date_diff(date_create(date('Y-n-j')), date_create("1995-11-26"))->format('%y') }} years old and live in The Netherlands. <br />
                         Currently I am studying Software Engineering at Alfa College in Groningen.<br />
                         <br />
-                        My favorite programming languages are PHP, HTML5 and CSS3 (LESS) but I can also code in Java and JavaScript <br />
-                        I want to start learning Objective C and C# in the near future.<br />
+                        My favorite programming languages are PHP, HTML5, JS (jQuery) and CSS3 (LESS/SASS) but I can also code in Java<br />
+                        Currently I'm learning C# and Swift.<br />
                         <br />
                         I also play games quite a lot. <br />
                         The games I've been playing the most lately are Rocket League and GTA V but I also play games like Hearthstone, Halo, DOTA 2 and Diablo.<br />
                         <br />
                         For as far as music goes, I am a huge fan of <a href="http://monstercat.com">Monstercat</a> and Muse.<br />
                         My favorite radio station is <a href="http://3fm.nl" target="_blank">3FM</a> on the radio and <a href="https://twitch.tv/monstercat" target="_blank">Monstercat FM</a> on Twitch.<br />
+                        Electronic music is my favourite kind of music.<br />
                         <br />
                         Which brings me to the next point, YouTube. <br />
                         I'm subscribed to a lot of channels but <a href="https://youtube.com/hatfilms" target="_blank">Hat Films</a>, <a href="https://youtube.com/yogscastsips" target="_blank">Sips</a> and <a href="https://youtube.com/yogscast" target="_blank">The Yogscast</a> are my favorites.
+                        Click <a href="/sublist">here</a> for a list of channels that I am subscribed to.<br />
                         <br />
                 </p>
 

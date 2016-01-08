@@ -95,7 +95,7 @@ class HomeController extends Controller
 		return view('home.clock');
 	}
 
-        /**
+    /**
 	 * Social buttons like Google+, GitHub and YouTube
 	 *
 	 * @return \Illuminate\View\View
@@ -103,5 +103,30 @@ class HomeController extends Controller
 	public function social()
 	{
 		return view('home.social');
+	}
+
+	public function sublist($page_id = null)
+	{
+		$api_url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=UCj71iN5nbRNMErhPaq0qQjA&maxResults=10&" . ($page_id !== null ? "pageToken=" . urlencode($page_id) . "&" : "") . "key=" . env('YOUTUBE_KEY');
+
+		// Get my repo list from GitHub
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, $api_url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+
+		$json = curl_exec($ch);
+
+		// Get the HTTP code
+		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+
+		if ($code === 200) {
+			$sublist = json_decode($json);
+		} else {
+			$sublist = [];
+		}
+		return view('home.sublist', ['sublist' => $sublist]);
 	}
 }

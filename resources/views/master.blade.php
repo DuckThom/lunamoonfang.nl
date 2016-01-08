@@ -96,6 +96,7 @@
                                                         <li @if( Request::path() === 'info' ) class="active" @endif><a href="/info"><i class="fa fa-info-circle"></i> Info</a></li>
                                                         <li @if( Request::path() === 'projects' ) class="active" @endif><a href="/projects"><i class="fa @if( Request::path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a></li>
                                                         <li @if( Request::path() === 'licenses' ) class="active" @endif><a href="/licenses"><i class="fa fa-gavel"></i> Licenses</a></li>
+                                                        <li @if( Request::path() === 'sublist' ) class="active" @endif><a href="/sublist"><i class="fa fa-youtube-play"></i> YouTube subscriptions</a></li>
                                                         <li @if( Request::path() === 'clock' ) class="active" @endif><a href="/clock"><i class="fa fa-clock-o"></i> Clock</a></li>
 
                                                         <br />
