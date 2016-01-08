@@ -10,14 +10,6 @@
                 <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
                 <meta name="author" content="Thomas Wiringa">
 
-                @if (isset($polymer))
-                        <script src="/assets/bower/webcomponentsjs/webcomponents-lite.js"></script>
-
-                        <link rel="import" href="/assets/bower/paper-input/paper-input.html">
-                        <link rel="import" href="/assets/bower/paper-button/paper-button.html">
-                        <link rel="import" href="/assets/bower/paper-material/paper-material.html">
-                @endif
-
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
                 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -36,7 +28,7 @@
                 @yield('extraCSS')
         </head>
 
-        <body {{ isset($polymer) ? 'unresolved' : '' }}>
+        <body>
                 <nav class="navbar navbar-luna header navbar-static-top">
                         <div class="container">
                                 <div class="navbar-header">
@@ -124,7 +116,7 @@
                                 <div class="row">
                                         <div class="col-md-4 col-xs-6">
                                                 <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
-                                                2015 - Thomas Wiringa
+                                                2015-2016 - Thomas Wiringa
                                         </div>
                                         <div class="col-md-4 hidden-sm hidden-xs">
                                                 <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
@@ -146,7 +138,6 @@
 
                 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
                 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-                <!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-555b888107d2fe84" async="async"></script-->
 
                 @yield('extraJS')
         </body>
