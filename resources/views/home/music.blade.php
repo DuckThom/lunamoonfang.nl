@@ -12,6 +12,7 @@
                 <span id="track">Loading</span><br />
                 <span id="artist"></span><br />
                 <span id="album"></span>
+                <div id="album-art"></div>
 
                 <hr />
 
@@ -132,6 +133,17 @@
                         font-size: 30px;
                         letter-spacing: -2px;
                 }
+
+                #album-art {
+                    width: 300px;
+                    height: 300px;
+                    position: absolute;
+                    top: 0;
+                    opacity: 0.05;
+                    text-align: center;
+                    left: 50%;
+                    margin-left: -150px;
+                }
         </style>
 @stop
 
@@ -244,11 +256,17 @@
                                         var trackName 	= track.name;
                                         var artistName 	= track.artist['#text'];
                                         var albumName 	= (track.album['#text'] != '' ? "[" + track.album['#text'] + "]" : "");
+                                        var albumArt    = track.image[3]['#text'];
 
                                         $("#currentOrRecent").html(prefix);
-                                        $("#track").html(trackName);
-                                        $("#artist").html(artistName);
-                                        $("#album").html(albumName);
+
+                                        if ($("#track").html() != trackName) {
+                                            $("#track").html(trackName);
+                                            $("#artist").html(artistName);
+                                            $("#album").html(albumName);
+                                            $("#album-art").css('background-image', "url(" + albumArt + ")");
+                                        }
+
                                 },
                                 error: function(xhr, textStatus, errorThrown) {
                                         $("#track").html("Couldn\'t fetch the recent track. Reloading...");
