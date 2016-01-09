@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="alert alert-success">Showing {{ $sublist->pageInfo->totalResults < $sublist->pageInfo->resultsPerPage ? $sublist->pageInfo->totalResults : $sublist->pageInfo->resultsPerPage }} out of {{ $sublist->pageInfo->totalResults }} channels</div>
+    <div class="alert alert-success">Currently subscribed to {{ $sublist->pageInfo->totalResults }} channels</div>
 
     @foreach($sublist->items as $sub)
         <div class="media">

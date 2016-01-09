@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use File;
+
 class HomeController extends Controller
 {
 
@@ -105,28 +107,48 @@ class HomeController extends Controller
 		return view('home.social');
 	}
 
+	/**
+	 * Fetch and show a list of my YouTube subscriptions
+	 * @param  string $page_id pageToken
+	 * @return View
+	 */
 	public function sublist($page_id = null)
 	{
-		$api_url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=UCj71iN5nbRNMErhPaq0qQjA&maxResults=10&" . ($page_id !== null ? "pageToken=" . urlencode($page_id) . "&" : "") . "key=" . env('YOUTUBE_KEY');
+		$filePath = storage_path() . "/api/sublist.json";
+		$fileAge = (File::exists($filePath) ? date_diff( date_create(date('c', File::lastModified($filePath))), date_create(date('c')) )->format("%i") : 1440 );
 
-		// Get my repo list from GitHub
-		$ch = curl_init();
+		// Renew the data if the file is more than a day old
+		if (!File::exists($filePath) || $fileAge >= 1440)
+		{
+			$api_url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=UCj71iN5nbRNMErhPaq0qQjA&maxResults=10&" . ($page_id !== null ? "pageToken=" . urlencode($page_id) . "&" : "") . "key=" . env('YOUTUBE_KEY');
 
-		curl_setopt($ch, CURLOPT_URL, $api_url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+			// Get my repo list from GitHub
+			$ch = curl_init();
 
-		$json = curl_exec($ch);
+			curl_setopt($ch, CURLOPT_URL, $api_url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
 
-		// Get the HTTP code
-		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		curl_close($ch);
+			$json = curl_exec($ch);
 
-		if ($code === 200) {
-			$sublist = json_decode($json);
+			// Get the HTTP code
+			$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			curl_close($ch);
+
+			if ($code === 200) {
+				\Log::debug('Created/Updated YouTube API data file.');
+				File::put($filePath, $json);
+
+				$sublist = json_decode($json);
+			} else {
+				\Log::debug('YouTube API returned ' . $code . '. Loading from file...');
+				$sublist = json_decode(File::get($filePath));
+			}
 		} else {
-			$sublist = [];
+			\Log::debug('Loading YouTube API data from file... (File age: ' . $fileAge . ' minutes)');
+			$sublist = json_decode(File::get($filePath));
 		}
+
 		return view('home.sublist', ['sublist' => $sublist]);
 	}
 }
