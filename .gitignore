@@ -3,7 +3,7 @@
 Thumbs.db
 update.log
 .idea
-.idehelper.php
+_ide_helper.php
 .github_webhook_secret_key.php
 /node_modules
 .env
