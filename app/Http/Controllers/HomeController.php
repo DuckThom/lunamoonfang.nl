@@ -112,9 +112,9 @@ class HomeController extends Controller
 	 * @param  string $page_id pageToken
 	 * @return View
 	 */
-	public function sublist($page_id = null)
+	public function sublist($page_id = "")
 	{
-		$filePath = storage_path() . "/api/sublist.json";
+		$filePath = storage_path() . "/api/sublist" . $page_id . ".json";
 		$fileAge = (File::exists($filePath) ? date_diff( date_create(date('c', File::lastModified($filePath))), date_create(date('c')) )->format("%i") : 1440 );
 
 		// Renew the data if the file is more than a day old
