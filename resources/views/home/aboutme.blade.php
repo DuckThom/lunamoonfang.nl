@@ -41,10 +41,10 @@
 
                 <table class="table table-striped">
                         <tbody>
-                        <!--tr> //! Disabled because of broken mail setup, @lunamoonfang.nl is broken !//
+                        <tr>
                                 <td><strong>E-Mail</strong></td>
-                                <td><a href="http://www.google.com/recaptcha/mailhide/d?k=01UOM4bLqqrh1lWKQrLtUZOQ==&amp;c=940r5vAYbP8k3ozbU0kH0LvFYxu3EU34QNOZj_X-LWg=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501UOM4bLqqrh1lWKQrLtUZOQ\75\75\46c\75940r5vAYbP8k3ozbU0kH0LvFYxu3EU34QNOZj_X-LWg\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">c...</a><i class="fa fa-at"></i>lunamoonfang.nl</td>
-                        </tr-->
+                                <td><a href="mailto:contact@lunamoonfang.nl">contact<i class="fa fa-at"></i>lunamoonfang.nl</a></td>
+                        </tr>
                         <tr>
                                 <td><strong>Twitter</strong></td>
                                 <td><a href="https://twitter.com/intent/tweet?text=@Real_DuckThom" target="_blank"><i class="fa fa-at"></i>Real_DuckThom</a></td>
