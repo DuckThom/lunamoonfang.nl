@@ -18,8 +18,19 @@
     -moz-transition: all 0.2s;
     -webkit-transition: all 0.2s;
 
+    .navbar-brand img {
+      opacity: 0;
+      transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+    }
+
     a:hover {
       background: transparent !important;
+      text-shadow: 0 0 10px white;
+      transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -webkit-transition: all 0.2s;
     }
   }
 
@@ -31,6 +42,10 @@
       padding: 30px 20px;
       height: 100px;
       line-height: 40px;
+      text-shadow: 0 0 0 white;
+      transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -webkit-transition: all 0.2s;
 
       &:hover {
         background-color: $blue-dark;
@@ -71,6 +86,10 @@
 
     img {
       max-height: 90px;
+      opacity: 1;
+      transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -webkit-transition: all 0.2s;
     }
   }
 }
