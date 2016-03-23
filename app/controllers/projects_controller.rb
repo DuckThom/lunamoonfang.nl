@@ -2,8 +2,13 @@ require 'http'
 
 class ProjectsController < ApplicationController
   def index
-    json = HTTP.get('https://api.github.com/users/DuckThom/repos?sort=pushed').to_s
+    response = HTTP.get('https://api.github.com/users/DuckThom/repos?sort=pushed')
 
-    @json_data = JSON.parse(json)
+    if response.code == 200
+      @json_data = JSON.parse(response.to_s)
+    else
+      @json_data = {}
+    end
+
   end
 end

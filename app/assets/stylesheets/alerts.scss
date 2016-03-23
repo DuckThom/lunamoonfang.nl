@@ -1,0 +1,26 @@
+@import 'colors';
+
+.alert {
+  padding: 20px 30px;
+  font-size: 20px;
+  line-height: 50px;
+
+  &.alert-info {
+    background-color: $blue-base;
+    color: white;
+  }
+
+  &.alert-warning {
+    background-color: $yellow-light;
+  }
+
+  &.alert-danger {
+    background-color: $red-base;
+    color: white;
+  }
+
+  &.alert-success {
+    background-color: $green-base;
+    color: white;
+  }
+}

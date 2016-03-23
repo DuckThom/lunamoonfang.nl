@@ -10,35 +10,39 @@
 
     <hr />
 
-    <% @json_data.each do |project| %>
-      <div class="large-6 columns project">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="project-header">
-              <i class="fa <%= project['fork'].to_s ? 'fa-code-fork' : 'fa-github' %>"></i> <a href="<%= project['html_url'].to_s %>" target="_blank"><%= project['name'].to_s %></a>
-            </div>
+    <% if @json_data.empty? %>
+        <div class="alert alert-warning text-center">Failed to fetch the repo list from GitHub <i class="fa fa-frown-o fa-2x"></i></div>
+    <% else %>
+      <% @json_data.each do |project| %>
+        <div class="large-6 columns project">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="project-header">
+                <i class="fa <%= project['fork'].to_s ? 'fa-code-fork' : 'fa-github' %>"></i> <a href="<%= project['html_url'].to_s %>" target="_blank"><%= project['name'].to_s %></a>
+              </div>
 
-            <div class="project-description">
-              <%= project['description'].to_s.length == 0 ? 'No description available' : project['description'].to_s %>
-            </div>
+              <div class="project-description">
+                <%= project['description'].to_s.length == 0 ? 'No description available' : project['description'].to_s %>
+              </div>
 
-            <table class="table table-condensed">
-              <tr>
-                <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                <td><%= project['language'].to_s %></td>
-              </tr>
-              <tr>
-                <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
-                <td><%= Time.parse(project['created_at']).strftime('%Y-%m-%d %H:%M:%S').to_s %></td>
-              </tr>
-              <tr>
-                <td><strong><i class="fa fa-clock-o"></i> Updated</strong></td>
-                <td><%= Time.parse(project['pushed_at']).strftime('%Y-%m-%d %H:%M:%S').to_s %></td>
-              </tr>
-            </table>
+              <table class="table table-condensed">
+                <tr>
+                  <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
+                  <td><%= project['language'].to_s %></td>
+                </tr>
+                <tr>
+                  <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
+                  <td><%= Time.parse(project['created_at']).strftime('%Y-%m-%d %H:%M:%S').to_s %></td>
+                </tr>
+                <tr>
+                  <td><strong><i class="fa fa-clock-o"></i> Updated</strong></td>
+                  <td><%= Time.parse(project['pushed_at']).strftime('%Y-%m-%d %H:%M:%S').to_s %></td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
