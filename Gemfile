@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Foundation CSS Framework
 gem 'foundation-rails'
 
+# 3rd Party HTTP client
+gem 'http'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,6 +6,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'about' => 'about#index'
+  get 'projects' => 'projects#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
