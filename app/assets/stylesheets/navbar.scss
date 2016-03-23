@@ -1,0 +1,76 @@
+@import 'colors';
+
+.luna-nav {
+  background-color: $deep-purple-base;
+  color: white;
+  padding: inherit;
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  left: 0;
+  transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+
+  &.top {
+    background-color: transparent;
+    transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+
+    a:hover {
+      background: transparent !important;
+    }
+  }
+
+  ul {
+    background-color: transparent;
+
+    a {
+      color: white;
+      padding: 30px 20px;
+      height: 100px;
+      line-height: 40px;
+
+      &:hover {
+        background-color: $blue-dark;
+      }
+    }
+
+    .submenu {
+      a {
+        padding: 10px;
+        height: inherit;
+      }
+    }
+  }
+
+  .social-buttons {
+    font-size: 36px;
+
+    li {
+      border: none;
+
+      a {
+        padding: 30px 10px;
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  .navbar-brand {
+    padding: 0 20px;
+    border: none;
+
+    a {
+      padding: 5px 20px;
+    }
+
+    img {
+      max-height: 90px;
+    }
+  }
+}

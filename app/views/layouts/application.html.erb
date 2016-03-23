@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lunamoonfang.nl - <%= content_for?(:title) ? yield(:title) : '' %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+  <nav class="top-bar luna-nav top" id="navigation">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="navbar-brand">
+          <a href="/">
+            <%= image_tag 'luna-logo2.png' %>
+          </a>
+        </li>
+        <li class="hide-for-small-only"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="/about"><i class="fa fa-info"></i> About</a></li>
+        <li><a href="/projects"><i class="fa fa-folder"></i> Projects</a></li>
+      </ul>
+    </div>
+
+    <div class="top-bar-right show-for-large">
+      <ul class="menu social-buttons">
+        <li><a target="_blank" href="https://github.com/DuckThom"><i class="fa fa-github"></i></a></li>
+        <li><a target="_blank" href="https://plus.google.com/+ThomasWiringa"><i class="fa fa-google-plus"></i></a></li>
+        <li><a target="_blank" href="https://last.fm/user/DuckThom"><i class="fa fa-lastfm"></i></a></li>
+        <li><a target="_blank" href="https://steamcommunity.com/id/Luna_Moonfang"><i class="fa fa-steam"></i></a></li>
+        <li><a target="_blank" href="https://twitter.com/real_DuckThom"><i class="fa fa-twitter"></i></a></li>
+        <li><a target="_blank" href="https://youtube.com/user/DuckThom"><i class="fa fa-youtube"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="star-wrapper">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </div>
+
+  <div class="page-title-normal show-for-large">
+    Luna // <%= content_for?(:title) ? yield(:title) : 'untitled' %>
+  </div>
+
+  <div class="page-title-small show-for-medium-only">
+    Luna // <%= content_for?(:title) ? yield(:title) : 'untitled' %>
+  </div>
+
+  <div class="page-title-tiny show-for-small-only">
+    Luna // <%= content_for?(:title) ? yield(:title) : 'untitled' %>
+  </div>
+
+  <div class="site-logo show-for-large">
+    <%= image_tag 'luna-logo2.png' %>
+  </div>
+
+  <div class="arrow bounce"></div>
+
+  <!-- Push the content to a sensible height -->
+  <div class="content-pusher"></div>
+
+  <%= yield %>
+
+  <div class="content-separator"></div>
+
+  <footer class="text-center">
+    <div class="row">
+      <div class="large-4 columns">
+        <p class="lead"><i class="fa fa-pencil"></i> Design</p>
+        Thomas Wiringa - 2016
+      </div>
+      <div class="large-4 columns show-for-large">
+        <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
+        <ul class="list-unstyled">
+          <li><a href="http://foundation.zurb.com">Foundation</a></li>
+          <li><a href="http://rubyonrails.org">Ruby on Rails</a></li>
+          <li><a href="http://jquery.com">jQuery</a></li>
+          <li><a href="http://fontawesome.io/">Font Awesome</a></li>
+        </ul>
+      </div>
+      <div class="large-4 columns">
+        <p class="lead"><i class="fa fa-gavel"></i> Licenses</p>
+        This website is licensed under the <a href="https://github.com/DuckThom/lunamoonfang.nl-ruby/blob/master/LICENSE">MIT License</a><br />
+        The other licenses can be found <a href="/licenses">here</a>
+      </div>
+    </div>
+  </footer>
+
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+
+  <script>
+    !function(d,s,id){
+      var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+      if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src=p+"://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,"script","twitter-wjs");
+
+    $('.star-wrapper').attr('style', 'height: ' + $(document).height()  + 'px;');
+    setInterval(function () {
+      $('.star-wrapper').attr('style', 'height: ' + $(document).height()  + 'px;');
+    }, 500);
+
+    function checkNavbarOffset() {
+      var navbar = $('.luna-nav');
+      var logo = $('.site-logo img');
+      var title = $('.page-title-tiny');
+      var arrow = $('.arrow');
+
+      if ($(window).width() >= 640) {
+        if (logo.offset().top > navbar.offset().top + navbar.height()) {
+          if (!navbar.hasClass('top')) {
+            navbar.addClass('top');
+          }
+        } else {
+          if (navbar.hasClass('top')) {
+            navbar.removeClass('top');
+          }
+        }
+      } else {
+        if (navbar.offset().top < ($(window).height() * 0.4) - navbar.height()) {
+          if (!navbar.hasClass('top')) {
+            navbar.addClass('top');
+          }
+        } else {
+          if (navbar.hasClass('top')) {
+            navbar.removeClass('top');
+          }
+        }
+      }
+    }
+
+    checkNavbarOffset();
+
+    if ($(window).width() < 640) {
+      setInterval(function() {
+        checkNavbarOffset();
+      }, 500);
+    }
+
+    $(document).on('scroll', function() {
+      checkNavbarOffset();
+    });
+  </script>
+
+  <%= content_for?(:extra_js) ? yield(:extra_js) : '' %>
+
+  </body>
+</html>

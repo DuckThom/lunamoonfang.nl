@@ -1,0 +1,22 @@
+@import 'colors';
+
+footer {
+  position: relative;
+  padding: 50px 0;
+  color: white;
+  background-color: $deep-purple-base;
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: white;
+    border-bottom: 1px dotted white;
+
+    &:hover {
+      color: white;
+      border-bottom: none;
+    }
+  }
+}

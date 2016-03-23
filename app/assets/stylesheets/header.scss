@@ -1,0 +1,24 @@
+.header-image {
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+
+  & > img {
+    min-height: 300px;
+    width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    margin-left: -960px;
+  }
+
+  & > h1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;//#00BCD4;
+    text-shadow: 0 0 5px #000;
+    font-size: 100px;
+    font-weight: 100;
+  }
+}

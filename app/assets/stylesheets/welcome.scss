@@ -1,0 +1,63 @@
+@import 'spinner';
+
+.twitter-block {
+  text-align: center;
+
+  iframe {
+    position: relative !important;
+    top: 10px;
+  }
+
+  margin-bottom: 30px;
+}
+
+.lastfm-block {
+  text-align: center;
+
+  .music-wrapper {
+    min-height: 275px;
+  }
+
+  .font-light {
+    font-weight: 300;
+  }
+
+  #currentOrRecent {
+    font-weight: 300;
+    font-size: 25px;
+    letter-spacing: -2px;
+  }
+
+  #track {
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: -2px;
+  }
+
+  #track::after {
+    content: "by";
+    display: block;
+    height: 0px;
+    margin-bottom: -10px;
+    font-size: 30px;
+    font-weight: 200;
+    font-style: italic;
+  }
+
+  #artist {
+    font-weight: 400;
+    font-size: 30px;
+  }
+
+  #album {
+    font-weight: 200;
+    font-size: 30px;
+    letter-spacing: -2px;
+  }
+
+  #album-art {
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+  }
+}

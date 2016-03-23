@@ -1,0 +1,43 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+ *= require application
+ */
+
+@import url("//fonts.googleapis.com/css?family=Titillium+Web:700,600,400,300,200");
+
+html, body {
+    font-family: "Titillium Web", sans-serif !important;
+    max-width: 100%;
+    background: #15294e;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.content-pusher {
+    height: 95vh;
+}
+
+.content-separator {
+    height: 200px;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    background-color: #ECEFF1;
+    padding: 50px 0;
+}
