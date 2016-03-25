@@ -143,14 +143,13 @@
 
     checkNavbarOffset();
 
-    if ($(window).width() < 640) {
-      setInterval(function() {
+    $(document).on({
+      'touchmove': function() {
         checkNavbarOffset();
-      }, 500);
-    }
-
-    $(document).on('scroll', function() {
-      checkNavbarOffset();
+      },
+      'scroll', function() {
+        checkNavbarOffset();
+      }
     });
   </script>
 
