@@ -2,7 +2,7 @@ class UploadController < ApplicationController
   include UploadHelper
 
   def image
-    redirect_to '/' and return if not logged_in?
+    redirect_to :back unless logged_in?
 
     # Find an unused hash
     hash = generate_hash

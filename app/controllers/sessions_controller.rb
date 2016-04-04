@@ -1,9 +1,13 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to :back unless not logged_in?
+
     @account = Account.new
   end
 
   def create
+    redirect_to :back unless not logged_in?
+
     input = params[:account]
     user = Account.find_by(username: input['username'])
 
@@ -19,7 +23,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if logged_in?
+    redirect_to :back unless logged_in?
+
+    log_out
     redirect_to root_url
   end
 end
