@@ -1,0 +1,14 @@
+form {
+  label {
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
+
+  .form-input {
+    border: none;
+
+    &:focus {
+      border: none;
+    }
+  }
+}

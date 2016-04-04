@@ -1,0 +1,39 @@
+<% content_for :title do %>
+    Login
+<% end %>
+
+<div class="content">
+  <div class="row">
+    <div class="text-center">
+      <h3>Login</h3>
+    </div>
+
+    <hr />
+
+    <%= form_for(:account) do |f| %>
+        <%= token_tag %>
+
+        <div class="row">
+          <div class="small-6 small-centered columns">
+            <% if !flash['error'].nil? %>
+              <div class="alert alert-danger"><%= flash['error'] %></div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.label(:username, 'Username') %>
+              <%= f.text_field(:username, { :placeholder => 'Username', :required => true, :class => 'form-input' }) %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label(:password, 'Username') %>
+              <%= f.password_field(:password, { :placeholder => 'Password', :required => true, :class => 'form-input' }) %>
+            </div>
+
+            <hr />
+
+            <button type="submit" class="large expanded success button">Submit</button>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<% content_for :title do %>
+    Account
+<% end %>
+
+<div class="content">
+  <div class="row">
+    <div class="text-center">
+      <h3>Upload</h3>
+    </div>
+
+    <hr />
+
+    <%= form_tag('upload/image', :multipart => true) do %>
+        <label for="file">Select File</label>
+          <%= file_field 'upload', 'file' %>
+        <%= submit_tag 'Submit' %>
+    <% end %>
+  </div>
+</div>
