@@ -10,10 +10,15 @@
 
     <hr />
 
-    <%= form_tag('upload/image', :multipart => true) do %>
-        <label for="file">Select File</label>
-          <%= file_field 'upload', 'file' %>
-        <%= submit_tag 'Submit' %>
-    <% end %>
+    <div class="row">
+      <div class="small-6 small-centered columns">
+        <%= form_tag('upload/image', :multipart => true) do %>
+            <label for="file">Select File</label>
+            <%= file_field 'upload', 'file' %>
+
+            <button type="submit" class="large expanded success button">Upload</button>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
