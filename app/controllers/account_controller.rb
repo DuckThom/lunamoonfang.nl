@@ -1,5 +1,5 @@
 class AccountController < ApplicationController
   def index
-    redirect_to :back unless logged_in?
+    redirect_to '/login' unless logged_in?
   end
 end
