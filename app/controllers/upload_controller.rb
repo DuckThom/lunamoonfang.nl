@@ -26,7 +26,7 @@ class UploadController < ApplicationController
       hash = generate_hash
     end
 
-    #Image.save_file(params[:upload], hash)
+    Image.save_file(params[:upload], hash)
 
     render json: '/image/' + hash
   end
