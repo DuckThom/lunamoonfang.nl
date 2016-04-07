@@ -18,7 +18,7 @@ class UploadController < ApplicationController
   end
 
   def screenshot
-    redirect_to '/' and return unless params[:key] == ENV['SECRET_UPLOAD_KEY']
+    redirect_to '/' and return unless params[:key] == '$%YW$$%sb57aN7!@#kxd#@(m47b4567a4b57$%'
 
     # Find an unused hash
     hash = generate_hash
