@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   get 'image/:id' => 'image#show'
 
-  # Todo: check auth
   get 'account'   => 'account#index'
   delete 'logout' => 'sessions#destroy'
   post 'upload/image' => 'upload#image'
+  post 'upload/screenshot' => 'upload#screenshot'
 
 
   # Example of regular route:

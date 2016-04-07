@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
   def new
-    redirect_to '/' unless not logged_in?
+    redirect_to '/' and return unless not logged_in?
 
     @account = Account.new
   end
 
   def create
-    redirect_to '/' unless not logged_in?
+    redirect_to '/' and return unless not logged_in?
 
     input = params[:account]
     user = Account.find_by(username: input['username'])
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    redirect_to '/' unless logged_in?
+    redirect_to '/' and return unless logged_in?
 
     log_out
     redirect_to root_url
