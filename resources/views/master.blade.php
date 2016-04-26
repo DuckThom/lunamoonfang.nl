@@ -165,9 +165,11 @@
 
         if ($(links).hasClass('collapsed'))
         { // Show the mobile navigation
+            $(links).fadeIn(200);
             $(links).removeClass('collapsed');
         } else
         { // Hide the mobile navigation
+            $(links).fadeOut(200);
             $(links).addClass('collapsed');
         }
     });
