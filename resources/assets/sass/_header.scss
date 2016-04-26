@@ -1,0 +1,158 @@
+@import 'colors';
+
+@mixin page-title {
+  color: white;
+  text-align: center;
+  font-weight: 100;
+
+  -moz-animation-name: pulse;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 3s;
+
+  -webkit-animation-name: pulse;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 3s;
+
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+.home-header {
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.header-content {
+  align-items: center;
+}
+
+.star-wrapper {
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 1000px) {
+  .title {
+    @include page-title;
+
+    font-size: 80px;
+    letter-spacing: 4px;
+  }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 600px) {
+  .title {
+    @include page-title;
+
+    left: 0;
+    right: 0;
+    font-size: 60px;
+    letter-spacing: 1px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .title {
+    @include page-title;
+
+    left: 0;
+    right: 0;
+    font-size: 40px;
+    letter-spacing: 1px;
+  }
+}
+
+.logo {
+  opacity: 1;
+  transition: all 0.2s;
+
+  &.hidden {
+    img {
+      opacity: 0;
+      transition: all 0.2s;
+    }
+  }
+
+  img {
+    max-height: 300px;
+    transition: all 0.2s;
+  }
+}
+
+.stars {
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  height: 150%;
+  background: url("/assets/image/header/small-stars.png") repeat;
+
+  animation: animStar 200s linear infinite;
+  -moz-animation: animStar 200s linear infinite;
+  -webkit-animation: animStar 200s linear infinite;
+}
+
+.stars2 {
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  height: 150%;
+  background: url("/assets/image/header/medium-stars.png") repeat;
+
+  animation: animStar 150s linear infinite;
+  -moz-animation: animStar 150s linear infinite;
+  -webkit-animation: animStar 150s linear infinite;
+}
+
+.stars3 {
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  height: 150%;
+  background: url("/assets/image/header/big-stars.png") repeat;
+  //box-shadow: $shadows-big;
+
+  animation: animStar 100s linear infinite;
+  -moz-animation: animStar 100s linear infinite;
+  -webkit-animation: animStar 100s linear infinite;
+}
+
+@-moz-keyframes animStar {
+  from { -moz-transform: translate3d(0px, 0%, 0px) }
+  to { -moz-transform: translate3d(0px, -50%, 0px) }
+}
+
+@-webkit-keyframes animStar {
+  from { -webkit-transform: translate3d(0px, 0px, 0px) }
+  to { -webkit-transform: translate3d(0px, -50%, 0px) }
+}
+
+@keyframes animStar {
+  from { transform: translate3d(0px, 0px, 0px) }
+  to { transform: translate3d(0px, -50%, 0px) }
+}
+
+@-moz-keyframes pulse {
+  0% { text-shadow: 0 0 15px black; }
+  50% { text-shadow: 0 0 15px white; }
+  100% { text-shadow: 0 0 15px black; }
+}
+@-webkit-keyframes pulse {
+  0% { text-shadow: 0 0 15px black; }
+  50% { text-shadow: 0 0 15px white; }
+  100% { text-shadow: 0 0 15px black; }
+}
+@keyframes pulse {
+  0% { text-shadow: 0 0 15px black; }
+  50% { text-shadow: 0 0 15px white; }
+  100% { text-shadow: 0 0 15px black; }
+}

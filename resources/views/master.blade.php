@@ -37,91 +37,107 @@
 
 <body>
 <nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a href="{{ url('/') }}">
-                <img src="{{ asset('assets/image/logo.png') }}" alt="Site logo">
-            </a>
-        </div>
+    <div class="navbar-brand">
+        <a href="{{ url('/') }}">
+            <img src="{{ asset('assets/image/logo.png') }}" alt="Site logo">
+        </a>
+    </div>
 
-        <div class="navbar-links collapsed" id="navLinks">
-            <ul class="navbar-links-list">
-                <li @if( request()->path() === '/' ) class="active" @endif>
-                    <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                </li>
-                <li @if( request()->path() === 'music' ) class="active" @endif>
-                    <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
-                </li>
-                <li @if( request()->path() === 'info' ) class="active" @endif>
-                    <a href="{{ url('about') }}"><i class="fa fa-user"></i> About</a>
-                </li>
-                <li @if( request()->path() === 'projects' ) class="active" @endif>
-                    <a href="{{ url('projects') }}"><i class="fa @if( request()->path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a>
-                </li>
-                <li class="{{ request()->path() === 'social' ? 'active' : '' }} hidden-xs hidden-md hidden-lg">
-                    <a href="{{ url('social') }}"><i class="fa fa-users"></i> Social</a>
-                </li>
+    <div class="navbar-links collapsed" id="navLinks">
+        <ul class="navbar-links-list">
+            <li @if( request()->path() === '/' ) class="active" @endif>
+                <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li @if( request()->path() === 'music' ) class="active" @endif>
+                <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
+            </li>
+            <li @if( request()->path() === 'info' ) class="active" @endif>
+                <a href="{{ url('about') }}"><i class="fa fa-user"></i> About</a>
+            </li>
+            <li @if( request()->path() === 'projects' ) class="active" @endif>
+                <a href="{{ url('projects') }}"><i class="fa @if( request()->path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a>
+            </li>
+            <li class="{{ request()->path() === 'social' ? 'active' : '' }} hidden-xs hidden-md hidden-lg">
+                <a href="{{ url('social') }}"><i class="fa fa-users"></i> Social</a>
+            </li>
 
-                <li class="mobile-social-icons">
-                    <ul class="mobile-social-icons-list">
-                        <li>
-                            <a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <ul class="navbar-social-icons hidden-sm hidden-xs">
-            <li>
-                <a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i></a>
-            </li>
-            <li>
-                <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
-            </li>
-            <li>
-                <a href="https://last.fm/user/DuckThom" target="_blank"><i class="fa fa-lastfm"></i></a>
-            </li>
-            <li>
-                <a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank"><i class="fa fa-steam"></i></a>
-            </li>
-            <li>
-                <a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li>
-                <a href="https://youtube.com/user/DuckThom" target="_blank"><i class="fa fa-youtube"></i></a>
+            <li class="mobile-social-icons">
+                <ul class="mobile-social-icons-list">
+                    <li>
+                        <a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                </ul>
             </li>
         </ul>
+    </div>
 
-        <div class="navbar-toggle visible-xs">
-            <button type="button" class="navbar-toggle-button" data-target="#navLinks">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </button>
-        </div>
+    <ul class="navbar-social-icons hidden-sm hidden-xs">
+        <li>
+            <a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i></a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
+        </li>
+        <li>
+            <a href="https://last.fm/user/DuckThom" target="_blank"><i class="fa fa-lastfm"></i></a>
+        </li>
+        <li>
+            <a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank"><i class="fa fa-steam"></i></a>
+        </li>
+        <li>
+            <a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li>
+            <a href="https://youtube.com/user/DuckThom" target="_blank"><i class="fa fa-youtube"></i></a>
+        </li>
+    </ul>
+
+    <div class="navbar-toggle visible-xs">
+        <button type="button" class="navbar-toggle-button" data-target="#navLinks">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
     </div>
 </nav>
 
-<div class="backdrop hidden"></div>
+<header class="{{ request()->path() === "/" ? 'home-header' : 'sub-header' }}">
+    <div class="star-wrapper">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="container header-content">
+        <div class="column-1 text-center title">
+            {{ $title or 'untitled' }}
+        </div>
+
+        <div class="column-2 text-center logo">
+            <img src="{{ asset('assets/image/logo.png') }}" alt="Site Logo">
+        </div>
+    </div>
+</header>
 
 <div class="content">
-    @yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
 </div>
 
-<footer class="container footer">
-    <hr/>
+<div class="separator"></div>
 
-    <div class="row">
-        <div class="col-md-4 col-xs-6">
+<footer class="footer">
+    <div class="container">
+        <div class="column-1">
             <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
             2015-2016 - Thomas Wiringa
         </div>
-        <div class="col-md-4 hidden-sm hidden-xs">
+        <div class="column-1">
             <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
             <ul class="list-unstyled">
                 <li><a href="http://laravel.com">Laravel Framework</a></li>
@@ -129,10 +145,9 @@
                 <li><a href="http://fontawesome.io/">Font Awesome</a></li>
             </ul>
         </div>
-        <div class="col-md-4 col-xs-6">
+        <div class="column-1">
             <p class="lead"><i class="fa fa-gavel"></i> Licenses</p>
-            This website is licensed under the <a
-                    href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE">MIT License</a><br/>
+            This website is licensed under the <a href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE">MIT License</a><br/>
             The other licenses can be found <a href="{{ url('licenses') }}">here</a>
         </div>
     </div>
@@ -165,11 +180,11 @@
 
         if ($(links).hasClass('collapsed'))
         { // Show the mobile navigation
-            $(links).fadeIn(200);
+            //$(links).fadeIn(200);
             $(links).removeClass('collapsed');
         } else
         { // Hide the mobile navigation
-            $(links).fadeOut(200);
+            //$(links).fadeOut(200);
             $(links).addClass('collapsed');
         }
     });

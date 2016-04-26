@@ -1,0 +1,17 @@
+@import "colors";
+
+.footer {
+  text-align: center;
+  background-color: $deep-purple-500;
+  color: white;
+  padding: 40px 0;
+
+  a {
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}

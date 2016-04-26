@@ -1,0 +1,42 @@
+@mixin column($size) {
+  flex-grow: $size;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 97%;
+  margin: 0 auto;
+
+  @for $i from 1 through 12 {
+    & > .column-#{$i} {
+      @include column($i);
+    }
+  }
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+hr {
+  border: 1px solid rgba(255,255,255, 0.38);
+  margin: 10px 0;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: #{6/$i}em;
+    font-weight: 300;
+  }
+}

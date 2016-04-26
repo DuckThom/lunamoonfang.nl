@@ -1,39 +1,28 @@
-@extends('master')
+@extends('master', ['title' => 'Home'])
 
-@section('header')
-    <div class="moon-header">
-        <div class="stars js-plaxify" data-xrange="60" data-yrange="60"></div>
-        <div class="moon js-plaxify" data-xrange="20" data-yrange="20">
-            <div class="crater1"></div>
-            <div class="crater2"></div>
-            <div class="crater3"></div>
+@section('content')
+    <div class="column-2">
+        <div class="text-center about-site">
+            <h3>lunamoonfang.nl</h3>
+            <p>
+                Welcome, this site is made by DuckThom/Luna Moonfang, also known as Thomas Wiringa. <br />
+                It has been made using Laravel, jQuery and Font Awesome. <br />
+                The styling on this site is all custom made by me, no Bootstrap, no Foundation, no anything. <br />
+                Just pure custom CSS. <br />
+
+            </p>
         </div>
     </div>
 
-    <h1>lunamoonfang.nl</h1>
-@stop
-
-@section('content')
-        <div class="text-center">
-                <p id="aboutSite">
-                        Welcome, this site is made by DuckThom, also known as Thomas Wiringa.<br />
-                        It is made using Laravel, Bootstrap, jQuery and Font Awesome.<br />
-                </p>
+    <div class="column-2">
+        <div class="text-center twitter-block">
+            <h3>Luna Moonfang on Twitter</h3>
+            <a class="twitter-timeline" href="https://twitter.com/Real_DuckThom" data-widget-id="513017249758593024">Loading timeline... <i class="fa fa-circle-o-notch fa-spin"></i></a>
         </div>
-
-        <div class="row">
-        	<div class="col-md-6 col-md-offset-3">
-        		<div class="text-center">
-        			<h3>Luna Moonfang on Twitter</h3>
-        			<small>mostly retweets and youtube videos</small><br />
-        			<a class="twitter-timeline" href="https://twitter.com/Real_DuckThom" data-widget-id="513017249758593024">Loading timeline... <i class="fa fa-circle-o-notch fa-spin"></i></a>
-        		</div>
-        	</div>
-        </div>
+    </div>
 @stop
 
 @section('extraJS')
-    <script src="https://cdn.rawgit.com/cameronmcefee/plax/master/js/plax.js"></script>
 	<script>
 		!function(d,s,id){
 			var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
@@ -45,26 +34,5 @@
 				fjs.parentNode.insertBefore(js,fjs);
 			}
 		}(document,"script","twitter-wjs");
-
-        // this amazing header is made by http://codepen.io/agelber/
-        var $sky = $(".stars");
-
-        var skyHeight = $sky.innerHeight(),
-            skyWidth = $sky.innerWidth();
-            numberOfStars = (skyWidth * skyHeight) / 10000;
-        for (var i = 0; i < numberOfStars; i++) {
-          var starSize = Math.floor((Math.random() * 8) + 2),
-              starTop = Math.floor(Math.random() * skyHeight),
-              starLeft = Math.floor(Math.random() * skyWidth);
-          $('<div class="star">').css({
-            width: starSize,
-            height: starSize,
-            top: starTop,
-            left: starLeft
-          }).prependTo($sky);
-        }
-
-        $(".js-plaxify").plaxify();
-        $.plax.enable();
 	</script>
 @stop
