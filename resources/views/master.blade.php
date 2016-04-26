@@ -39,26 +39,44 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-brand">
-            <a href="{{ url('/') }}" class="navbar-brand">LUNA MOONFANG</a>
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('assets/image/logo.png') }}" alt="Site logo">
+            </a>
         </div>
 
-        <ul class="navbar-links collapsed" id="navLinks">
-            <li @if( request()->path() === '/' ) class="active" @endif>
-                <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-            </li>
-            <li @if( request()->path() === 'music' ) class="active" @endif>
-                <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
-            </li>
-            <li @if( request()->path() === 'info' ) class="active" @endif>
-                <a href="{{ url('about') }}"><i class="fa fa-user"></i> About</a>
-            </li>
-            <li @if( request()->path() === 'projects' ) class="active" @endif>
-                <a href="{{ url('projects') }}"><i class="fa @if( request()->path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i>Projects</a>
-            </li>
-            <li class="{{ request()->path() === 'social' ? 'active' : '' }} hidden-md hidden-lg">
-                <a href="{{ url('social') }}"><i class="fa fa-users"></i> Social</a>
-            </li>
-        </ul>
+        <div class="navbar-links collapsed" id="navLinks">
+            <ul class="navbar-links-list">
+                <li @if( request()->path() === '/' ) class="active" @endif>
+                    <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li @if( request()->path() === 'music' ) class="active" @endif>
+                    <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
+                </li>
+                <li @if( request()->path() === 'info' ) class="active" @endif>
+                    <a href="{{ url('about') }}"><i class="fa fa-user"></i> About</a>
+                </li>
+                <li @if( request()->path() === 'projects' ) class="active" @endif>
+                    <a href="{{ url('projects') }}"><i class="fa @if( request()->path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a>
+                </li>
+                <li class="{{ request()->path() === 'social' ? 'active' : '' }} hidden-xs hidden-md hidden-lg">
+                    <a href="{{ url('social') }}"><i class="fa fa-users"></i> Social</a>
+                </li>
+
+                <li class="mobile-social-icons">
+                    <ul class="mobile-social-icons-list">
+                        <li>
+                            <a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
         <ul class="navbar-social-icons hidden-sm hidden-xs">
             <li>
@@ -82,12 +100,14 @@
         </ul>
 
         <div class="navbar-toggle visible-xs">
-            <button type="button" class="navbar-toggle" data-target="#navLinks">
+            <button type="button" class="navbar-toggle-button" data-target="#navLinks">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
         </div>
     </div>
 </nav>
+
+<div class="backdrop hidden"></div>
 
 <div class="content">
     @yield('content')
@@ -121,13 +141,33 @@
 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 
 <script>
-    $('.navbar-toggle').click(function(event) {
-        var sender = event.currentTarget;
-        var links  = $(sender).attr('data-target');
+    function hideBackdrop() {
+        var bd = $('.backdrop');
 
-        if ($(links).hasClass('collapsed')) {
+        // If the backdrop is already hidden, don't add another class
+        if (!$(bd).hasClass('hidden')) {
+            $(bd).addClass('hidden');
+        }
+    }
+
+    function showBackdrop() {
+        var bd = $('.backdrop');
+
+        if ($(bd).hasClass('hidden')) {
+            $(bd).removeClass('hidden');
+        }
+    }
+
+    // Make sure only this click handler is bound
+    $('.navbar-toggle-button').unbind('click').click(function(event) {
+        var sender   = event.currentTarget;
+        var links    = $(sender).attr('data-target');
+
+        if ($(links).hasClass('collapsed'))
+        { // Show the mobile navigation
             $(links).removeClass('collapsed');
-        } else {
+        } else
+        { // Hide the mobile navigation
             $(links).addClass('collapsed');
         }
     });

@@ -18,7 +18,8 @@ html, body {
 }
 
 .container {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
   width: 97%;
   margin: 0 auto;
 }
@@ -42,6 +43,10 @@ html, body {
 .visible-sm,
 .visible-md,
 .visible-lg {
+  display: none !important;
+}
+
+.hidden {
   display: none !important;
 }
 
