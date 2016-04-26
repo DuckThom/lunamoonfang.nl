@@ -1,0 +1,95 @@
+@import "colors";
+
+.navbar {
+  background-color: $deep-purple-500;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9001;
+  min-height: 69px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $deep-purple-300;
+    }
+  }
+
+  .navbar-links, .navbar-toggle, .navbar-social-icons {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .navbar-links {
+    a {
+      padding: 23px;
+    }
+  }
+
+  .navbar-social-icons {
+    margin-left: auto;
+    font-size: 30px;
+
+    a {
+      padding: 12px;
+    }
+  }
+
+  .navbar-toggle {
+    margin-left: auto;
+    align-items: baseline;
+    padding: 10px 15px;
+
+    button {
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 3px;
+      color: white;
+      font-size: 25px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: $deep-purple-500;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .collapsed {
+    left: 100vw !important;
+    right: -100vw !important;
+
+    transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+  }
+
+  .navbar-links {
+    flex-direction: column !important;
+    top: 69px;
+    left: 0;
+    right: 0;
+    background-color: $deep-purple-500;
+    position: absolute;
+
+    transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+
+    li {
+      border-top: 1px solid white;
+    }
+  }
+}
