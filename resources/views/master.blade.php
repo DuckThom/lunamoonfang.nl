@@ -37,6 +37,8 @@
 
 <body>
 <nav class="navbar">
+    <div class="navbar-backdrop" data-target="#navLinks"></div>
+
     <div class="navbar-brand">
         <a href="{{ url('/') }}">
             <img src="{{ asset('assets/image/logo.png') }}" alt="Site logo">
@@ -165,38 +167,30 @@
 <script src="{{ elixir('js/stars.js') }}"></script>
 
 <script>
-    function hideBackdrop() {
-        var bd = $('.backdrop');
+    function toggleNavigation(event) {
+        var sender  = event.currentTarget;
+        var links   = $(sender).attr('data-target');
+        var bd      = $('.navbar-backdrop');
 
-        // If the backdrop is already hidden, don't add another class
-        if (!$(bd).hasClass('hidden')) {
-            $(bd).addClass('hidden');
-        }
-    }
+        if ($(links).hasClass('collapsed'))
+        { // Show the mobile navigation
+            $('body').bind('touchmove', function(event) {
+                event.preventDefault();
+            }).addClass('noscroll');
 
-    function showBackdrop() {
-        var bd = $('.backdrop');
-
-        if ($(bd).hasClass('hidden')) {
-            $(bd).removeClass('hidden');
+            $(bd).fadeIn(200);
+            $(links).removeClass('collapsed');
+        } else
+        { // Hide the mobile navigation
+            $('body').unbind('touchmove').removeClass('noscroll');
+            $(bd).fadeOut(200);
+            $(links).addClass('collapsed');
         }
     }
 
     // Make sure only this click handler is bound
-    $('.navbar-toggle-button').unbind('click').click(function(event) {
-        var sender   = event.currentTarget;
-        var links    = $(sender).attr('data-target');
-
-        if ($(links).hasClass('collapsed'))
-        { // Show the mobile navigation
-            //$(links).fadeIn(200);
-            $(links).removeClass('collapsed');
-        } else
-        { // Hide the mobile navigation
-            //$(links).fadeOut(200);
-            $(links).addClass('collapsed');
-        }
-    });
+    $('.navbar-toggle-button').click(toggleNavigation);
+    $('.navbar-backdrop').click(toggleNavigation)
 </script>
 
 {{-- Amazing canvas particles --}}

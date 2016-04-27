@@ -18,18 +18,22 @@
   animation-duration: 3s;
 }
 
-.home-header {
-  height: 70vh;
+header {
   overflow: hidden;
   position: relative;
   display: flex;
 }
 
+.home-header {
+  height: 70vh;
+}
+
 .sub-header {
   height: 40vh;
-  overflow: hidden;
-  position: relative;
-  display: flex;
+
+  .logo {
+    display: none !important;
+  }
 }
 
 .header-content {
