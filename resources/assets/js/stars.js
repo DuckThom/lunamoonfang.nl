@@ -1,3 +1,11 @@
+/**
+ * Star object
+ *
+ * @param color
+ * @param width
+ * @param height
+ * @constructor
+ */
 var Star = function(color, width, height) {
     this.x =  Math.round( Math.random() * width);
     this.y =  Math.round( Math.random() * height);
@@ -6,6 +14,13 @@ var Star = function(color, width, height) {
     this.vy = Math.random() * -0.03;
 };
 
+/**
+ * The stars constructor
+ *
+ * @param max
+ * @param debug
+ * @constructor
+ */
 var Stars = function(max, debug) {
     this.lastUpdate = 0;
     this.debug = typeof debug == 'boolean' ? debug : false;
@@ -33,6 +48,9 @@ var Stars = function(max, debug) {
     }
 };
 
+/**
+ * Create the star header
+ */
 Stars.prototype.run = function() {
     if(!this.running) {
         this.running = true;
@@ -40,23 +58,37 @@ Stars.prototype.run = function() {
 
         var self = this;
 
+        // Call the main loop
         this.interval = setInterval(function() {
             self.loop.call(self);
         }, 16.6667);
     }
 };
 
+/**
+ * The main loop
+ */
 Stars.prototype.loop = function() {
+    // Calculate a new delta time
     var now = Date.now();
     var dt = now - this.lastUpdate;
     this.lastUpdate = now;
 
+    // Clear the canvas
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+    // Update the star location
     this.update(dt);
+
+    // Draw the new stars
     this.render(dt);
 };
 
+/**
+ * Update the star locations
+ *
+ * @param dt
+ */
 Stars.prototype.update = function(dt) {
     for(var i = 0;i < this.maxStars; i++){
         var star = this.stars[i];
@@ -72,13 +104,15 @@ Stars.prototype.update = function(dt) {
     }
 };
 
+/**
+ * Render the stars and, if debug is enabled, show the delta time
+ *
+ * @param dt
+ */
 Stars.prototype.render = function(dt) {
     for(var i = 0;i < this.maxStars; i++){
         var star = this.stars[i];
 
-        /**
-         * Create a new star
-         */
         this.ctx.beginPath();
         this.ctx.arc(star.x, star.y, star.rad*1.5, 0, Math.PI*2, true);
         this.ctx.fill();
