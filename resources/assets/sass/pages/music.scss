@@ -1,0 +1,90 @@
+table {
+  border-collapse: collapse;
+  border: 1px solid #bbb;
+  padding: 20px;
+  width: 85%;
+
+  caption {
+    text-align: center;
+    border: 1px solid #bbb;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  th {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  td {
+    padding: 10px;
+    border-top: 1px solid #bbb;
+
+    &:nth-child(1) {
+      width: 30%;
+    }
+  }
+
+  tbody tr:hover {
+    background-color: #607D8B;
+    color: white;
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.music-wrapper {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+#currentOrRecent {
+  font-weight: 300;
+  font-size: 25px;
+  letter-spacing: -2px;
+}
+
+#track {
+  font-weight: 600;
+  font-size: 35px;
+  letter-spacing: -2px;
+
+  &:after {
+    content: "by";
+    display: block;
+    height: 0;
+    margin-bottom: -10px;
+    font-size: 30px;
+    font-weight: 200;
+    font-style: italic;
+  }
+}
+
+#artist {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+#album {
+  font-weight: 200;
+  font-size: 30px;
+  letter-spacing: -2px;
+}
+
+#album-art {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 80px;
+  opacity: 0.3;
+  text-align: center;
+  left: 50%;
+  margin-left: -150px;
+}

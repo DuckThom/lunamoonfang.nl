@@ -1,157 +1,55 @@
-@extends('master')
+@extends('master', ['title' => 'Music'])
 
 @section('header')
-    <img src="/assets/image/headers/music.jpg"/>
 
-    <h1>Music</h1>
-@stop
+    <div class="music-wrapper">
+        <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-spin"></i></span><br/>
+        <span id="track">Loading</span><br/>
+        <span id="artist"></span><br/>
+        <span id="album"></span>
+        <div id="album-art"></div>
+    </div>
+
+@endsection
 
 @section('content')
-    <div class="text-center">
-        <div class="music-wrapper">
-            <span id="currentOrRecent"><i class="fa fa-circle-o-notch fa-spin"></i></span><br/>
-            <span id="track">Loading</span><br/>
-            <span id="artist"></span><br/>
-            <span id="album"></span>
-            <div id="album-art"></div>
-        </div>
+    <table id="topAlbumsTable">
+        <caption>
+            <h3>Top 5 Albums ({{ $month }})<h3>
+        </caption>
 
+        <thead>
+        <tr>
+            <th class="font-medium">
+                Artist
+            </th>
+            <th class="font-medium">
+                Album
+            </th>
+        </tr>
+        </thead>
 
-        <hr/>
+        <tbody id="topAlbums"></tbody>
+    </table>
 
-        <table class="font-light" id="topAlbumsTable">
-            <caption>
-                <h3 class="font-light">Top 5 Albums ({{ $month }})<h3>
-            </caption>
+    <table id="topTrackTable">
+        <caption>
+            <h3>Top 5 Tracks ({{ $month }})<h3>
+        </caption>
 
-            <thead>
-            <tr>
-                <th class="font-medium">
-                    Artist
-                </th>
-                <th class="font-medium">
-                    Album
-                </th>
-            </tr>
-            </thead>
+        <thead>
+        <tr>
+            <th class="font-medium">
+                Artist
+            </th>
+            <th class="font-medium">
+                Track
+            </th>
+        </tr>
+        </thead>
 
-            <tbody id="topAlbums"></tbody>
-        </table>
-
-        <table class="font-light" id="topTrackTable">
-            <caption>
-                <h3 class="font-light">Top 5 Tracks ({{ $month }})<h3>
-            </caption>
-
-            <thead>
-            <tr>
-                <th class="font-medium">
-                    Artist
-                </th>
-                <th class="font-medium">
-                    Track
-                </th>
-            </tr>
-            </thead>
-
-            <tbody id="topTracks"></tbody>
-        </table>
-    </div>
-@stop
-
-@section('extraCSS')
-    <style type="text/css">
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
-            border: 1px solid #bbb;
-        }
-
-        caption {
-            border-bottom: 0px;
-            text-align: center;
-            border: 1px solid #bbb;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-        }
-
-        th {
-            padding: 10px 0px;
-            text-align: center;
-        }
-
-        td {
-            padding: 10px;
-            border-top: 1px solid #bbb;
-        }
-
-        td:nth-child(1) {
-            width: 30%;
-        }
-
-        tbody tr:hover {
-            background-color: #607D8B;
-            color: white;
-        }
-
-        tbody tr:hover a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .font-light {
-            font-weight: 300;
-        }
-
-        .music-wrapper {
-            min-height: 275px;
-        }
-
-        #currentOrRecent {
-            font-weight: 300;
-            font-size: 25px;
-            letter-spacing: -2px;
-        }
-
-        #track {
-            font-weight: 600;
-            font-size: 35px;
-            letter-spacing: -2px;
-        }
-
-        #track::after {
-            content: "by";
-            display: block;
-            height: 0px;
-            margin-bottom: -10px;
-            font-size: 30px;
-            font-weight: 200;
-            font-style: italic;
-        }
-
-        #artist {
-            font-weight: 400;
-            font-size: 30px;
-        }
-
-        #album {
-            font-weight: 200;
-            font-size: 30px;
-            letter-spacing: -2px;
-        }
-
-        #album-art {
-            width: 300px;
-            height: 300px;
-            position: absolute;
-            top: 0;
-            opacity: 0.05;
-            text-align: center;
-            left: 50%;
-            margin-left: -150px;
-        }
-    </style>
+        <tbody id="topTracks"></tbody>
+    </table>
 @stop
 
 @section('extraJS')
@@ -164,6 +62,17 @@
             }, 5000);
         });
 
+        function sortByPlaycount(a,b) {
+            if (parseInt(a.playcount) > parseInt(b.playcount)) {
+                return -1;
+            }
+            if (parseInt(a.playcount) < parseInt(b.playcount)) {
+                return 1;
+            }
+
+            return 0;
+        }
+
         function getMusicData() {
             //Get the top 5 albums
             $.ajax({
@@ -173,9 +82,12 @@
                 async: true,
                 success: function (data) {
                     var text = '';
+                    var albums = data.topalbums.album;
+
+                    var sortedAlbums = albums.sort(sortByPlaycount);
 
                     for (var i = 0; i < 5; i++) {
-                        var album = data.topalbums.album[i];
+                        var album = sortedAlbums[i];
 
                         var albumName = album.name;
                         var albumLink = album.url;
@@ -212,9 +124,12 @@
                 async: true,
                 success: function (data) {
                     var text = '';
+                    var tracks = data.toptracks.track;
+                    var sortedTracks = tracks.sort(sortByPlaycount);
+
 
                     for (var i = 0; i < 5; i++) {
-                        var track = data.toptracks.track[i];
+                        var track = sortedTracks[i];
 
                         var trackName = track.name;
                         var trackLink = track.url;

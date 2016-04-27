@@ -11,6 +11,9 @@
 @import "helpers";
 @import "footer";
 
+// Import page specific styling
+@import "pages/music";
+
 html, body {
   font-family: "Titillium Web", sans-serif !important;
   max-width: 100%;

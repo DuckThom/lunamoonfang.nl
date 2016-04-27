@@ -9,7 +9,6 @@
                 It has been made using Laravel, jQuery and Font Awesome. <br />
                 The styling on this site is all custom made by me, no Bootstrap, no Foundation, no anything. <br />
                 Just pure custom CSS. <br />
-
             </p>
         </div>
     </div>

@@ -117,9 +117,15 @@
             {{ $title or 'untitled' }}
         </div>
 
-        <div class="column-2 text-center logo">
-            <img src="{{ asset('assets/image/logo.png') }}" alt="Site Logo">
-        </div>
+        @if (request()->path() === "/")
+            <div class="column-2 text-center logo">
+                <img src="{{ asset('assets/image/logo.png') }}" alt="Site Logo">
+            </div>
+        @else
+            <div class="column-1 text-center">
+                @yield('header')
+            </div>
+        @endif
     </div>
 </header>
 
