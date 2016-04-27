@@ -112,7 +112,7 @@
         <div class="stars3"></div>
     </div-->
 
-    <canvas style="position: absolute; top: 70px;" id="stars-canvas"></canvas>
+    <canvas style="position: absolute; top: 70px;transform:translateZ(0);" id="stars-canvas"></canvas>
 
     <div class="container header-content">
         <div class="column-1 text-center title">
@@ -206,7 +206,8 @@
             patriclesNum = 50,
             w = $(document).width(), //500,
             h = $('header').height(),
-            colors = ["#ffffff"];// ['#f35d4f','#f36849','#c0d988','#6ddaf1','#f1e85b'];
+            colors = ["#ffffff"],
+            lastUpdate = Date.now();// ['#f35d4f','#f36849','#c0d988','#6ddaf1','#f1e85b'];
 
     canvas.width = w;
     canvas.height = h;
@@ -218,24 +219,24 @@
     function Factory(){
         this.x =  Math.round( Math.random() * w);
         this.y =  Math.round( Math.random() * h);
-        this.rad = Math.round( Math.random() * 1) + 1;
-        this.rgba = colors[ Math.round( Math.random() * 3) ];
+        this.rad = Math.round( Math.random()) + 1;
+        this.rgba = "#ffffff";
         //this.vx = Math.round( Math.random() * 3) - 1.5;
         this.vx = 0;
-        this.vy = Math.abs(Math.round( Math.random() * 3) - 1.5) * -1;
+        this.vy = Math.abs(Math.round( Math.random() * 3)) * -1;
     }
 
-    function draw(){
+    function draw(dt){
         ctx.clearRect(0, 0, w, h);
         ctx.globalCompositeOperation = 'lighter';
         for(var i = 0;i < patriclesNum; i++){
             var temp = particles[i];
-            var factor = 1;
+            var factor = 1.5;
 
-            for(var j = 0; j<patriclesNum; j++){
+            //for(var j = 0; j<patriclesNum; j++){
 
-                var temp2 = particles[j];
-                ctx.linewidth = 0.5;
+                //var temp2 = particles[j];
+                //ctx.linewidth = 0.5;
 
                 /*if(temp.rgba == temp2.rgba && findDistance(temp, temp2)<50){
                  ctx.strokeStyle = temp.rgba;
@@ -245,25 +246,25 @@
                  ctx.stroke();
                  factor++;
                  }*/
-            }
+            //}
 
 
             ctx.fillStyle = temp.rgba;
-            ctx.strokeStyle = temp.rgba;
+            //ctx.strokeStyle = temp.rgba;
 
             ctx.beginPath();
             ctx.arc(temp.x, temp.y, temp.rad*factor, 0, Math.PI*2, true);
             ctx.fill();
             ctx.closePath();
 
-            ctx.beginPath();
+            //ctx.beginPath();
             //ctx.arc(temp.x, temp.y, (temp.rad+5)*factor, 0, Math.PI*2, true);
-            ctx.stroke();
-            ctx.closePath();
+            //ctx.stroke();
+            //ctx.closePath();
 
 
             temp.x += temp.vx;
-            temp.y += temp.vy;
+            temp.y += (dt * temp.vy) / 100;
 
             if(temp.x > w)temp.x = 0;
             if(temp.x < 0)temp.x = w;
@@ -281,7 +282,7 @@
                 window.webkitRequestAnimationFrame ||
                 window.mozRequestAnimationFrame    ||
                 function( callback ){
-                    window.setTimeout(callback, 1000 / 60);
+                    window.setTimeout(callback, 16.6667);
                 };
     })();
 
@@ -292,7 +293,11 @@
     })();
 
     (function loop(){
-        draw();
+        var now = Date.now();
+        var dt = now - lastUpdate;
+        lastUpdate = now;
+
+        draw(dt);
         requestAnimFrame(loop);
     })();
 </script>
