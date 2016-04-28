@@ -11,6 +11,7 @@
     <meta name="author" content="Thomas Wiringa">
     <meta name="theme-color" content="#673ab7">
 
+    <link rel="apple-touch-icon" href="{{ asset('assets/image/logo.png') }}">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
