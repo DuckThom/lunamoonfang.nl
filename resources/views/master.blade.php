@@ -9,6 +9,7 @@
     <meta name="description" content="A website about me">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
     <meta name="author" content="Thomas Wiringa">
+    <meta name="theme-color" content="#673ab7">
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
