@@ -13,19 +13,14 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+    <link rel="stylesheet" href="{{ elixir('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 
     <script>
         (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
+            i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-41373177-4', 'auto');
@@ -195,7 +190,8 @@
 
 {{-- Amazing canvas particles --}}
 <script>
-    var stars = new Stars(50);
+    var params = {'debug': false, 'fps': 24};
+    var stars = new Stars(50, params);
     stars.run();
 </script>
 

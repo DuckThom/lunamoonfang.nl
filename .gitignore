@@ -12,4 +12,5 @@ Homestead.yaml
 Vagrantfile
 /public/build
 /public/css
+/public/js
 .bundle

@@ -18,12 +18,13 @@ var Star = function(color, width, height) {
  * The stars constructor
  *
  * @param max
- * @param debug
+ * @param params
  * @constructor
  */
-var Stars = function(max, debug) {
+var Stars = function(max, params) {
     this.lastUpdate = 0;
-    this.debug = typeof debug == 'boolean' ? debug : false;
+    this.debug = typeof params.debug == 'boolean' ? params.debug : false;
+    this.refreshRate = typeof params.fps == 'number' ? params.fps : 60;
     this.running = false;
     this.color = "#ffffff";
 
@@ -61,7 +62,7 @@ Stars.prototype.run = function() {
         // Call the main loop
         this.interval = setInterval(function() {
             self.loop.call(self);
-        }, 16.6667);
+        }, 1000 / this.refreshRate);
     }
 };
 
