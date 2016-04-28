@@ -50,7 +50,7 @@
             <li @if( request()->path() === 'music' ) class="active" @endif>
                 <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
             </li>
-            <li @if( request()->path() === 'info' ) class="active" @endif>
+            <li @if( request()->path() === 'about' ) class="active" @endif>
                 <a href="{{ url('about') }}"><i class="fa fa-user"></i> About me</a>
             </li>
             <li @if( request()->path() === 'projects' ) class="active" @endif>
