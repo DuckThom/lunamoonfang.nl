@@ -22,14 +22,16 @@ header {
   overflow: hidden;
   position: relative;
   display: flex;
+  min-height: 450px;
+  padding-top: 70px;
 }
 
 .home-header {
-  height: 70vh;
+  height: 90vh;
 }
 
 .sub-header {
-  height: 40vh;
+  height: 70vh;
 
   .logo {
     display: none !important;
