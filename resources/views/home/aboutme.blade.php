@@ -1,5 +1,9 @@
 @extends('master', ['title' => 'About me'])
 
+@section('header')
+    <h1><i class="fa fa-user fa-3x" style="color: white;" aria-hidden="true"></i></h1>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="column-1">
