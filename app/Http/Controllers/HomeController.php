@@ -57,7 +57,7 @@ class HomeController extends Controller
 		// Get my repo list from GitHub
 		$ch = curl_init();
 
-		curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/users/DuckThom/repos?sort=pushed');
+		curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/users/DuckThom/repos?sort=pushed&access_token=' . env('GITHUB_ACCESS_TOKEN'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
 		curl_setopt($ch, CURLOPT_USERAGENT, 'DuckThom');

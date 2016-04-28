@@ -1,0 +1,81 @@
+@import "../colors";
+
+.projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  .project {
+    text-align: center;
+    width: 48%;
+    min-width: 520px;
+    border: 2px solid $blue-grey-300;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    .project-header {
+      width: 100%;
+
+      .fa {
+        color: black;
+      }
+
+      a {
+        text-decoration: none;
+        color: $blue-900;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+
+    .project-body {
+      display: flex;
+      flex-flow: row wrap;
+
+      table {
+        flex-grow: 1;
+        font-size: 0.8em;
+        width: 50% !important;
+      }
+
+      p {
+        text-align: left;
+        font-weight: 200;
+        font-size: 1.3em;
+        flex-grow: 1;
+        width: 45%;
+        padding: 0 5px;
+        margin: 4px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .project {
+    width: 100% !important;
+    min-width: inherit !important;
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  .projects .project {
+    .project-body {
+      table {
+        width: 100% !important;
+      }
+
+      p {
+        width: 100% !important;
+        text-align: center;
+        margin: -30px 0 20px;
+      }
+    }
+  }
+}
