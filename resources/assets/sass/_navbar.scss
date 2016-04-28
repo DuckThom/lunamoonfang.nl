@@ -112,8 +112,8 @@
     top: 70px;
     left: 25vw;
     right: 0;
-    bottom: -100vh;
-    position: absolute;
+    bottom: 0;
+    position: fixed;
 
     transition: left 300ms ease-out, right 300ms ease-out;
     -moz-transition: left 300ms ease-out, right 300ms ease-out;
@@ -140,7 +140,6 @@
       }
 
       .mobile-social-icons {
-        margin-bottom: 70px;
         display: block;
 
         .mobile-social-icons-list {
