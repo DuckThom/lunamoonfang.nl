@@ -169,15 +169,12 @@
 
         if ($(links).hasClass('collapsed'))
         { // Show the mobile navigation
-            $('body').bind('touchmove', function(event) {
-                event.preventDefault();
-            }).addClass('noscroll');
-
+            $('body').addClass('noscroll');
             $(bd).fadeIn(200);
             $(links).removeClass('collapsed');
         } else
         { // Hide the mobile navigation
-            $('body').unbind('touchmove').removeClass('noscroll');
+            $('body').removeClass('noscroll');
             $(bd).fadeOut(200);
             $(links).addClass('collapsed');
         }
