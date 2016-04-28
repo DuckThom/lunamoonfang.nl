@@ -30,7 +30,7 @@ class HomeController extends Controller
 	 *
 	 * @return \Illuminate\View\View
 	 */
-	public function info()
+	public function about()
 	{
 		return view('home.aboutme');
 	}

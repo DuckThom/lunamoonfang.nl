@@ -51,7 +51,7 @@
                 <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
             </li>
             <li @if( request()->path() === 'info' ) class="active" @endif>
-                <a href="{{ url('about') }}"><i class="fa fa-user"></i> About</a>
+                <a href="{{ url('about') }}"><i class="fa fa-user"></i> About me</a>
             </li>
             <li @if( request()->path() === 'projects' ) class="active" @endif>
                 <a href="{{ url('projects') }}"><i class="fa @if( request()->path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a>
@@ -105,12 +105,6 @@
 </nav>
 
 <header class="{{ request()->path() === "/" ? 'home-header' : 'sub-header' }}">
-    <!--div class="star-wrapper">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-        <div class="stars3"></div>
-    </div-->
-
     <canvas style="position: absolute; top: 70px;transform:translateZ(0);" id="stars-canvas"></canvas>
 
     <div class="container header-content">
@@ -131,9 +125,7 @@
 </header>
 
 <div class="content">
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 </div>
 
 <div class="separator"></div>

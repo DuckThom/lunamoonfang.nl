@@ -13,38 +13,40 @@
 @endsection
 
 @section('content')
-    <div class="column-1">
-        <table id="topAlbumsTable">
-            <caption>
-                <h3>Top 5 Albums ({{ $month }})<h3>
-            </caption>
+    <div class="container">
+        <div class="column-1">
+            <table id="topAlbumsTable">
+                <caption>
+                    <h3>Top 5 Albums ({{ $month }})<h3>
+                </caption>
 
-            <thead>
-            <tr>
-                <th>Plays</th>
-                <th>Album</th>
-            </tr>
-            </thead>
+                <thead>
+                <tr>
+                    <th>Plays</th>
+                    <th>Album</th>
+                </tr>
+                </thead>
 
-            <tbody id="topAlbums"></tbody>
-        </table>
-    </div>
+                <tbody id="topAlbums"></tbody>
+            </table>
+        </div>
 
-    <div class="column-1">
-        <table id="topTrackTable">
-            <caption>
-                <h3>Top 5 Tracks ({{ $month }})<h3>
-            </caption>
+        <div class="column-1">
+            <table id="topTrackTable">
+                <caption>
+                    <h3>Top 5 Tracks ({{ $month }})<h3>
+                </caption>
 
-            <thead>
-            <tr>
-                <th>Plays</th>
-                <th>Track</th>
-            </tr>
-            </thead>
+                <thead>
+                <tr>
+                    <th>Plays</th>
+                    <th>Track</th>
+                </tr>
+                </thead>
 
-            <tbody id="topTracks"></tbody>
-        </table>
+                <tbody id="topTracks"></tbody>
+            </table>
+        </div>
     </div>
 @stop
 

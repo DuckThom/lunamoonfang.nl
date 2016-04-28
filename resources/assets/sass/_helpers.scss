@@ -7,14 +7,18 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  width: 97%;
-  margin: 0 auto;
+  padding: 0 2%;
+  width: 96%;
 
   @for $i from 1 through 12 {
     & > .column-#{$i} {
       @include column($i);
     }
   }
+}
+
+.content-header {
+  text-align: center;
 }
 
 .noscroll {

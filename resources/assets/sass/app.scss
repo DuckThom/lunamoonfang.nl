@@ -29,6 +29,10 @@ html, body {
 
 .content {
   position: relative;
-  background-color: $grey-200;
-  padding: 50px 0;
+
+  & > .container {
+    background-color: $grey-200;
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
 }

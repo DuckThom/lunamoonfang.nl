@@ -43,7 +43,7 @@ Route::group(['prefix' => 'f'], function () {
  */
 Route::get('/', 'HomeController@index');
 Route::get('music', 'HomeController@music');
-Route::get('info', 'HomeController@info');
+Route::get('about', 'HomeController@about');
 Route::get('projects', 'HomeController@projects');
 Route::get('licenses', 'HomeController@licenses');
 Route::get('clock', 'HomeController@clock');
