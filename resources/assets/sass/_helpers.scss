@@ -38,9 +38,85 @@ hr {
   margin: 10px 0;
 }
 
-@for $i from 1 through 6 {
-  h#{$i} {
-    font-size: #{6/$i}em;
-    font-weight: 300;
+// Tablet and desktop
+@media only screen and (min-width: 768px) {
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-size: #{6/$i}em;
+      font-weight: 300;
+    }
+  }
+
+  .mobile-br {
+    display: none !important;
+  }
+}
+
+// Mobile only
+@media only screen and (max-width: 767px) {
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-size: #{5/$i}em;
+      font-weight: 300;
+    }
+  }
+}
+
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+// LG Large screen
+@media only screen and (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+
+  .visible-lg {
+    display: inherit !important;
+  }
+}
+
+// MD Medium screen
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .hidden-md {
+    display: none !important;
+  }
+
+  .visible-md {
+    display: inherit !important;
+  }
+}
+
+// SM Small screen
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .hidden-sm {
+    display: none !important;
+  }
+
+  .visible-sm {
+    display: inherit !important;
+  }
+}
+
+// XS Extra Small screen
+@media only screen and (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+
+  .visible-xs {
+    display: inherit !important;
+  }
+
+  .container {
+    flex-flow: column;
   }
 }

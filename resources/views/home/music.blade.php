@@ -13,43 +13,39 @@
 @endsection
 
 @section('content')
-    <table id="topAlbumsTable">
-        <caption>
-            <h3>Top 5 Albums ({{ $month }})<h3>
-        </caption>
+    <div class="column-1">
+        <table id="topAlbumsTable">
+            <caption>
+                <h3>Top 5 Albums ({{ $month }})<h3>
+            </caption>
 
-        <thead>
-        <tr>
-            <th class="font-medium">
-                Artist
-            </th>
-            <th class="font-medium">
-                Album
-            </th>
-        </tr>
-        </thead>
+            <thead>
+            <tr>
+                <th>Plays</th>
+                <th>Album</th>
+            </tr>
+            </thead>
 
-        <tbody id="topAlbums"></tbody>
-    </table>
+            <tbody id="topAlbums"></tbody>
+        </table>
+    </div>
 
-    <table id="topTrackTable">
-        <caption>
-            <h3>Top 5 Tracks ({{ $month }})<h3>
-        </caption>
+    <div class="column-1">
+        <table id="topTrackTable">
+            <caption>
+                <h3>Top 5 Tracks ({{ $month }})<h3>
+            </caption>
 
-        <thead>
-        <tr>
-            <th class="font-medium">
-                Artist
-            </th>
-            <th class="font-medium">
-                Track
-            </th>
-        </tr>
-        </thead>
+            <thead>
+            <tr>
+                <th>Plays</th>
+                <th>Track</th>
+            </tr>
+            </thead>
 
-        <tbody id="topTracks"></tbody>
-    </table>
+            <tbody id="topTracks"></tbody>
+        </table>
+    </div>
 @stop
 
 @section('extraJS')
@@ -95,18 +91,17 @@
                         var artistName = album.artist.name;
                         var artistLink = album.artist.url;
 
-                        text += "<tr><td><a href='" +
-                            artistLink +
-                            "'>" +
-                            artistName +
-                            "</a></td><td><a href='" +
-                            albumLink +
-                            "'>" +
-                            albumName +
-                            "</a> (" +
-                            playcount +
-                            (playcount === "1" ? " play" : " plays") +
-                            ")</td></tr>";
+                        text += "<tr><td>" +
+                                        playcount +
+                                "</td><td><a href='" +
+                                    albumLink +
+                                "'>" +
+                                    albumName +
+                                "</a> <br />by<br /> <a href='" +
+                                    artistLink +
+                                "'>" +
+                                    artistName +
+                                "</a></td></tr>";
                     }
 
                     $("#topAlbums").html(text);
@@ -137,18 +132,17 @@
                         var artistName = track.artist.name;
                         var artistLink = track.artist.url;
 
-                        text += "<tr><td><a href='" +
-                            artistLink +
-                            "'>" +
-                            artistName +
-                            "</a></td><td><a href='" +
-                            trackLink +
-                            "'>" +
-                            trackName +
-                            "</a> (" +
-                            playcount +
-                            (playcount === "1" ? " play" : " plays") +
-                            ")</td></tr>";
+                        text += "<tr><td>" +
+                                playcount +
+                                "</td><td><a href='" +
+                                trackLink +
+                                "'>" +
+                                trackName +
+                                "</a> <br />by<br /> <a href='" +
+                                artistLink +
+                                "'>" +
+                                artistName +
+                                "</a></td></tr>";
                     }
 
                     $("#topTracks").html(text);

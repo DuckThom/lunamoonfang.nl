@@ -1,37 +1,52 @@
+@import "../colors";
+
 table {
+  background-color: $blue-500;
+  color: white;
   border-collapse: collapse;
-  border: 1px solid #bbb;
   padding: 20px;
-  width: 85%;
+  margin: 10px auto;
 
   caption {
     text-align: center;
-    border: 1px solid #bbb;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    background-color: $blue-500;
+    border-top: 5px solid $amber-200;
+    border-bottom: 1px solid white;
   }
 
   th {
     padding: 10px 0;
     text-align: center;
+
+    &:nth-child(1) {
+      border-right: 1px solid white;
+      min-width: 50px;
+    }
   }
 
   td {
     padding: 10px;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid white;
+    text-align: center;
 
     &:nth-child(1) {
-      width: 30%;
+      border-right: 1px solid white;
     }
-  }
-
-  tbody tr:hover {
-    background-color: #607D8B;
-    color: white;
 
     a {
       color: white;
-      text-decoration: underline;
+
+      transition: all 150ms ease-out;
+      -moz-transition: all 150ms ease-out;
+      -webkit-transition: all 150ms ease-out;
+
+      &:hover {
+        color: $light-green-500;
+
+        transition: all 150ms ease-out;
+        -moz-transition: all 150ms ease-out;
+        -webkit-transition: all 150ms ease-out;
+      }
     }
   }
 }
@@ -88,4 +103,18 @@ table {
   top: 50%;
   margin-left: -150px;
   margin-top: -150px;
+}
+
+// Tablet and desktop
+@media only screen and (min-width: 768px) {
+  table {
+    width: 45vw;
+  }
+}
+
+// Mobile only
+@media only screen and (max-width: 767px) {
+  table {
+    width: 95%;
+  }
 }
