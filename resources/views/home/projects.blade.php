@@ -1,7 +1,7 @@
 @extends('master', ['title' => 'Projects'])
 
 @section('header')
-
+    <h1><i class="fa fa-folder-open fa-2x" style="color: white;"  aria-hidden="true"></i></h1>
 @stop
 
 @section('content')
@@ -35,7 +35,7 @@
                                     </tr>
                                 </table>
                                 <p>
-                                    {{ $project->description }}
+                                    {{ $project->description ?: "No description" }}
                                 </p>
                             </div>
                         </div>
