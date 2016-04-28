@@ -119,6 +119,10 @@
     -moz-transition: left 300ms ease-out, right 300ms ease-out;
     -webkit-transition: left 300ms ease-out, right 300ms ease-out;
 
+    a {
+      padding: 18px !important;
+    }
+
     .navbar-links-list {
       display: flex;
       flex-flow: row wrap;
@@ -149,7 +153,7 @@
           font-size: 30px;
 
           a {
-            padding: 15px 20px;
+            padding: 12px 20px !important;
           }
         }
       }
