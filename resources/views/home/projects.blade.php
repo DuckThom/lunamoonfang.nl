@@ -10,20 +10,20 @@
                 <div class="projects">
                     @foreach($github_projects as $project)
                         <?php
-                        $created_at = new \DateTime($project->created_at);
-                        $updated_at = new \DateTime($project->pushed_at);
+                        $created_at = new \DateTime($project['created_at']);
+                        $updated_at = new \DateTime($project['pushed_at']);
                         ?>
 
                         <div class="project">
                             <div class="project-header">
-                                <h3><a href="{{ $project->html_url }}" target="_blank"><i class="fa {{ $project->fork ? 'fa-code-fork' : 'fa-github' }}"></i> {{ $project->name }}</a></h3>
+                                <h3><a href="{{ $project['html_url'] }}" target="_blank"><i class="fa {{ $project['fork'] ? 'fa-code-fork' : 'fa-github' }}"></i> {{ $project['name'] }}</a></h3>
                             </div>
 
                             <div class="project-body">
                                 <table>
                                     <tr>
                                         <td><strong><i class="fa fa-file-code-o"></i> Language</strong></td>
-                                        <td>{{ $project->language }}</td>
+                                        <td>{{ $project['language'] }}</td>
                                     </tr>
                                     <tr>
                                         <td><strong><i class="fa fa-clock-o"></i> Created</strong></td>
@@ -35,7 +35,7 @@
                                     </tr>
                                 </table>
                                 <p>
-                                    {{ $project->description ?: "No description" }}
+                                    {{ $project['description'] ?: "No description" }}
                                 </p>
                             </div>
                         </div>

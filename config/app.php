@@ -149,6 +149,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Chumper\Zipper\ZipperServiceProvider::class,
+        GrahamCampbell\GitHub\GitHubServiceProvider::class,
     ],
 
     /*
@@ -201,6 +202,7 @@ return [
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Img'       => Intervention\Image\Facades\Image::class,
         'Zipper'    => Chumper\Zipper\Zipper::class,
+        'GitHub'    => GrahamCampbell\GitHub\Facades\GitHub::class
     ],
 
 ];

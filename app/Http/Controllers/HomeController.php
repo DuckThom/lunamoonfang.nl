@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use File;
+use GitHub;
 
 class HomeController extends Controller
 {
@@ -54,27 +54,9 @@ class HomeController extends Controller
 	 */
 	public function projects()
 	{
-		// Get my repo list from GitHub
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/users/DuckThom/repos?sort=pushed&access_token=' . env('GITHUB_ACCESS_TOKEN'));
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'DuckThom');
-
-		$json = curl_exec($ch);
-
-		// Get the HTTP code
-		$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		curl_close($ch);
-
-		if ($code === 200) {
-			$github_projects = json_decode($json);
-		} else {
-			$github_projects = [];
-		}
-
-		return view('home.projects', ['github_projects' => $github_projects]);
+		return view('home.projects', [
+			'github_projects' => GitHub::me()->repositories($type = 'public', $sort = 'pushed', $direction = 'desc')
+		]);
 	}
 
 	/**
@@ -122,7 +104,6 @@ class HomeController extends Controller
 		{
 			$api_url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=UCj71iN5nbRNMErhPaq0qQjA&maxResults=10&" . ($page_id !== null ? "pageToken=" . urlencode($page_id) . "&" : "") . "key=" . env('YOUTUBE_KEY');
 
-			// Get my repo list from GitHub
 			$ch = curl_init();
 
 			curl_setopt($ch, CURLOPT_URL, $api_url);
