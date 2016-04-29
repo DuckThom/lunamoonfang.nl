@@ -1,0 +1,11 @@
+@mixin transition($values) {
+  @if length($values) == 0 {
+    $values: all 150ms ease-out;
+  }
+
+  -webkit-transition: $values;
+  -moz-transition: $values;
+  -ms-transition: $values;
+  -o-transition: $values;
+  transition: $values;
+}

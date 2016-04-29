@@ -1,4 +1,5 @@
 @import "colors";
+@import "mixins";
 
 .navbar {
   display: flex;
@@ -10,17 +11,53 @@
   z-index: 6;
   height: 70px;
 
+  @include transition(all 150ms ease-out);
+
+  &.top {
+    background-color: transparent !important;
+
+    @include transition(all 150ms ease-out);
+
+    .navbar-links li {
+      box-shadow: 0 0 0 0 white inset !important;
+
+      &.active a {
+        text-shadow: 0 0 10px white;
+      }
+
+      a {
+        text-shadow: 0 0 0 white;
+
+        @include transition(text-shadow 150ms ease-out);
+
+        &:hover {
+          text-shadow: 0 0 10px white;
+
+          @include transition(text-shadow 150ms ease-out);
+        }
+      }
+    }
+  }
+
   ul {
     padding: 0;
     margin: 0;
     list-style: none;
 
-    li.active {
-      border-bottom: 3px solid $amber-500;
-    }
+    li {
+      box-shadow: 0 0 0 0 white inset;
 
-    li:hover {
-      border-bottom: 3px solid white;
+      @include transition(box-shadow 150ms ease-in);
+
+      &.active {
+        box-shadow: 0 -3px 0 0 $amber-500 inset;
+      }
+
+      &:hover {
+        box-shadow: 0 -3px 0 0 white inset;
+
+        @include transition(box-shadow 150ms ease-out);
+      }
     }
   }
 
@@ -107,10 +144,6 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .navbar ul li.active {
-
-  }
-
   .navbar ul li {
     &:hover {
       border-bottom: none;

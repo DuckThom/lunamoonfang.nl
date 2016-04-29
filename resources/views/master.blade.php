@@ -33,7 +33,7 @@
 </head>
 
 <body>
-<nav class="navbar">
+<nav class="navbar top">
     <div class="navbar-backdrop" data-target="#navLinks"></div>
 
     <div class="navbar-brand">
@@ -105,19 +105,19 @@
 </nav>
 
 <header class="{{ request()->path() === "/" ? 'home-header' : 'sub-header' }}">
-    <canvas style="position: absolute; top: 70px;transform:translateZ(0);" id="stars-canvas"></canvas>
+    <canvas id="stars-canvas"></canvas>
 
     <div class="container header-content">
-        <div class="column-1 text-center title">
+        <div class="column-sm-2 text-center title">
             {{ $title or 'untitled' }}
         </div>
 
         @if (request()->path() === "/")
-            <div class="column-2 text-center logo">
+            <div class="column-sm-2 text-center logo">
                 <img src="{{ asset('assets/image/logo.png') }}" alt="Site Logo">
             </div>
         @else
-            <div class="column-1 text-center">
+            <div class="column-sm-2 text-center">
                 @yield('header')
             </div>
         @endif
@@ -132,11 +132,11 @@
 
 <footer class="footer">
     <div class="container">
-        <div class="column-1">
+        <div class="column-sm-3">
             <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
             2015-2016 - Thomas Wiringa
         </div>
-        <div class="column-1">
+        <div class="column-sm-3">
             <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
             <ul class="list-unstyled">
                 <li><a href="http://laravel.com">Laravel Framework</a></li>
@@ -144,7 +144,7 @@
                 <li><a href="http://fontawesome.io/">Font Awesome</a></li>
             </ul>
         </div>
-        <div class="column-1">
+        <div class="column-sm-3">
             <p class="lead"><i class="fa fa-gavel"></i> Licenses</p>
             This website is licensed under the <a href="https://github.com/DuckThom/lunamoonfang.nl/blob/master/LICENSE">MIT License</a><br/>
             The other licenses can be found <a href="{{ url('licenses') }}">here</a>
@@ -156,6 +156,30 @@
 <script src="{{ elixir('js/stars.js') }}"></script>
 
 <script>
+    /**
+     * Check the navbar offset
+     */
+    function checkNavbarOffset() {
+        var navbar = $('.navbar');
+        var offset = $(navbar).offset();
+
+        // Remove the 'top' class if the top offset is above 5px else, add the class
+        if (offset.top > 5) {
+            if ($(navbar).hasClass('top')) {
+                $(navbar).removeClass('top');
+            }
+        } else {
+            if (!$(navbar).hasClass('top')) {
+                $(navbar).addClass('top');
+            }
+        }
+    }
+
+    /**
+     * Toggle mobile navigation
+     *
+     * @param event
+     */
     function toggleNavigation(event) {
         var sender  = event.currentTarget;
         var links   = $(sender).attr('data-target');
@@ -176,7 +200,10 @@
 
     // Make sure only this click handler is bound
     $('.navbar-toggle-button').click(toggleNavigation);
-    $('.navbar-backdrop').click(toggleNavigation)
+    $('.navbar-backdrop').click(toggleNavigation);
+
+    checkNavbarOffset();
+    setInterval(checkNavbarOffset, 1000 / 60);
 </script>
 
 {{-- Amazing canvas particles --}}

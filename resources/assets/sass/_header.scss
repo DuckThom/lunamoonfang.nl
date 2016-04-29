@@ -23,15 +23,19 @@ header {
   position: relative;
   display: flex;
   min-height: 450px;
-  padding-top: 70px;
+}
+
+#stars-canvas {
+  position: absolute;
+  transform: translateZ(0);
 }
 
 .home-header {
-  height: 70vh;
+  height: 80vh;
 }
 
 .sub-header {
-  height: 50vh;
+  height: 60vh;
 
   .logo {
     display: none !important;

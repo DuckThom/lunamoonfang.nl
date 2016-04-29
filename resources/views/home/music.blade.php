@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="container">
-        <div class="column-1">
+        <div class="column-md-2">
             <table id="topAlbumsTable">
                 <caption>
                     <h3>Top 5 Albums ({{ $month }})<h3>
@@ -31,7 +31,7 @@
             </table>
         </div>
 
-        <div class="column-1">
+        <div class="column-md-2">
             <table id="topTrackTable">
                 <caption>
                     <h3>Top 5 Tracks ({{ $month }})<h3>
