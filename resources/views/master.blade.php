@@ -48,6 +48,10 @@
         </a>
     </div>
 
+    <div class="navbar-title hidden-md hidden-lg">
+        {{ $title or 'Untitled' }}
+    </div>
+
     <div class="navbar-links collapsed" id="navLinks">
         <ul class="navbar-links-list">
             <li @if( request()->path() === '/' ) class="active" @endif>
@@ -114,7 +118,7 @@
     <canvas id="stars-canvas"></canvas>
 
     <div class="container header-content">
-        <div class="column-sm-2 text-center title">
+        <div class="column-sm-2 text-center title hidden-xs hidden-sm">
             {{ $title or 'untitled' }}
         </div>
 

@@ -164,6 +164,13 @@
     -webkit-transition: left 300ms ease-out, right 300ms ease-out;
   }
 
+  .navbar-title {
+    text-align: center;
+    margin: 3px auto;
+    font-size: 40px;
+    color: white;
+  }
+
   .navbar-links {
     top: 70px;
     left: 25vw;
