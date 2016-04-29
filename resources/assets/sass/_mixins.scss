@@ -9,3 +9,26 @@
   -o-transition: $values;
   transition: $values;
 }
+
+@mixin page-title {
+  color: white;
+  text-align: center;
+  font-weight: 100;
+
+  -moz-animation-name: pulse;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 3s;
+
+  -webkit-animation-name: pulse;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 3s;
+
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@mixin column($size) {
+  width: #{100/$size}%;
+  padding: 0 15px;
+}

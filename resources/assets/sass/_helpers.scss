@@ -1,7 +1,4 @@
-@mixin column($size) {
-  width: #{100/$size}%;
-  padding: 0 15px;
-}
+@import "mixins";
 
 .container {
   position: relative;
