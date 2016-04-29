@@ -29,6 +29,6 @@
 }
 
 @mixin column($size) {
-  width: #{100/$size}%;
+  width: #{100%/$size};
   padding: 0 15px;
 }
