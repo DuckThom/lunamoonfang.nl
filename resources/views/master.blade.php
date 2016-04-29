@@ -29,6 +29,12 @@
         ga('send', 'pageview');
     </script>
 
+    @if( request()->path() !== 'ie_warning')
+        <!--[if lte IE 9]>
+            <meta http-equiv="refresh" content="0; url={{ url('ie_warning') }}">
+        <![endif]-->
+    @endif
+
     @yield('extraCSS')
 </head>
 

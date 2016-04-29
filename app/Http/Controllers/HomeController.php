@@ -132,4 +132,14 @@ class HomeController extends Controller
 
 		return view('home.sublist', ['sublist' => $sublist]);
 	}
+
+	/**
+	 * A page showing an outdated IE warning
+	 *
+	 * @return mixed
+	 */
+	public function ie()
+	{
+		return view('home.ie_warning');
+	}
 }
