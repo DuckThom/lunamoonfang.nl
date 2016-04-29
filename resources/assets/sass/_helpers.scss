@@ -13,7 +13,7 @@
     & > .column-lg-#{$i},
     & > .column-md-#{$i},
     & > .column-sm-#{$i} {
-      @include column($i);
+      @include column($i); 
     }
   }
 }
