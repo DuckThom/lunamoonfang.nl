@@ -51,6 +51,10 @@ Route::get('social', 'HomeController@social');
 Route::get('sublist/{pageId?}', 'HomeController@sublist');
 Route::get('ie_warning', 'HomeController@ie');
 
+Route::group(['prefix' => 'api'], function() {
+    Route::get('lastfm', 'ApiController@lastfm');
+});
+
 Route::get('upload', ['middleware' => 'auth', 'uses' => 'FileController@index']);
 
 /**
