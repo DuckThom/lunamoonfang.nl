@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use GitHub;
+use Illuminate\Http\Request;
+use GitHub, File, Cache;
 
 class HomeController extends Controller
 {
@@ -94,7 +95,7 @@ class HomeController extends Controller
 	 * @param  string $page_id pageToken
 	 * @return View
 	 */
-	public function sublist($page_id = "")
+	public function sublist(Request $request, $page_id = null)
 	{
 		$filePath = storage_path() . "/api/sublist" . $page_id . ".json";
 		$fileAge = (File::exists($filePath) ? date_diff( date_create(date('c', File::lastModified($filePath))), date_create(date('c')) )->format("%i") : 1440 );
@@ -102,7 +103,13 @@ class HomeController extends Controller
 		// Renew the data if the file is more than a day old
 		if (!File::exists($filePath) || $fileAge >= 1440)
 		{
-			$api_url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=UCj71iN5nbRNMErhPaq0qQjA&maxResults=10&" . ($page_id !== null ? "pageToken=" . urlencode($page_id) . "&" : "") . "key=" . env('YOUTUBE_KEY');
+			$api_url = "https://www.googleapis.com/youtube/v3/subscriptions" .
+                "?part=snippet" .
+                "&channelId=UCj71iN5nbRNMErhPaq0qQjA" .
+                "&maxResults=10" .
+                ($page_id !== null ? "&pageToken=" . urlencode($page_id) : "") .
+                "&key=" . env('YOUTUBE_API_KEY') .
+                "&userIp=" . $request->ip();
 
 			$ch = curl_init();
 

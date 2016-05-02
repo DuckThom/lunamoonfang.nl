@@ -19,13 +19,12 @@
     @include transition(all 150ms ease-out);
 
     .navbar-links li {
-      box-shadow: 0 0 0 0 white inset !important;
-
       &.active a {
         text-shadow: 0 0 10px white;
       }
 
       a {
+        box-shadow: 0 0 0 0 white inset !important;
         text-shadow: 0 0 0 white;
 
         @include transition(text-shadow 150ms ease-out);
@@ -49,11 +48,11 @@
 
       @include transition(box-shadow 150ms ease-in);
 
-      &.active {
+      &.active a {
         box-shadow: 0 -3px 0 0 $amber-500 inset;
       }
 
-      &:hover {
+      &:hover a {
         box-shadow: 0 -3px 0 0 white inset;
 
         @include transition(box-shadow 150ms ease-out);
@@ -144,12 +143,12 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .navbar ul li {
+  .navbar ul li a {
     &:hover {
       border-bottom: none;
     }
 
-    &.active {
+    &.active a {
       border-bottom: none;
       background-color: $deep-purple-700;
     }

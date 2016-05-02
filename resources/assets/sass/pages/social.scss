@@ -1,14 +1,5 @@
 @import "../colors";
-
-@mixin social-colors($name, $color) {
-  .social.#{$name} {
-    border: 1px solid #{$color} ;
-
-    .social-logo {
-      background-color: #{$color} ;
-    }
-  }
-}
+@import "../mixins";
 
 .social-title {
   width: 100%;

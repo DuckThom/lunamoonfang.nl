@@ -32,3 +32,13 @@
   width: #{100%/$size};
   padding: 0 15px;
 }
+
+@mixin social-colors($name, $color) {
+  .social.#{$name} {
+    border: 1px solid #{$color} ;
+
+    .social-logo {
+      background-color: #{$color} ;
+    }
+  }
+}

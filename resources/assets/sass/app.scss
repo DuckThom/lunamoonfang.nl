@@ -9,11 +9,14 @@
 @import "header";
 @import "helpers";
 @import "footer";
+@import "alert";
+@import "button";
 
 // Import page specific styling
 @import "pages/music";
 @import "pages/projects";
 @import "pages/social";
+@import "pages/subscriptions";
 
 html, body {
   font-family: "Titillium Web", sans-serif !important;

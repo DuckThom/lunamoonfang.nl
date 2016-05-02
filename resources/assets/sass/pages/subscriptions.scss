@@ -1,0 +1,42 @@
+@import "../colors";
+
+.subscriptions {
+  display: flex;
+  flex-flow: row wrap;
+
+  .sub {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid $grey-500;
+    margin: 15px 0;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .sub-image {
+      display: inline-block;
+      color: white;
+      width: 88px;
+      height: 88px;
+      text-align: center;
+    }
+
+    .sub-link {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      top: 20px;
+      font-size: 30px;
+
+      a {
+        padding-left: 20px;
+        color: $blue-500;
+        text-decoration: none;
+        letter-spacing: 2px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

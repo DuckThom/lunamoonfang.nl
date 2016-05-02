@@ -1,48 +1,35 @@
-@extends('master')
+@extends('master', ['title' => 'Subscriptions'])
 
 @section('header')
-    <img src="/assets/image/headers/sublist.jpg" />
-
-    <h1>Subscriptions</h1>
+    <h1><i class="fa fa-pass fa-2x" style="color: white;"  aria-hidden="true"></i></h1>
 @stop
 
 @section('content')
-    <div class="alert alert-success">Currently subscribed to {{ $sublist->pageInfo->totalResults }} channels</div>
-
-    @foreach($sublist->items as $sub)
-        <div class="media">
-            <div class="media-left">
-                <a href="https://youtube.com/channel/{{$sub->snippet->resourceId->channelId}}">
-                  <img class="media-object" src="{{$sub->snippet->thumbnails->default->url}}" alt="{{$sub->snippet->title}}">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{$sub->snippet->title}}</h4>
-                {!! nl2br($sub->snippet->description) !!}
-            </div>
+    <div class="container subscriptions">
+        <div class="column-md-1">
+            <div class="alert alert-success">Currently subscribed to {{ $sublist->pageInfo->totalResults }} channels</div>
         </div>
 
-        <hr />
-    @endforeach
+        @foreach($sublist->items as $sub)
+            <div class="column-md-2">
+                <div class="sub">
+                    <img class="sub-image" src="{{ $sub->snippet->thumbnails->default->url }}" alt="{{ $sub->snippet->title }}">
+                    <div class="sub-link">
+                        <a href="https://youtube.com/channel/{{ $sub->snippet->resourceId->channelId }}" target="_blank">{{ $sub->snippet->title }}</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
-    <div class="row">
-        <div class="col-xs-6">
+        <div class="column-sm-2">
             @if (isset($sublist->prevPageToken))
-                <a href="/sublist/{{$sublist->prevPageToken}}" class="btn btn-default btn-block">Previous Page</a>
+                <a href="/sublist/{{ $sublist->prevPageToken }}" class="button btn-default btn-block">Previous Page</a>
             @endif
         </div>
-        <div class="col-xs-6">
+        <div class="column-sm-2">
             @if (isset($sublist->nextPageToken))
-                <a href="/sublist/{{$sublist->nextPageToken}}" class="btn btn-default btn-block">Next Page</a>
+                <a href="/sublist/{{ $sublist->nextPageToken }}" class="button btn-default btn-block">Next Page</a>
             @endif
         </div>
     </div>
 @stop
-
-@section('extraCSS')
-    <style>
-        .media-body {
-            border-left: 2px solid #cecece;
-            padding-left: 10px;
-        }
-    </style>

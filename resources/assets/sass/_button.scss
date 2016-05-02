@@ -1,0 +1,48 @@
+@import "colors";
+
+.button {
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  &.btn-danger {
+    background-color: $red-500;
+    color: white;
+
+    &:hover {
+      background-color: $red-700;
+    }
+  }
+
+  &.btn-warning {
+    background-color: $yellow-500;
+    color: $grey-700;
+
+    &:hover {
+      background-color: $yellow-700;
+    }
+  }
+
+  &.btn-success {
+    background-color: $light-green-500;
+    color: white;
+
+    &:hover {
+      background-color: $light-green-700;
+    }
+  }
+
+  &.btn-default {
+    background-color: $blue-700;
+    color: white;
+
+    &:hover {
+      background-color: $blue-900;
+    }
+  }
+}
