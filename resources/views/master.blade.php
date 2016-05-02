@@ -39,11 +39,11 @@
 </head>
 
 <body>
-<nav class="navbar top">
+<nav class="navbar top {{ auth()->check() ? 'authed' : '' }}">
     <div class="navbar-backdrop" data-target="#navLinks"></div>
 
     <div class="navbar-brand">
-        <a href="{{ url('/') }}">
+        <a href="{{ auth()->check() ? url('account') : url('/') }}">
             <img src="{{ asset('assets/image/logo.png') }}" alt="Site logo">
         </a>
     </div>
@@ -61,7 +61,7 @@
                 <a href="{{ url('music') }}"> <i class="fa fa-music"></i> Music</a>
             </li>
             <li @if( request()->path() === 'about' ) class="active" @endif>
-                <a href="{{ url('about') }}"><i class="fa fa-user"></i> About me</a>
+                <a href="{{ url('about') }}"><i class="fa fa-user"></i> About</a>
             </li>
             <li @if( request()->path() === 'projects' ) class="active" @endif>
                 <a href="{{ url('projects') }}"><i class="fa @if( request()->path() === 'projects' ) fa-folder-open @else fa-folder @endif "></i> Projects</a>

@@ -39,12 +39,21 @@
     }
   }
 
-  &.btn-default {
+  &.btn-primary {
     background-color: $blue-700;
     color: white;
 
     &:hover {
       background-color: $blue-900;
+    }
+  }
+
+  &.btn-default {
+    background-color: $blue-grey-700;
+    color: white;
+
+    &:hover {
+      background-color: $blue-grey-900;
     }
   }
 }

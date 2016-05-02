@@ -13,6 +13,10 @@
 
   @include transition(all 150ms ease-out);
 
+  &.authed {
+    box-shadow: 0 3px 0 0 $light-green-500 inset;
+  }
+
   &.top {
     background-color: transparent !important;
 
@@ -44,9 +48,11 @@
     list-style: none;
 
     li {
-      box-shadow: 0 0 0 0 white inset;
+      a {
+        box-shadow: 0 0 0 0 white inset;
 
-      @include transition(box-shadow 150ms ease-in);
+        @include transition(box-shadow 150ms ease-in);
+      }
 
       &.active a {
         box-shadow: 0 -3px 0 0 $amber-500 inset;
@@ -91,9 +97,13 @@
     align-items: baseline;
     padding: 5px 20px;
     margin: 0 20px;
+    background-color: transparent;
+
+    @include transition(all 150ms ease-out);
 
     &:hover {
-      background-color: $deep-purple-300;
+      background-color: rgba(0,0,0,0.4);
+      @include transition(all 150ms ease-out);
     }
 
     img {

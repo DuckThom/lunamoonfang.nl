@@ -39,7 +39,9 @@ class HomeController extends Controller
 	{
 		$dt = new \DateTime();
 
-		return view('home.music', ['month' => $dt->format('F')]);
+		return view('home.music', [
+            'month' => $dt->format('F')
+        ]);
 	}
 
 	/**

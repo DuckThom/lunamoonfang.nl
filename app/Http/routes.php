@@ -12,33 +12,6 @@
 */
 
 /**
- * Image viewing
- */
- Route::group(['prefix' => 's'], function () {
-     Route::get('list', ['middleware' => 'auth', 'uses' => 'FileController@imagelist']);
-     Route::get('overview', ['middleware' => 'auth', 'uses' => 'FileController@imageoverview']);
-     Route::get('{image_name}', 'ImageController@showImage');
-     Route::get('{image_name}/full', 'ImageController@showFullImage');
-});
-
-/**
- * File and image uploading
- */
-Route::group(['prefix' => 'u', 'middleware' => 'auth'], function () {
-    Route::post('image', 'FileController@saveImage');
-    Route::post('file', 'FileController@saveFile');
-});
-
-/**
- * File and image uploading
- */
-Route::group(['prefix' => 'f'], function () {
-    Route::get('list', ['middleware' => 'auth', 'uses' => 'FileController@filelist']);
-    Route::get('{version}/{name}', 'FileController@serve');
-});
-
-
-/**
  * The main site routes
  */
 Route::get('/', 'HomeController@index');
@@ -51,15 +24,48 @@ Route::get('social', 'HomeController@social');
 Route::get('sublist/{pageId?}', 'HomeController@sublist');
 Route::get('ie_warning', 'HomeController@ie');
 
-Route::group(['prefix' => 'api'], function() {
+/**
+ * API Routes
+ */
+Route::group(['prefix' => 'api'], function () {
     Route::get('lastfm', 'ApiController@lastfm');
 });
 
-Route::get('upload', ['middleware' => 'auth', 'uses' => 'FileController@index']);
+/**
+ * Routes that are only accessable to guests
+ */
+Route::group(['middleware' => 'guest'], function () {
+    Route::match(['GET', 'POST'], '/login', 'UserController@login');
+});
 
 /**
- * User related routes
+ * Routes that are only accessable when logged in
  */
-Route::get('logout', ['middleware' => 'auth', 'uses' => 'UserController@logout']);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('account', 'UserController@account');
 
-Route::match(['GET', 'POST'], '/login', 'UserController@login');
+    Route::group(['prefix' => 'f'], function () {
+        Route::get('upload', 'FileController@index');
+        Route::get('list', 'FileController@list');
+
+        Route::post('upload', 'FileController@save');
+    });
+
+    Route::group(['prefix' => 's'], function () {
+        Route::get('upload', 'ImageController@index');
+        Route::get('list', 'ImageController@list');
+        Route::get('overview', 'ImageController@overview');
+
+        Route::post('upload', 'ImageController@save');
+    });
+
+    Route::get('logout', 'UserController@logout');
+});
+
+/**
+ * Image viewing, needs to be AFTER the middleware auth block
+ */
+Route::group(['prefix' => 's'], function () {
+    Route::get('{image_name}', 'ImageController@showImage');
+    Route::get('{image_name}/full', 'ImageController@showFullImage');
+});

@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 /**
  * Class UserController
@@ -17,11 +18,12 @@ class UserController extends Controller
 	public function login(Request $request)
 	{
 		if ($request->isMethod('get')) {
-			return view('home.login');
+			return view('user.login');
 		} elseif ($request->isMethod('post')) {
 			if ($request->has('username') && $request->has('password')) {
-				if (auth()->attempt(['username' => $request->get('username'), 'password' => $request->get('password')])) {
-					return intended('/');
+				if (Auth::attempt(['username' => $request->get('username'), 'password' => $request->get('password')])) {
+					return redirect()
+                        ->intended('/');
 				} else {
 					return redirect('login')
 						->withErrors('Invalid username and/or password')
@@ -43,8 +45,8 @@ class UserController extends Controller
      */
 	public function logout()
 	{
-		if (auth()->check()) {
-            auth()->logout();
+		if (Auth::check()) {
+            Auth::logout();
 
 			return intended('/')->with([
                 'message' => 'You are now logged out'
@@ -52,4 +54,14 @@ class UserController extends Controller
 		} else
 			return back();
 	}
+
+    /**
+     * Account
+     *
+     * @return \Illuminate\View\View
+     */
+    public function account()
+    {
+        return view('user.account');
+    }
 }
