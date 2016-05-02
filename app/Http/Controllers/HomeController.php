@@ -3,18 +3,12 @@
 use Illuminate\Http\Request;
 use GitHub, File, Cache;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
-
-	/*
-	|--------------------------------------------------------------------------
-	| Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller will handle all the basic pages like
-	| Home, Music and About me
-	|
-	*/
 
 	/**
 	 * Index
@@ -92,7 +86,9 @@ class HomeController extends Controller
 
 	/**
 	 * Fetch and show a list of my YouTube subscriptions
-	 * @param  string $page_id pageToken
+     *
+     * @param Request $request
+	 * @param string $page_id pageToken
 	 * @return View
 	 */
 	public function sublist(Request $request, $page_id = null)
