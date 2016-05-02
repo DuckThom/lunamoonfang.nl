@@ -39,7 +39,7 @@ class HomeController extends Controller
 	public function music()
 	{
         return view('home.music', [
-            'lastmonth' => Carbon::parse('-1 month')->format('F jS');
+            'lastmonth' => Carbon::parse('-1 month')->format('F jS')
         ]);
 	}
 
