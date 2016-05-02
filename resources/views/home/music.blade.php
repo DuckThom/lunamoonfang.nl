@@ -17,7 +17,7 @@
         <div class="column-md-2">
             <table id="topAlbumsTable">
                 <caption>
-                    <h3>Top 5 Albums ({{ $month }})<h3>
+                    <h3>Top 5 Albums ({{ $lastmonth }} to today)<h3>
                 </caption>
 
                 <thead>
@@ -39,7 +39,7 @@
         <div class="column-md-2">
             <table id="topTrackTable">
                 <caption>
-                    <h3>Top 5 Tracks ({{ $month }})<h3>
+                    <h3>Top 5 Tracks ({{ $lastmonth }} to today)<h3>
                 </caption>
 
                 <thead>

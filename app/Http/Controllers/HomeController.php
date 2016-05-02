@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use GitHub, File, Cache;
 
 /**
@@ -37,10 +38,8 @@ class HomeController extends Controller
 	 */
 	public function music()
 	{
-		$dt = new \DateTime();
-
-		return view('home.music', [
-            'month' => $dt->format('F')
+        return view('home.music', [
+            'lastmonth' => Carbon::parse('-1 month')->format('F jS');
         ]);
 	}
 
