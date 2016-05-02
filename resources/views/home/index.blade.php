@@ -6,7 +6,7 @@
             <div class="text-center about-site">
                 <h3>lunamoonfang.nl</h3>
                 <p>
-                    Welcome, this site is made by DuckThom/Luna Moonfang, also known as Thomas Wiringa. <br />
+                    Welcome, this site is made and designed by DuckThom/Luna Moonfang, also known as Thomas Wiringa. <br />
                     It has been made using Laravel, jQuery and Font Awesome. <br />
                     The styling on this site is all custom made by me, no Bootstrap, no Foundation, no anything. <br />
                     Just pure custom CSS. <br />
