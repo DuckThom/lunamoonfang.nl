@@ -5,7 +5,6 @@
 		@if(count($images) === 0)
 			<div class="alert alert-warning">No images have been uploaded yet</div>
 		@else
-			{{ $_SERVER['HTTP_ACCEPT_LANGUAGE'] }}
 			<table class="table table-stiped">
 				<thead>
 				<th>ID</th>
