@@ -31,6 +31,7 @@
 @mixin column($size) {
   width: #{100%/$size};
   padding: 0 15px;
+  margin: 10px 0;
 }
 
 @mixin social-colors($name, $color) {

@@ -6,9 +6,10 @@
   text-align: center;
   border: none;
   cursor: pointer;
+  display: inline-block;
 
   &.btn-block {
-    display: block;
+    display: block !important;
     width: 100%;
   }
 

@@ -43,30 +43,6 @@ class FileController extends Controller
     }
 
     /**
-     * Show a list of all the stored images
-     *
-     * @return \Illuminate\View\View
-     */
-    public function imagelist()
-    {
-            $data = Image::orderBy('id', 'desc')->get();
-
-            return view('files.imagelist', array('images' => $data));
-    }
-
-    /**
-     * Image overview page
-     *
-     * @return \Illuminate\View\View
-     */
-    public function imageoverview()
-    {
-            $data = Image::all();
-
-            return view('files.overview', array('images' => $data));
-    }
-
-    /**
      * Save the uploaded file to the disk
      * and create a shortend link for it
      *
@@ -177,28 +153,6 @@ class FileController extends Controller
             } else {
                     die("No file attached!");
             }
-    }
-
-    /**
-     * Create a hash from the filename for images
-     *
-     * @return string
-     */
-    private function createImageHash()
-    {
-            $fc = count(scandir(public_path() . "/img"));
-
-            // Run until the end of times
-            while (true) {
-                    $hash = base64_encode($fc * mt_rand(2, $fc * $fc));
-
-                    // Stop the loop if the hash doesn't exist
-                    if (!file_exists(public_path() . "/img/" . $hash)) {
-                            break;
-                    }
-            }
-
-            return $hash;
     }
 
     /**

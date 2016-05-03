@@ -65,7 +65,9 @@ class ImageController extends Controller
     {
         $data = Image::where('hash', $image_hash)->firstOrFail();
 
-        return view('files.image', array('data' => $data));
+        return view('image.show', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -87,7 +89,9 @@ class ImageController extends Controller
                 })->encode('jpg', 90);
 
                 // Save the thumbnail to the database for caching
-                Image::where('hash', $image_hash)->update(array('thumbnail' => $imagedata));
+                Image::where('hash', $image_hash)->update([
+                    'thumbnail' => $imagedata
+                ]);
             } else
                 $imagedata = $data->thumbnail;
 
@@ -103,6 +107,34 @@ class ImageController extends Controller
 
         // Echo the image data
         echo $imagedata;
+    }
+
+    /**
+     * Show a list of all the stored images
+     *
+     * @return \Illuminate\View\View
+     */
+    public function list()
+    {
+        $data = Image::orderBy('id', 'desc')->paginate(15);
+
+        return view('image.list', [
+            'images' => $data
+        ]);
+    }
+
+    /**
+     * Image overview page
+     *
+     * @return \Illuminate\View\View
+     */
+    public function overview()
+    {
+        $data = Image::all();
+
+        return view('image.overview', [
+            'images' => $data
+        ]);
     }
 
     /**

@@ -1,17 +1,19 @@
-@extends('master')
+@extends('master', ['title' => 'Image list'])
 
 @section('content')
-	@if(count($images) === 0)
-		<div class="alert alert-warning">No images have been uploaded yet</div>
-	@else
-		<table class="table table-stiped">
-			<thead>
+	<div class="container">
+		@if(count($images) === 0)
+			<div class="alert alert-warning">No images have been uploaded yet</div>
+		@else
+			{{ $_SERVER['HTTP_ACCEPT_LANGUAGE'] }}
+			<table class="table table-stiped">
+				<thead>
 				<th>ID</th>
 				<th>Link</th>
 				<th>Hash</th>
 				<th>Name</th>
-			</thead>
-			<tbody>
+				</thead>
+				<tbody>
 				@foreach($images as $image)
 					<tr>
 						<td>{{ $image->id }}</td>
@@ -20,7 +22,8 @@
 						<td>{{ $image->name }}</td>
 					</tr>
 				@endforeach
-			</tbody>
-		</table>
-	@endif
+				</tbody>
+			</table>
+		@endif
+	</div>
 @stop
