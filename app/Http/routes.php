@@ -29,6 +29,8 @@ Route::get('ie_warning', 'HomeController@ie');
  */
 Route::group(['prefix' => 'api'], function () {
     Route::get('lastfm', 'ApiController@lastfm');
+    
+    Route::post('upload', 'ApiController@uploadImage');
 });
 
 /**

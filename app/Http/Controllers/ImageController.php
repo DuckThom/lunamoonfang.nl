@@ -3,6 +3,7 @@
 use Redirect, Auth, Input, Session, Validator, Img, File;
 use Illuminate\Http\Request;
 use App\Image;
+use App\Helper;
 
 class ImageController extends Controller
 {
@@ -30,7 +31,7 @@ class ImageController extends Controller
         if ($validator->passes()) {
             $image      = $request->file('image');
             $name       = $request->has('name') ? $request->get('name') : $image->getClientOriginalName();
-            $image_hash = self::createImageHash();
+            $image_hash = Helper::createHash();
 
             $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
                 $constraint->aspectRatio();
@@ -104,11 +105,11 @@ class ImageController extends Controller
                     $constraint->upsize();
                 })->encode('png');
 
-                $content_type = 'image/png';
+                $content_type   = 'image/png';
             } else {
                 // Put the raw image data in a variable
-                $imagedata = file_get_contents($img_location);
-                $content_type = image_type_to_mime_type(exif_imagetype($img_location));
+                $imagedata      = file_get_contents($img_location);
+                $content_type   = image_type_to_mime_type(exif_imagetype($img_location));
             }
         }
 
@@ -142,41 +143,5 @@ class ImageController extends Controller
         return view('image.overview', [
             'images' => $data
         ]);
-    }
-
-    /**
-     * Create a hash for images
-     *
-     * @return string
-     */
-    private function createImageHash()
-    {
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!';
-        $hash  = '';
-        $count = 0;
-        $limit = 5;
-
-        // Run until the end of times
-        while ($count < $limit) {
-            $hash .= $chars[rand(0, strlen($chars)-1)];
-
-            $count++;
-
-            if ($count === 5) {
-                // Retry until the limit is 10
-                if ($limit === 10) {
-                    throw new \Exception('Exhausted possible hashes...?');
-                }
-
-                // Restart the loop if the hash is not unique
-                if (file_exists(public_path() . "/img/" . $hash)) {
-                    $limit++;
-                    $count = 0;
-                    $hash = '';
-                }
-            }
-        }
-
-        return $hash;
     }
 }
