@@ -89,7 +89,7 @@ class ApiController extends Controller
                 return response('Invalid API key');
             }
         } else {
-            return json($validator->errors());
+            return response()->json($validator->errors());
         }
     }
 
