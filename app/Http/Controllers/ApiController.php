@@ -53,39 +53,43 @@ class ApiController extends Controller
      * @throws \Exception
      */
     public function uploadImage(Request $request) {
-        $this->validate($request, [
+        $validator = \Validator::make($request->all(), [
             'image' => 'required|image',
             'name'  => 'min:3|max:50',
             'key'   => 'required'
         ]);
 
-        $key = $request->get('key');
+        if ($validator->passes()) {
+            $key = $request->get('key');
 
-        if ($key === env('API_KEY')) {
-            \Log::info('Uploading image via API...');
+            if ($key === env('API_KEY')) {
+                \Log::info('Uploading image via API...');
 
-            $image      = $request->file('image');
-            $name       = $request->has('name') ? $request->get('name') : $image->getClientOriginalName();
-            $image_hash = Helper::createHash();
+                $image      = $request->file('image');
+                $name       = $request->has('name') ? $request->get('name') : $image->getClientOriginalName();
+                $image_hash = Helper::createHash();
 
-            $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
-                $constraint->aspectRatio();
-            })->encode('jpg', 90);
+                $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->encode('jpg', 90);
 
-            Image::create([
-                'name'      => ($name === "" ? $image_name : $name),
-                'hash'      => $image_hash,
-                'thumbnail' => $imagedata
-            ]);
-
-            $image->move(public_path() . "/img/", $image_hash);
-
-            return response()
-                ->json([
-                    "url" => url("s/{$image_hash}/full")
+                Image::create([
+                    'name'      => ($name === "" ? $image_name : $name),
+                    'hash'      => $image_hash,
+                    'thumbnail' => $imagedata
                 ]);
+
+                $image->move(public_path() . "/img/", $image_hash);
+
+                return response()
+                    ->json([
+                        "url" => url("s/{$image_hash}/full")
+                    ]);
+            } else {
+                return response('Invalid API key');
+            }
         } else {
-            return response('Invalid API key');
+            return json($validator->errors());
         }
     }
 
