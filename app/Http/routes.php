@@ -67,5 +67,5 @@ Route::group(['middleware' => 'auth'], function () {
  */
 Route::group(['prefix' => 's'], function () {
     Route::get('{image_name}', 'ImageController@showImage');
-    Route::get('{image_name}/full', 'ImageController@showFullImage');
+    Route::get('{image_name}/full/{width?}/{height?}', 'ImageController@showFullImage');
 });
