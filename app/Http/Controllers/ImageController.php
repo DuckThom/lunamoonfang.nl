@@ -94,29 +94,26 @@ class ImageController extends Controller
                 $imagedata = $data->thumbnail;
             }
         } else {
-            // Put the raw image data in a variable
-            $imagedata = file_get_contents($img_location);
+            // Optional height and width
+            if ($width !== "auto" || $height !== "auto") {
+                // Either width or height or both must be set
+                // ie. $width = 500; $height = 250; image dimensions: 2560x1440 will be resized to 399x250
+                // ie. $width = 500; $height = 500; image dimensions: 2560x1440 will be resized to 500x313
+                $imagedata = (string) Img::make($img_location)->resize(($width === "auto" ? null : (int) $width), ($height === "auto" ? null : (int) $height), function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->encode('png');
+
+                $content_type = 'image/png';
+            } else {
+                // Put the raw image data in a variable
+                $imagedata = file_get_contents($img_location);
+                $content_type = image_type_to_mime_type(exif_imagetype($img_location));
+            }
         }
 
-        // Echo the image data
-        // Optional height and width
-        if ($width !== "auto" || $height !== "auto") {
-            // Set the content type header to png
-            header("Content-Type: image/png");
-
-            // Either width or height or both must be set
-            // ie. $width = 500; $height = 250; image dimensions: 2560x1440 will be resized to 399x250
-            // ie. $width = 500; $height = 500; image dimensions: 2560x1440 will be resized to 500x313
-            echo (string) Img::make($img_location)->resize(($width === "auto" ? null : (int) $width), ($height === "auto" ? null : (int) $height), function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })->encode('png');
-        } else {
-            // Set the content type header to the mime type of the original image
-            header("Content-Type: " . image_type_to_mime_type(exif_imagetype($img_location)));
-
-            echo $imagedata;
-        }
+        return response($imagedata)
+            ->header('Content-Type', $content_type);
     }
 
     /**
