@@ -14,16 +14,6 @@ class ApiController extends Controller
 {
 
     /**
-     * ApiController constructor.
-     */
-    public function __construct()
-    {
-        if (!env('API_KEY')) {
-            throw new MissingEnvironmentVariableException('API_KEY');
-        }
-    }
-
-    /**
      * Fetch LastFM API data
      *
      * @return mixed
@@ -60,36 +50,39 @@ class ApiController extends Controller
         ]);
 
         if ($validator->passes()) {
-            $key = $request->get('key');
+            \Log::info('Uploading image via API...');
 
-            if ($key === env('API_KEY')) {
-                \Log::info('Uploading image via API...');
+            $image      = $request->file('image');
+            $name       = $request->has('name') ? $request->get('name') : $image->getClientOriginalName();
+            $image_hash = Helper::createHash();
 
-                $image      = $request->file('image');
-                $name       = $request->has('name') ? $request->get('name') : $image->getClientOriginalName();
-                $image_hash = Helper::createHash();
+            $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
+                $constraint->aspectRatio();
+            })->encode('jpg', 90);
 
-                $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->encode('jpg', 90);
+            Image::create([
+                'name'      => ($name === "" ? $image_name : $name),
+                'hash'      => $image_hash,
+                'thumbnail' => $imagedata
+            ]);
 
-                Image::create([
-                    'name'      => ($name === "" ? $image_name : $name),
-                    'hash'      => $image_hash,
-                    'thumbnail' => $imagedata
+            $image->move(public_path() . "/img/", $image_hash);
+
+            return response()
+                ->json([
+                    'status'    => 'Bad request',
+                    'code'      => 200,
+                    'payload'   => [
+                        "url" => url("s/{$image_hash}/full")
+                    ],
                 ]);
 
-                $image->move(public_path() . "/img/", $image_hash);
-
-                return response()
-                    ->json([
-                        "url" => url("s/{$image_hash}/full")
-                    ]);
-            } else {
-                return response('Invalid API key');
-            }
         } else {
-            return response()->json($validator->errors());
+            return response()->json([
+                'status'    => 'Bad request',
+                'code'      => 400,
+                'message'    => $validator->errors()
+            ], 400);
         }
     }
 
