@@ -47,8 +47,7 @@ class UploadController extends ApiController
 
             return $this->returnInSuccess([
                 'url' => url("s/{$image_hash}/full")
-            ])
-
+            ]);
         } else {
             return $this->returnInFail($validator->errors());
         }
