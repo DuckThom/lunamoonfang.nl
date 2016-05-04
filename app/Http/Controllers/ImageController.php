@@ -16,11 +16,15 @@ class ImageController extends Controller
      */
     public function index(Request $request)
     {
-        return view('upload.image');
+        return view('image.upload');
     }
 
     /**
+     * Save the uploaded image
      *
+     * @param Request $request
+     * @return mixed
+     * @throws \Exception
      */
     public function save(Request $request)
     {
@@ -62,7 +66,7 @@ class ImageController extends Controller
      * @param $image_hash
      * @return mixed
      */
-    public function showImage($image_hash)
+    public function show($image_hash)
     {
         $data = Image::where('hash', $image_hash)->firstOrFail();
 
@@ -76,7 +80,7 @@ class ImageController extends Controller
      *
      * @param $image_hash
      */
-    public function showFullImage(Request $request, $image_hash, $width = "auto", $height = "auto")
+    public function full(Request $request, $image_hash, $width = "auto", $height = "auto")
     {
         $data = Image::where('hash', $image_hash)->firstOrFail();
         $img_location = public_path() . "/img/" . $data->hash;

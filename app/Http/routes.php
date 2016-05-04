@@ -28,10 +28,19 @@ Route::get('ie_warning', 'HomeController@ie');
  * API Routes
  */
 Route::group(['prefix' => 'api'], function () {
-    Route::get('lastfm', 'ApiController@lastfm');
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('list', 'ApiController@list');
+        Route::get('create', 'ApiController@new');
 
-    Route::group(['middleware' => 'api'], function () {
-        Route::post('upload', 'ApiController@uploadImage');
+        Route::post('create', 'ApiController@create');
+    });
+
+    Route::group(['namespace' => 'Api'], function () {
+        Route::get('lastfm', 'MusicController@lastfm');
+
+        Route::group(['middleware' => 'api'], function () {
+            Route::post('upload', 'UploadController@image');
+        });
     });
 });
 
@@ -70,6 +79,6 @@ Route::group(['middleware' => 'auth'], function () {
  * Image viewing, needs to be AFTER the middleware auth block
  */
 Route::group(['prefix' => 's'], function () {
-    Route::get('{image_name}', 'ImageController@showImage');
-    Route::get('{image_name}/full/{width?}/{height?}', 'ImageController@showFullImage');
+    Route::get('{image_name}', 'ImageController@show');
+    Route::get('{image_name}/full/{width?}/{height?}', 'ImageController@full');
 });

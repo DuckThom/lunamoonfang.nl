@@ -10,14 +10,21 @@
             <a href="{{ url('s/upload') }}" class="button btn-primary btn-block">Upload image</a>
         </div>
         <div class="column-sm-2">
-            <a href="{{ url('f/upload') }}" class="button btn-primary btn-block">Upload file</a>
+            <a href="{{ url('s/list') }}" class="button btn-default btn-block">Image list</a>
         </div>
 
         <div class="column-sm-2">
-            <a href="{{ url('s/list') }}" class="button btn-default btn-block">Image list</a>
+            <a href="{{ url('f/upload') }}" class="button btn-primary btn-block">Upload file</a>
         </div>
         <div class="column-sm-2">
             <a href="{{ url('f/list') }}" class="button btn-default btn-block">File list</a>
+        </div>
+
+        <div class="column-sm-2">
+            <a href="{{ url('api/create') }}" class="button btn-success btn-block">Create API key</a>
+        </div>
+        <div class="column-sm-2">
+            <a href="{{ url('api/list') }}" class="button btn-success btn-block">API key list</a>
         </div>
 
         <div class="column-sm-1">

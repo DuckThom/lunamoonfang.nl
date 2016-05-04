@@ -1,0 +1,53 @@
+@import "colors";
+
+table {
+  background-color: $blue-500;
+  color: white;
+  border-collapse: collapse;
+  padding: 20px;
+  margin: 10px auto;
+
+  caption {
+    text-align: center;
+    background-color: $blue-500;
+    border-top: 5px solid $amber-200;
+    border-bottom: 1px solid white;
+  }
+
+  th {
+    padding: 10px 0;
+    text-align: center;
+    border-right: 1px solid white;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  td {
+    padding: 10px;
+    border-top: 1px solid white;
+    text-align: center;
+    border-right: 1px solid white;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    a {
+      color: white;
+
+      transition: all 150ms ease-out;
+      -moz-transition: all 150ms ease-out;
+      -webkit-transition: all 150ms ease-out;
+
+      &:hover {
+        color: $light-green-500;
+
+        transition: all 150ms ease-out;
+        -moz-transition: all 150ms ease-out;
+        -webkit-transition: all 150ms ease-out;
+      }
+    }
+  }
+}

@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Key
+ * @package App
+ */
 class Key extends Model
 {
     /**

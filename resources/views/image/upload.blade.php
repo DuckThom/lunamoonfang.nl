@@ -21,4 +21,4 @@
             <button type="submit" class="button btn-success btn-block">Upload image</button>
         </form>
     </div>
-@stop
+@endsection

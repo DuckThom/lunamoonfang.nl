@@ -1,10 +1,9 @@
 <?php namespace App\Http\Controllers;
 
-use App\Exceptions\MissingEnvironmentVariableException;
 use App\Helper;
 use App\Image;
+use App\Key;
 use Illuminate\Http\Request;
-use Img;
 
 /**
  * Class ApiController
@@ -14,76 +13,44 @@ class ApiController extends Controller
 {
 
     /**
-     * Fetch LastFM API data
+     * Show a list of every API key
      *
-     * @return mixed
+     * @return Illuminate\View\View
      */
-    public function lastfm(Request $request)
+    public function list()
     {
-        if ($request->ajax()) {
-            $albumsUrl  = "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=duckthom&api_key=" . env('LASTFM_API_KEY') . "&format=json&period=1month&limit=5";
-            $tracksUrl  = "https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=duckthom&api_key=" . env('LASTFM_API_KEY') . "&format=json&period=1month&limit=5";
-            $playingUrl = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=duckthom&api_key=" . env('LASTFM_API_KEY') . "&format=json&limit=1";
-
-            return response()->json([
-                json_decode(file_get_contents($albumsUrl)),
-                json_decode(file_get_contents($tracksUrl)),
-                json_decode(file_get_contents($playingUrl)),
-            ]);
-        } else {
-            return response()->json("Only ajax requests are allowed", 405);
-        }
+        return view('api.list', [
+            'keys'  => Key::all()
+        ]);
     }
 
     /**
-     * Upload an image via the api
+     * Show form to create a new key
      *
-     * @param Request $request
-     * @return string|Redirect
-     * @throws \Exception
+     * @return Illuminate\View\View
      */
-    public function uploadImage(Request $request) {
-        $validator = \Validator::make($request->all(), [
-            'image' => 'required|image',
-            'name'  => 'min:3|max:50',
-            'key'   => 'required'
-        ]);
-
-        if ($validator->passes()) {
-            \Log::info('Uploading image via API...');
-
-            $image      = $request->file('image');
-            $name       = $request->has('name') ? $request->get('name') : $image->getClientOriginalName();
-            $image_hash = Helper::createHash();
-
-            $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
-                $constraint->aspectRatio();
-            })->encode('jpg', 90);
-
-            Image::create([
-                'name'      => ($name === "" ? $image_name : $name),
-                'hash'      => $image_hash,
-                'thumbnail' => $imagedata
-            ]);
-
-            $image->move(public_path() . "/img/", $image_hash);
-
-            return response()
-                ->json([
-                    'status'    => 'Bad request',
-                    'code'      => 200,
-                    'payload'   => [
-                        "url" => url("s/{$image_hash}/full")
-                    ],
-                ]);
-
-        } else {
-            return response()->json([
-                'status'    => 'Bad request',
-                'code'      => 400,
-                'message'    => $validator->errors()
-            ], 400);
-        }
+    public function new()
+    {
+        return view('api.create');
     }
 
+    /**
+     * Add a new API key
+     *
+     * @param Request $request
+     * @return Redirect
+     */
+    public function create(Request $request)
+    {
+        $key = str_random(48);
+
+        Key::create([
+            'key'   => $key,
+            'name'  => $request->get('name') ?: '',
+        ]);
+
+        return redirect()
+            ->intended('api/list');
+    }
+    
 }

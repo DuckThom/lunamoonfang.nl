@@ -170,6 +170,9 @@
                 method: "GET",
                 async: true,
                 success: function (data) {
+                    console.log(data);
+                    var data = data.payload;
+
                     parseAlbums(data[0].topalbums.album.sort(sortByPlaycount));
                     parseTracks(data[1].toptracks.track.sort(sortByPlaycount));
                     parseRecent(data[2].recenttracks.track[0]);
