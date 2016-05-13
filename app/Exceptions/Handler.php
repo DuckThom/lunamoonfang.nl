@@ -46,16 +46,12 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
-        if (config('app.debug'))
-        {
+        if (config('app.debug')) {
             $whoops = new \Whoops\Run;
 
-            if ($request->ajax())
-            {
+            if ($request->ajax()) {
                 $whoops->pushHandler(new \Whoops\Handler\JsonResponseHandler);
-            }
-            else
-            {
+            } else {
                 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
             }
 
