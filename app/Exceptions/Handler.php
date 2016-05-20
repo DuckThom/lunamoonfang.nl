@@ -46,6 +46,10 @@ class Handler extends ExceptionHandler
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
 
+        if ($this->shouldReport($e)) {
+            app('sentry')->captureException($e);
+        }
+
         if (config('app.debug')) {
             $whoops = new \Whoops\Run;
 
