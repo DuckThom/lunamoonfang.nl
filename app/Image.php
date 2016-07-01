@@ -1,28 +1,29 @@
-<?php namespace App;
+<?php
+
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model {
+class Image extends Model
+{
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'images';
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'images';
+    /**
+     * The columns excluded from import.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
 
-	/**
-	 * The columns excluded from import.
-	 *
-	 * @var array
-	 */
-	protected $guarded = array('id');
-
-	/**
-	 * The columns included from import.
-	 *
-	 * @var array
-	 */
-	protected $fillable = array('name', 'hash', 'thumbnail');
-
+    /**
+     * The columns included from import.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'hash', 'thumbnail'];
 }

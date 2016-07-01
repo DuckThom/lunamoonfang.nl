@@ -64,7 +64,7 @@ class Handler extends ExceptionHandler
                 $e->getHeaders()
             );
         }
-        
+
         return parent::render($request, $e);
     }
 }

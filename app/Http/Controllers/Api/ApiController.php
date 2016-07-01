@@ -1,17 +1,17 @@
-<?php namespace App\Http\Controllers\Api;
+<?php
+
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 
 /**
- * Class ApiController
- * @package App\Http\Controllers\Api
+ * Class ApiController.
  */
 class ApiController extends Controller
 {
-
     /**
      * Return as a failed request
-     * Default: HTTP 400 Bad Request
+     * Default: HTTP 400 Bad Request.
      *
      * @param string $message
      * @param string $status
@@ -28,13 +28,13 @@ class ApiController extends Controller
         return response()->json([
             'status'    => $status,
             'code'      => $code,
-            'message'   => $message
+            'message'   => $message,
         ], $code);
     }
 
     /**
      * Return as a successful request
-     * Default: HTTP 200 OK
+     * Default: HTTP 200 OK.
      *
      * @param array $payload
      * @param string $status
@@ -51,8 +51,7 @@ class ApiController extends Controller
         return response()->json([
             'status'    => $status,
             'code'      => $code,
-            'payload'   => $payload
+            'payload'   => $payload,
         ], $code);
     }
-
 }

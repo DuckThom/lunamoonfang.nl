@@ -1,17 +1,17 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
 
 /**
- * Class UserController
- * @package App\Http\Controllers
+ * Class UserController.
  */
 class UserController extends Controller
 {
-
     /**
-     * Login
+     * Login.
      *
      * @return \Illuminate\View\View|Redirect
      */
@@ -39,7 +39,7 @@ class UserController extends Controller
     }
 
     /**
-     * Logout
+     * Logout.
      *
      * @return Redirect
      */
@@ -50,14 +50,15 @@ class UserController extends Controller
 
             return redirect()
                 ->intended('/')->with([
-                    'message' => 'You are now logged out'
+                    'message' => 'You are now logged out',
                 ]);
-        } else
+        } else {
             return back();
+        }
     }
 
     /**
-     * Account
+     * Account.
      *
      * @return \Illuminate\View\View
      */

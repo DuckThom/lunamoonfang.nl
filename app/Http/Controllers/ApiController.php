@@ -1,31 +1,29 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App\Helper;
-use App\Image;
+namespace App\Http\Controllers;
+
 use App\Key;
 use Illuminate\Http\Request;
 
 /**
- * Class ApiController
- * @package App\Http\Controllers
+ * Class ApiController.
  */
 class ApiController extends Controller
 {
-
     /**
-     * Show a list of every API key
+     * Show a list of every API key.
      *
      * @return Illuminate\View\View
      */
     public function list()
     {
         return view('api.list', [
-            'keys'  => Key::all()
+            'keys'  => Key::all(),
         ]);
     }
 
     /**
-     * Show form to create a new key
+     * Show form to create a new key.
      *
      * @return Illuminate\View\View
      */
@@ -35,7 +33,7 @@ class ApiController extends Controller
     }
 
     /**
-     * Add a new API key
+     * Add a new API key.
      *
      * @param Request $request
      * @return Redirect
@@ -52,5 +50,4 @@ class ApiController extends Controller
         return redirect()
             ->intended('api/list');
     }
-    
 }

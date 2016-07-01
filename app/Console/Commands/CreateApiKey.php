@@ -39,7 +39,7 @@ class CreateApiKey extends Command
     public function handle()
     {
         $key = str_random(48);
-        
+
         Key::create([
             'key'   => $key,
             'name'  => $this->argument('name') ?: '',
