@@ -89,8 +89,8 @@ class HomeController extends Controller
     /**
      * Fetch and show a list of my YouTube subscriptions.
      *
-     * @param Request $request
-     * @param string $page_id pageToken
+     * @param  Request $request
+     * @param  string $page_id pageToken
      * @return View
      */
     public function sublist(Request $request, $page_id = null)

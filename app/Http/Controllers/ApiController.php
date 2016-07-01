@@ -35,7 +35,7 @@ class ApiController extends Controller
     /**
      * Add a new API key.
      *
-     * @param Request $request
+     * @param  Request $request
      * @return Redirect
      */
     public function create(Request $request)

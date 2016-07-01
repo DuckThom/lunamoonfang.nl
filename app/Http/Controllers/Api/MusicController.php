@@ -12,7 +12,7 @@ class MusicController extends ApiController
     /**
      * Fetch LastFM API data.
      *
-     * @param Request $request
+     * @param  Request $request
      * @return mixed
      */
     public function lastfm(Request $request)

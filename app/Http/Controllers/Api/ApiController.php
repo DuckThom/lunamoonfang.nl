@@ -13,9 +13,9 @@ class ApiController extends Controller
      * Return as a failed request
      * Default: HTTP 400 Bad Request.
      *
-     * @param string $message
-     * @param string $status
-     * @param int $code
+     * @param  string $message
+     * @param  string $status
+     * @param  int $code
      * @return mixed
      * @throws \Exception
      */
@@ -36,9 +36,9 @@ class ApiController extends Controller
      * Return as a successful request
      * Default: HTTP 200 OK.
      *
-     * @param array $payload
-     * @param string $status
-     * @param int $code
+     * @param  array $payload
+     * @param  string $status
+     * @param  int $code
      * @return mixed
      * @throws \Exception
      */

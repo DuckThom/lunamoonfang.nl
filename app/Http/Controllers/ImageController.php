@@ -14,7 +14,7 @@ class ImageController extends Controller
     /**
      * Form to upload an image.
      *
-     * @param Request $request
+     * @param  Request $request
      * @return mixed
      */
     public function index(Request $request)
@@ -25,7 +25,7 @@ class ImageController extends Controller
     /**
      * Save the uploaded image.
      *
-     * @param Request $request
+     * @param  Request $request
      * @return mixed
      * @throws \Exception
      */

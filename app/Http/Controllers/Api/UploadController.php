@@ -15,7 +15,7 @@ class UploadController extends ApiController
     /**
      * Upload an image via the api.
      *
-     * @param Request $request
+     * @param  Request $request
      * @return string|Redirect
      * @throws \Exception
      */
