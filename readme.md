@@ -1,10 +1,10 @@
-# Lunamoonfang.nl
+# Lunamoonfang.nl  [![StyleCI](https://styleci.io/repos/29431818/shield)](https://styleci.io/repos/29431818)
 
 * * *
 
 ## Description
 
-My personal website written with the Laravel Framework v5.1.*
+My personal website written in PHP using the Laravel Framework version 5.1.*
 
 ### Laravel Documentation
 
@@ -12,8 +12,7 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 
 ### Contributing to this project
 
-**All pull requests will be rejected!**
-[DuckThom](https://github.com/DuckThom) is the only contributor for this project.
+See the [contribution guide](https://github.com/DuckThom/lunamoonfang.nl/blob/php-dev/CONTRIBUTING.md) for more info.
 
 ### Other licenses
 
