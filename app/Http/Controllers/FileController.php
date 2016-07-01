@@ -1,15 +1,22 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use Redirect, Auth, Input, Session, Validator, Img, File, Response, App, Zipper, URL;
+namespace App\Http\Controllers;
 
+use Redirect;
+use Input;
+use Session;
+use Validator;
+use Img;
+use File;
+use Response;
+use URL;
 use App\Image;
 use App\Download;
 
 class FileController extends Controller
 {
-
     /**
-     * Show the image upload page if the user is logged in
+     * Show the image upload page if the user is logged in.
      *
      * @return \Illuminate\View\View
      */
@@ -19,7 +26,7 @@ class FileController extends Controller
     }
 
     /**
-     * Serve a file for downloading
+     * Serve a file for downloading.
      *
      * @return mixed
      */
@@ -31,7 +38,7 @@ class FileController extends Controller
     }
 
     /**
-     * Show a list of all the stored files
+     * Show a list of all the stored files.
      *
      * @return \Illuminate\View\View
      */
@@ -44,27 +51,26 @@ class FileController extends Controller
 
     /**
      * Save the uploaded file to the disk
-     * and create a shortend link for it
+     * and create a shortend link for it.
      *
      * @return mixed
      */
     public function saveFile()
     {
         if (Input::hasFile('file')) {
-
             $file = Input::file('file');
-            $key  = Input::get('key');
+            $key = Input::get('key');
             $name = $file->getClientOriginalName();
             $hash = self::createFileHash();
 
             // Check if the file that was sent is actually an file
             $validator = Validator::make(
-                array('file' => $file),
-                array('file' => 'required|mimes:zip')
+                ['file' => $file],
+                ['file' => 'required|mimes:zip']
             );
 
             // Check whether the validation has failed or not
-            if (!$validator->fails()) {
+            if (! $validator->fails()) {
                 $manifest = \Zipper::make($file->getRealPath())->getFileContent('manifest.json');
 
                 $zipValidator = Validator::make(
@@ -72,10 +78,10 @@ class FileController extends Controller
                     ['manifest' => 'JSON']
                 );
 
-                if (!$zipValidator->fails()) {
+                if (! $zipValidator->fails()) {
                     $manifest = json_decode($manifest);
 
-                    $path = storage_path() . "/dl/" . $manifest->name . "/" . $manifest->version;
+                    $path = storage_path().'/dl/'.$manifest->name.'/'.$manifest->version;
 
                     Download::create([
                         'name'    => $name,
@@ -83,14 +89,14 @@ class FileController extends Controller
                         'hash'    => $hash,
                         'version' => $manifest->version,
                         'author'  => $manifest->author,
-                        'path'    => $path . "/" . $hash
+                        'path'    => $path.'/'.$hash,
                     ]);
 
-                    $url  = URL::to('/f/' . $manifest->version . '/' . urlencode($name));
+                    $url = URL::to('/f/'.$manifest->version.'/'.urlencode($name));
 
                     $file->move($path, $hash);
 
-                    return Redirect::intended('upload')->with(array('file_name' => $name, 'url' => $url));
+                    return Redirect::intended('upload')->with(['file_name' => $name, 'url' => $url]);
                 } else {
                     return Redirect::back()->with(['type' => 'danger', 'message' => 'Invalid or missing manifest.json']);
                 }
@@ -104,77 +110,76 @@ class FileController extends Controller
 
     /**
      * Save the uploaded image to the disk
-     * and create a shortend link for it
+     * and create a shortend link for it.
      *
      * @return mixed
      */
     public function saveImage()
     {
-            if (Input::hasFile('image')) {
+        if (Input::hasFile('image')) {
+            $image = Input::file('image');
+            $name = (Input::has('name') ? Input::get('name') : '');
+            $key = Input::get('key');
+            $image_name = $image->getClientOriginalName();
+            $image_hash = self::createImageHash();
 
-                    $image          = Input::file('image');
-                    $name           = (Input::has('name') ? Input::get('name') : "");
-                    $key            = Input::get('key');
-                    $image_name     = $image->getClientOriginalName();
-                    $image_hash     = self::createImageHash();
-
-                    if ($key === env('APP_KEY') || Session::token() === Input::get('_token')) {
-                            // Check if the file that was sent is actually an image
+            if ($key === env('APP_KEY') || Session::token() === Input::get('_token')) {
+                // Check if the file that was sent is actually an image
                             $validator = Validator::make(
-                                    array('image' => $image),
-                                    array('image' => 'image')
+                                    ['image' => $image],
+                                    ['image' => 'image']
                             );
 
                             // Check whether the validation has failed or not
-                            if (!$validator->fails()) {
-                                    $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
-                                            $constraint->aspectRatio();
-                                    })->encode('jpg', 90);
+                            if (! $validator->fails()) {
+                                $imagedata = (string) Img::make($image)->resize(250, 250, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                })->encode('jpg', 90);
 
-                                    Image::create([
-                                        'name'      => ($name === "" ? $image_name : $name),
+                                Image::create([
+                                        'name'      => ($name === '' ? $image_name : $name),
                                         'hash'      => $image_hash,
-                                        'thumbnail' => $imagedata
+                                        'thumbnail' => $imagedata,
                                     ]);
 
-                                    $image->move(public_path() . "/img/", $image_hash);
+                                $image->move(public_path().'/img/', $image_hash);
 
-                                    if (Input::has('_token'))
-                                            return Redirect::intended('upload')->with(array('hash' => $image_hash));
-                                    else
-                                            // Return the hashed url for ScreenCloud
-                                            return URL::to('/s') . "/" . $image_hash;
+                                if (Input::has('_token')) {
+                                    return Redirect::intended('upload')->with(['hash' => $image_hash]);
+                                } else {
+                                    // Return the hashed url for ScreenCloud
+                                            return URL::to('/s').'/'.$image_hash;
+                                }
                             } else {
-                                    die("Unsupported extension!");
+                                die('Unsupported extension!');
                             }
-                    } else {
-                            die("Incorrect token/key!");
-                    }
             } else {
-                    die("No file attached!");
+                die('Incorrect token/key!');
             }
+        } else {
+            die('No file attached!');
+        }
     }
 
     /**
-     * Create a hash from the filename for files
+     * Create a hash from the filename for files.
      *
      * @return string
      */
     private function createFileHash()
     {
-            $fc = count(scandir(storage_path() . "/dl"));
+        $fc = count(scandir(storage_path().'/dl'));
 
             // Run until the end of times
             while (true) {
-                    $hash = base64_encode($fc * mt_rand(2, $fc * $fc));
+                $hash = base64_encode($fc * mt_rand(2, $fc * $fc));
 
                     // Stop the loop if the hash doesn't exist
-                    if (!file_exists(storage_path() . "/dl/" . $hash)) {
-                            break;
+                    if (! file_exists(storage_path().'/dl/'.$hash)) {
+                        break;
                     }
             }
 
-            return $hash;
+        return $hash;
     }
-
 }

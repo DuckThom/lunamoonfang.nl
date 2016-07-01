@@ -5,27 +5,26 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Key
- * @package App
+ * Class Key.
  */
 class Key extends Model
 {
     /**
-     * Table name
+     * Table name.
      *
      * @var string
      */
     protected $table = 'api_keys';
 
     /**
-     * Non-mass-assignable columns
+     * Non-mass-assignable columns.
      *
      * @var array
      */
     protected $guarded = ['id'];
 
     /**
-     * Override the default find function
+     * Override the default find function.
      *
      * @param $key
      * @return Key

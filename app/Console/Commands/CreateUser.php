@@ -40,7 +40,7 @@ class CreateUser extends Command
     {
         User::create([
             'username' => $this->argument('user'),
-            'password' => bcrypt($this->argument('password'))
+            'password' => bcrypt($this->argument('password')),
         ]);
     }
 }

@@ -12,7 +12,7 @@
 */
 
 /**
- * The main site routes
+ * The main site routes.
  */
 Route::get('/', 'HomeController@index');
 Route::get('music', 'HomeController@music');
@@ -24,7 +24,7 @@ Route::get('social', 'HomeController@social');
 Route::get('sublist/{pageId?}', 'HomeController@sublist');
 Route::get('ie_warning', 'HomeController@ie');
 
-/**
+/*
  * API Routes
  */
 Route::group(['prefix' => 'api'], function () {
@@ -44,14 +44,14 @@ Route::group(['prefix' => 'api'], function () {
     });
 });
 
-/**
+/*
  * Routes that are only accessable to guests
  */
 Route::group(['middleware' => 'guest'], function () {
     Route::match(['GET', 'POST'], '/login', 'UserController@login');
 });
 
-/**
+/*
  * Routes that are only accessable when logged in
  */
 Route::group(['middleware' => 'auth'], function () {
@@ -75,7 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', 'UserController@logout');
 });
 
-/**
+/*
  * Image viewing, needs to be AFTER the middleware auth block
  */
 Route::group(['prefix' => 's'], function () {
