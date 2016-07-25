@@ -18,12 +18,12 @@
       width: 100%;
 
       .fa {
-        color: black;
+        color: $grey-200;
       }
 
       a {
         text-decoration: none;
-        color: $blue-900;
+        color: $grey-200;
 
         &:hover {
           text-decoration: underline;
