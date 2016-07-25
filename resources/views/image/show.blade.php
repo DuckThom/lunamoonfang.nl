@@ -2,12 +2,12 @@
 
 @section('page_title')
 	{{ $data->name }}
-@stop
+@endsection
 
 @section('title')
 	<h3>{{ $data->name }}</h3>
-@stop
+@endsection
 
 @section('image')
 	<img class='image' src='/img/{{ $data->hash }}' alt='{{ $data->Time_Added }}'>
-@stop
+@endsection

@@ -2,7 +2,7 @@
 
 @section('header')
     <h1><i class="fa fa-pass fa-2x" style="color: white;"  aria-hidden="true"></i></h1>
-@stop
+@endsection
 
 @section('content')
     <div class="container subscriptions">
@@ -32,4 +32,4 @@
             @endif
         </div>
     </div>
-@stop
+@endsection

@@ -2,7 +2,7 @@
 
 @section('title')
         Clock
-@stop
+@endsection
 
 @section('content')
         <div class="text-center">
@@ -21,7 +21,7 @@
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="24" id="hours"></div>
                 </div>
         </div>
-@stop
+@endsection
 
 @section('extraJS')
         <script type="text/javascript">
@@ -87,7 +87,7 @@
                         },1); // Repeat this process every millisecond
                 });
         </script>
-@stop
+@endsection
 
 @section('extraCSS')
         <style type="text/css">
@@ -99,4 +99,4 @@
                         background-color: #385665;
                 }
         </style>
-@stop
+@endsection

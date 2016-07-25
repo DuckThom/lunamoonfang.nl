@@ -2,7 +2,7 @@
 
 @section('header')
     <h1><i style="color:white;" class="fa fa-gavel fa-2x"></i></h1>
-@stop
+@endsection
 
 @section('content')
     <div class="container">
@@ -141,4 +141,4 @@
             </pre>
         </div>
     </div>
-@stop
+@endsection

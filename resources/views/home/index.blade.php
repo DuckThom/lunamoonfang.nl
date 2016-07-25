@@ -17,11 +17,11 @@
         <div class="column-sm-2">
             <div class="text-center twitter-block">
                 <h3>Luna Moonfang on Twitter</h3>
-                <a class="twitter-timeline" href="https://twitter.com/Real_DuckThom" data-widget-id="513017249758593024">Loading timeline... <i class="fa fa-circle-o-notch fa-spin"></i></a>
+                <a class="twitter-timeline" href="https://twitter.com/Real_DuckThom" data-chrome="nofooter noheader noborders noscrollbar" data-theme="dark" data-widget-id="513017249758593024">Loading twitter feed... <i class="fa fa-circle-o-notch fa-spin"></i></a>
             </div>
         </div>
     </div>
-@stop
+@endsection
 
 @section('extraJS')
 	<script>
@@ -36,4 +36,4 @@
 			}
 		}(document,"script","twitter-wjs");
 	</script>
-@stop
+@endsection

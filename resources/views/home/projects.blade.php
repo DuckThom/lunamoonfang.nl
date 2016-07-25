@@ -2,7 +2,7 @@
 
 @section('header')
     <h1><i class="fa fa-folder-open fa-2x" style="color: white;"  aria-hidden="true"></i></h1>
-@stop
+@endsection
 
 @section('content')
     <div class="container projects">
@@ -45,4 +45,4 @@
             <div class="alert alert-warning">Failed to fetch the repo list from GitHub <i class="fa fa-frown-o fa-2x"></i></div>
         @endif
     </div>
-@stop
+@endsection

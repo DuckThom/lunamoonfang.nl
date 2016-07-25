@@ -31,4 +31,4 @@
             <a href="{{ url('logout') }}" class="button btn-danger">Logout</a>
         </div>
     </div>
-@stop
+@endsection

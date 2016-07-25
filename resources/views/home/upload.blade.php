@@ -62,7 +62,7 @@
                         <button type="submit" class="btn btn-success">Upload file</button>
                 </form>
         </div>
-@stop
+@endsection
 
 @section('extraCSS')
         <style type="text/css">
@@ -89,7 +89,7 @@
                         cursor: default !important;
                 }
         </style>
-@stop
+@endsection
 
 @section('extraJS')
         <script type="text/javascript">
@@ -111,4 +111,4 @@
                         });
                 });
         </script>
-@stop
+@endsection

@@ -58,7 +58,7 @@
             </table>
         </div>
     </div>
-@stop
+@endsection
 
 @section('extraJS')
     <script type="text/javascript">
@@ -180,4 +180,4 @@
             });
         }
     </script>
-@stop
+@endsection

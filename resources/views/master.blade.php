@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="google-site-verification" content="yetKC6_E20fGvYECsvMjegkw44OZSVHQMEFYojlaYT4"/>
     <meta charset="UTF-8">
-    <meta name="description" content="A place where I test my code and designs.">
+    <meta name="description" content="A place where I test code and designs.">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
     <meta name="author" content="Thomas Wiringa">
     <meta name="theme-color" content="#673ab7">
@@ -114,7 +114,7 @@
 </nav>
 
 <header class="{{ request()->path() === "/" ? 'home-header' : 'sub-header' }}">
-    <canvas id="stars-canvas"></canvas>
+    <!--canvas id="stars-canvas"></canvas-->
 
     <div class="container header-content">
         <div class="column-sm-2 text-center title hidden-xs hidden-sm">
@@ -137,13 +137,13 @@
     @yield('content')
 </div>
 
-<div class="separator"></div>
+<!--div class="separator"></div-->
 
 <footer class="footer">
     <div class="container">
         <div class="column-sm-3">
             <p class="lead"><i class="fa fa-copyright"></i> Copyright</p>
-            2015-2016 - Thomas Wiringa
+            2015-2016 - <a href="https://linkedin.com/in/thomaswiringa" target="_blank">Thomas Wiringa</a>
         </div>
         <div class="column-sm-3">
             <p class="lead"><i class="fa fa-power-off"></i> Powered by</p>
@@ -162,7 +162,7 @@
 </footer>
 
 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-<script src="{{ elixir('js/stars.js') }}"></script>
+<!--script src="{{ elixir('js/stars.js') }}"></script-->
 
 <script>
     /**
@@ -217,9 +217,9 @@
 
 {{-- Amazing canvas particles --}}
 <script>
-    var params = {'debug': false, 'fps': 24};
-    var stars = new Stars(50, params);
-    stars.run();
+    //var params = {'debug': false, 'fps': 24};
+    //var stars = new Stars(10, params);
+    //stars.run();
 </script>
 
 @yield('extraJS')
