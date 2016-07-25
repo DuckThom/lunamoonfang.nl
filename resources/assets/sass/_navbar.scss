@@ -3,7 +3,7 @@
 
 .navbar {
   display: flex;
-  background-color: rgba(0,0,0,0.4);
+  background-color: $navbar-bg;
   position: fixed;
   left: 0;
   right: 0;
@@ -15,31 +15,6 @@
 
   &.authed {
     box-shadow: 0 3px 0 0 $light-green-500 inset;
-  }
-
-  &.top {
-    background-color: transparent !important;
-
-    @include transition(all 150ms ease-out);
-
-    .navbar-links li {
-      &.active a {
-        text-shadow: 0 0 10px white;
-      }
-
-      a {
-        box-shadow: 0 0 0 0 white inset !important;
-        text-shadow: 0 0 0 white;
-
-        @include transition(text-shadow 150ms ease-out);
-
-        &:hover {
-          text-shadow: 0 0 10px white;
-
-          @include transition(text-shadow 150ms ease-out);
-        }
-      }
-    }
   }
 
   ul {
@@ -79,14 +54,16 @@
     right: 0;
     bottom: 0;
     display: none;
-    background-color: rgba(0,0,0,0.5);
+    background-color: $navbar-bg;
   }
 
   .mobile-social-icons {
     display: none;
   }
 
-  .navbar-links, .navbar-toggle, .navbar-social-icons {
+  .navbar-links,
+  .navbar-toggle,
+  .navbar-social-icons {
     display: flex;
     flex-flow: row wrap;
   }
@@ -118,7 +95,8 @@
     }
 
     a {
-      padding: 23px;
+      padding: 26px;
+      font-size: 16px;
     }
   }
 
@@ -127,7 +105,8 @@
     font-size: 30px;
 
     a {
-      padding: 12px;
+      padding: 15px;
+      font-size: 35px;
     }
   }
 
@@ -137,7 +116,7 @@
 
     .navbar-toggle-button {
       background-color: transparent;
-      border: 2px solid white;
+      border: 1px solid white;
       border-radius: 3px;
       color: white;
       font-size: 25px;
@@ -146,7 +125,7 @@
       &:hover {
         cursor: pointer;
         background-color: white;
-        color: $deep-purple-500;
+        color: $navbar-bg;
       }
     }
   }

@@ -1,5 +1,6 @@
 // Import font and icons
 @import url("//fonts.googleapis.com/css?family=Titillium+Web:700,600,400,300,200,100");
+@import url('//fonts.googleapis.com/css?family=Muli:300,400');
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css");
 
 // Import local components
@@ -18,10 +19,9 @@
 @import "pages/music";
 @import "pages/projects";
 @import "pages/social";
-@import "pages/about";
 
 html, body {
-  font-family: "Titillium Web", sans-serif !important;
+  font-family: "Muli", sans-serif;
   max-width: 100%;
   background: $site-bg;
   font-weight: 300;
@@ -32,6 +32,11 @@ html, body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5,
+.title {
+  font-family: "Titillium Web", sans-serif;
 }
 
 table {

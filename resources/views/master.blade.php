@@ -9,7 +9,7 @@
     <meta name="description" content="A place where I test code and designs.">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript,Luna,Moonfang,DuckThom,Thomas,Wiringa">
     <meta name="author" content="Thomas Wiringa">
-    <meta name="theme-color" content="#673ab7">
+    <meta name="theme-color" content="#132028">
 
     <link rel="apple-touch-icon" href="{{ asset('assets/image/logo.png') }}">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -43,12 +43,8 @@
 
     <div class="navbar-brand">
         <a href="{{ auth()->check() ? url('account') : url('/') }}">
-            <img src="{{ asset('assets/image/logo.png') }}" alt="Site logo">
+            <img src="{{ asset('assets/image/navbar-logo.png') }}" alt="Site logo">
         </a>
-    </div>
-
-    <div class="navbar-title hidden-md hidden-lg">
-        {{ $title or 'Untitled' }}
     </div>
 
     <div class="navbar-links collapsed" id="navLinks">
@@ -75,7 +71,7 @@
                         <a href="https://github.com/DuckThom" target="_blank"><i class="fa fa-github"></i></a>
                     </li>
                     <li>
-                        <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://linkedin.com/in/thomaswiringa" target="_blank"><i class="fa fa-linkedin"></i></a>
                     </li>
                     <li>
                         <a href="https://twitter.com/real_duckthom" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -93,7 +89,7 @@
             <a href="https://plus.google.com/+ThomasWiringa" target="_blank"><i class="fa fa-google-plus"></i></a>
         </li>
         <li>
-            <a href="https://last.fm/user/DuckThom" target="_blank"><i class="fa fa-lastfm"></i></a>
+            <a href="https://linkedin.com/in/thomaswiringa" target="_blank"><i class="fa fa-linkedin"></i></a>
         </li>
         <li>
             <a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank"><i class="fa fa-steam"></i></a>
@@ -114,11 +110,11 @@
 </nav>
 
 <header class="{{ request()->path() === "/" ? 'home-header' : 'sub-header' }}">
-    <!--canvas id="stars-canvas"></canvas-->
-
     <div class="container header-content">
-        <div class="column-sm-2 text-center title hidden-xs hidden-sm">
-            {{ $title or 'untitled' }}
+        <div class="column-sm-2 text-center">
+            <div class="title">
+                {{ $title or 'untitled' }}
+            </div>
         </div>
 
         @if (request()->path() === "/")
@@ -136,8 +132,6 @@
 <div class="content">
     @yield('content')
 </div>
-
-<!--div class="separator"></div-->
 
 <footer class="footer">
     <div class="container">
@@ -162,28 +156,8 @@
 </footer>
 
 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
-<!--script src="{{ elixir('js/stars.js') }}"></script-->
 
 <script>
-    /**
-     * Check the navbar offset
-     */
-    function checkNavbarOffset() {
-        var navbar = $('.navbar');
-        var offset = $(navbar).offset();
-
-        // Remove the 'top' class if the top offset is above 5px else, add the class
-        if (offset.top > 5) {
-            if ($(navbar).hasClass('top')) {
-                $(navbar).removeClass('top');
-            }
-        } else {
-            if (!$(navbar).hasClass('top')) {
-                $(navbar).addClass('top');
-            }
-        }
-    }
-
     /**
      * Toggle mobile navigation
      *
@@ -210,16 +184,6 @@
     // Make sure only this click handler is bound
     $('.navbar-toggle-button').click(toggleNavigation);
     $('.navbar-backdrop').click(toggleNavigation);
-
-    checkNavbarOffset();
-    setInterval(checkNavbarOffset, 1000 / 60);
-</script>
-
-{{-- Amazing canvas particles --}}
-<script>
-    //var params = {'debug': false, 'fps': 24};
-    //var stars = new Stars(10, params);
-    //stars.run();
 </script>
 
 @yield('extraJS')

@@ -8,7 +8,7 @@
     <div class="container">
         <div class="column-1">
             <div class="text-center">
-                <p class="about-me">
+                <p class="text-block">
                     Hi! My name is Thomas Wiringa but on the interwebs my nickname is usually DuckThom or Luna Moonfang.<br />
                     I'm {{ date_diff(date_create(date('Y-n-j')), date_create("1995-11-26"))->format('%y') }} years old and live in The Netherlands. <br />
                     <br />
