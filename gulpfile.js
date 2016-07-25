@@ -17,16 +17,11 @@ elixir(function(mix) {
     ]);
 
     mix.styles([
-        '../../../node_modules/normalize.css/normalize.css'
+        './node_modules/normalize.css/normalize.css'
     ], 'public/css/normalize.css');
-
-    mix.scripts([
-        'stars.js'
-    ], 'public/js/stars.js');
 
     mix.version([
         'css/app.css',
-        'css/normalize.css',
-        'js/stars.js'
+        'css/normalize.css'
     ]);
 });
