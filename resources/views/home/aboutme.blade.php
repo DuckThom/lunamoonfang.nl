@@ -8,16 +8,18 @@
     <div class="container">
         <div class="column-1">
             <div class="text-center">
-                <p>
+                <p class="about-me">
                     Hi! My name is Thomas Wiringa but on the interwebs my nickname is usually DuckThom or Luna Moonfang.<br />
                     I'm {{ date_diff(date_create(date('Y-n-j')), date_create("1995-11-26"))->format('%y') }} years old and live in The Netherlands. <br />
-                    Currently I am studying Software Engineering at Alfa College in Groningen.<br />
                     <br />
-                    My favorite programming languages are PHP, HTML5, JS (jQuery) and CSS3 (LESS/SASS) but I can also code in Java, C#, Swift, Ruby and Python<br />
-                    I'm currently learning more about Ruby.<br />
+                    <br />
+                    My favorite programming languages are PHP, HTML5, JS (jQuery and a little bit of NodeJS) and CSS3 (LESS/SASS) but I can also code in Java, C#, Swift, Ruby and Python<br />
+                    I'm currently learning more about Ruby and NodeJS (React, Meteor).<br />
+                    I recently graduated from school and I can now call myself a "Software Engineer".<br />
                     <br />
                     I also play games quite a lot. <br />
                     The games I've been playing the most lately are Rocket League and GTA V but I also play games like Hearthstone, Halo, DOTA and Diablo.<br />
+                    For a more complete list of games, tak a look at my Steam profile: <a href="https://steamcommunity.com/id/Luna_Moonfang" target="_blank">[HatScrub] Luna Moonfang</a>.<br />
                     <br />
                     For as far as music goes, I am a huge fan of <a href="http://monstercat.com">Monstercat</a> and Muse.<br />
                     My favorite radio station is <a href="http://3fm.nl" target="_blank">3FM</a> on the radio and <a href="https://twitch.tv/monstercat" target="_blank">Monstercat FM</a> on Twitch.<br />
@@ -32,7 +34,7 @@
         </div>
     </div>
 
-    <div class="separator"></div>
+    <hr />
 
     <div class="container">
         <div class="column-1">
@@ -64,4 +66,4 @@
             </table>
         </div>
     </div>
-@stop
+@endsection
