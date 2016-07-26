@@ -20,7 +20,7 @@ class MusicController extends ApiController
     {
         if ($request->ajax()) {
             $client = new Client([
-                'base_uri' => 'https://ws.audioscrobbler.com/'
+                'base_uri' => 'https://ws.audioscrobbler.com/',
             ]);
 
             $albums = $client->get('2.0', [
@@ -30,8 +30,8 @@ class MusicController extends ApiController
                     'format' => 'json',
                     'method' => 'user.gettopalbums',
                     'period' => '1month',
-                    'limit' => '5'
-                ]
+                    'limit' => '5',
+                ],
             ]);
 
             $tracks = $client->request('GET', 'https://ws.audioscrobbler.com/2.0/', [
@@ -41,8 +41,8 @@ class MusicController extends ApiController
                     'format' => 'json',
                     'method' => 'user.gettoptracks',
                     'period' => '1month',
-                    'limit' => '5'
-                ]
+                    'limit' => '5',
+                ],
             ]);
 
             $playing = $client->request('GET', 'https://ws.audioscrobbler.com/2.0/', [
@@ -51,8 +51,8 @@ class MusicController extends ApiController
                     'api_key' => config('api.lastfm'),
                     'format' => 'json',
                     'method' => 'user.getrecenttracks',
-                    'limit' => '1'
-                ]
+                    'limit' => '1',
+                ],
             ]);
 
             return $this->returnInSuccess([
