@@ -31,7 +31,7 @@ class VerifyApiKey
                     return response()->json([
                         'status'    => 'Too many requests',
                         'code'      => 429,
-                        'message'   => 'Too many consequtive requests [Rate limit: max 1 request per 5 seconds]',
+                        'message'   => 'Too many consecutive requests [Rate limit: max 1 request per 5 seconds]',
                     ], 429);
                 }
             } else {
