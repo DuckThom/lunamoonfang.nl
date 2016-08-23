@@ -4,20 +4,20 @@
     <div class="container">
         <div class="column-sm-2">
             <div class="text-center about-site">
-                <h3>lunamoonfang.nl</h3>
+                <h3>Luna Moonfang</h3>
                 <p class="text-block">
                     Welcome, this site is made and designed by DuckThom/Luna Moonfang, also known as Thomas Wiringa. <br />
                     It has been made using Laravel, jQuery and Font Awesome. <br />
                     The styling on this site is all custom made by me, no Bootstrap, no Foundation, no anything. <br />
-                    Just pure custom CSS. <br />
+                    Just pure CSS. <br />
                 </p>
             </div>
         </div>
 
         <div class="column-sm-2">
             <div class="text-center twitter-block">
-                <h3>Luna Moonfang on Twitter</h3>
-                <a class="twitter-timeline" href="https://twitter.com/Real_DuckThom" data-chrome="nofooter noheader noborders noscrollbar" data-theme="dark" data-widget-id="513017249758593024">Loading twitter feed... <i class="fa fa-circle-o-notch fa-spin"></i></a>
+                <h3><i class="fa fa-twitter"></i> Twitter</h3>
+                <a class="twitter-timeline" href="https://twitter.com/Real_DuckThom" data-chrome="nofooter noheader noborders noscrollbar" data-theme="dark" data-widget-id="513017249758593024">Loading twitter feed... <i class="fa fa-refresh fa-spin"></i></a>
             </div>
         </div>
     </div>
