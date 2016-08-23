@@ -7,7 +7,7 @@
         <span id="track">Loading</span><br/>
         <span id="artist"></span><br/>
         <span id="album"></span>
-        <div id="album-art"></div>
+        <div id="album-art" class="hidden-xs"></div>
     </div>
 
 @endsection

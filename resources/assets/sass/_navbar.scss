@@ -139,7 +139,7 @@
 
     &.active a {
       border-bottom: none;
-      background-color: $deep-purple-700;
+      background-color: $navbar-mobile-bg;
     }
   }
 
@@ -174,7 +174,7 @@
       padding: 18px !important;
 
       &:hover {
-        background-color: $deep-purple-300;
+        background-color: $navbar-mobile-bg;
       }
     }
 
@@ -182,7 +182,7 @@
       display: flex;
       flex-flow: row wrap;
       flex-direction: column !important;
-      background-color: $deep-purple-500;
+      background-color: $navbar-mobile-bg;
       position: absolute;
       top: 0;
       left: 0;

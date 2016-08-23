@@ -111,7 +111,7 @@
 
 <header class="{{ request()->path() === "/" ? 'home-header' : 'sub-header' }}">
     <div class="container header-content">
-        <div class="column-sm-2 text-center">
+        <div class="column-sm-2 text-center hidden-xs">
             <div class="title">
                 {{ $title or 'untitled' }}
             </div>
