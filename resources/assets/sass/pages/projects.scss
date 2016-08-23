@@ -6,24 +6,25 @@
   justify-content: space-around;
 
   .project {
+    background-color: #fefefe;
     text-align: center;
-    border: 2px solid $blue-grey-300;
     border-radius: 5px;
     margin: 20px 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    overflow: hidden;
 
     .project-header {
       width: 100%;
 
       .fa {
-        color: $grey-200;
+        color: #333;
       }
 
       a {
         text-decoration: none;
-        color: $grey-200;
+        color: #333;
 
         &:hover {
           text-decoration: underline;
@@ -41,10 +42,23 @@
         font-size: 0.8em;
         width: 50% !important;
         padding: 0;
-        margin-bottom: 0;
+        margin: 0;
+        background-color: $table-bg;
+
+        td {
+          color: #333;
+          padding: 10px;
+          text-align: center;
+          border-collapse: collapse;
+
+          &:last-child {
+            border-right: 1px solid #333;
+          }
+        }
       }
 
       p {
+        color: #333;
         text-align: left;
         font-weight: 200;
         font-size: 1.2em;
