@@ -2,9 +2,10 @@
 
 .footer {
   text-align: center;
-  background-color: $footer-bg;
-  background-image: url('/assets/image/footer-bg.png');
-  background-size: 80px;
+  background: $footer-bg; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(transparent, $footer-bg); /* For Safari 5.1 to 6.0 */
+  background: linear-gradient(transparent, $footer-bg); /* Standard syntax (must be last) */
+  // background-image: url('/assets/image/footer-bg.png');
   padding: 40px 0;
 
   a {
