@@ -14,8 +14,8 @@ class ImageController extends Controller
     /**
      * Form to upload an image.
      *
-     * @param  Request $request
-     * @return mixed
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -25,9 +25,9 @@ class ImageController extends Controller
     /**
      * Save the uploaded image.
      *
-     * @param  Request $request
-     * @return mixed
+     * @param  \Illuminate\Http\Request $request
      * @throws \Exception
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function save(Request $request)
     {
@@ -66,10 +66,10 @@ class ImageController extends Controller
     /**
      * Try to show the image that was requested.
      *
-     * @param $image_hash
-     * @return mixed
+     * @param  string  $image_hash
+     * @return \Illuminate\View\View
      */
-    public function show($image_hash)
+    public function html($image_hash)
     {
         $data = Image::where('hash', $image_hash)->firstOrFail();
 
@@ -81,7 +81,11 @@ class ImageController extends Controller
     /**
      * Try to show the image that was requested (full size).
      *
-     * @param $image_hash
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $image_hash
+     * @param  string  $width
+     * @param  string  $height
+     * @return \Illuminate\Http\Response
      */
     public function full(Request $request, $image_hash, $width = 'auto', $height = 'auto')
     {

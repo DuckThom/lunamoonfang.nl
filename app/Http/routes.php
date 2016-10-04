@@ -78,6 +78,6 @@ Route::group(['middleware' => 'auth'], function () {
  * Image viewing, needs to be AFTER the middleware auth block
  */
 Route::group(['prefix' => 's'], function () {
-    Route::get('{image_name}', 'ImageController@show');
-    Route::get('{image_name}/full/{width?}/{height?}', 'ImageController@full');
+    Route::get('{image_name}/html', 'ImageController@html');
+    Route::get('{image_name}/{width?}/{height?}', 'ImageController@full');
 });

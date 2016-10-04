@@ -16,7 +16,7 @@
                 @foreach($images as $image)
                     <tr>
                         <td>{{ $image->id }}</td>
-                        <td><a href="/s/{{ $image->hash }}">Html Page</a> | <a href="/s/{{ $image->hash }}/full">Full Size</a></td>
+                        <td><a href="/s/{{ $image->hash }}/html">Html Page</a> | <a href="/s/{{ $image->hash }}">Full Size</a></td>
                         <td>{{ $image->hash }}</td>
                         <td>{{ $image->name }}</td>
                     </tr>
